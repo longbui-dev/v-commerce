@@ -1,0 +1,23 @@
+:where(.css-dev-only-do-not-override-acm2ia).ant-carousel .slick-dots {
+    li {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: transparent;
+        border-color: #e99c2e;
+        border-width: 1px;
+
+        &.slick-active {
+            height: 24px;
+            button {
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                background-color: transparent;
+                border-color: #e99c2e;
+                border-width: 1px;
+                top: -5px;
+            }
+        }
+    }
+}

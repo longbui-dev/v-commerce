@@ -1,0 +1,21 @@
+:where(.css-dev-only-do-not-override-acm2ia).ant-menu-light.ant-menu-root.ant-menu-vertical {
+    border-inline-end: 0
+}
+
+:where(.css-dev-only-do-not-override-acm2ia).ant-menu-light:not(.ant-menu-horizontal) .ant-menu-item:not(.ant-menu-item-selected):hover{
+    color: #e99c2e;
+    background-color: #f1f5f9,
+}
+
+:where(.css-dev-only-do-not-override-acm2ia).ant-menu-light:not(.ant-menu-horizontal) .ant-menu-item:not(.ant-menu-item-selected):active{
+    color: #e99c2e;
+}
+
+:where(.css-dev-only-do-not-override-acm2ia).ant-menu-light:not(.ant-menu-horizontal) .ant-menu-item-selected{
+    color: #e99c2e;
+    background-color: #f1f5f9,
+}
+
+:where(.css-dev-only-do-not-override-acm2ia).ant-menu-light{
+    background-color: #f1f5f9,
+}
