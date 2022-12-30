@@ -1,7 +1,7 @@
 import './App.scss';
 import Header from './components/navbar/Header';
 import Slide from './components/carousel/Slide';
-import Advertisement from './components/advertisement/Advertisement';
+import AdvertisementProducts from './components/advertisementProducts/AdvertisementProducts';
 import NewArrivals from './components/newArrivals/NewArrivals';
 import CollectionDetail from './components/collectionDetail/CollectionDetail';
 import FeaturedProducts from './components/featuredProducts/FeaturedProducts';
@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <Header />
       <Slide />
-      <Advertisement />
+      <AdvertisementProducts />
       <NewArrivals />
       <CollectionDetail />
       <FeaturedProducts />
