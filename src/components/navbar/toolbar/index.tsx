@@ -9,7 +9,7 @@ function Toolbar() {
       <SearchOutlined className='cursor-pointer flex flex-col justify-center hover:text-orange-500'/>
       <SettingOutlined className='cursor-pointer flex flex-col justify-center hover:text-orange-500' />
       <Space size="middle" className='mt-2'>
-        <Badge size="small" count={2}>
+        <Badge size="default" count={2}>
           <Tooltip placement="topLeft" title={text}>
             <ShoppingCartOutlined className='cursor-pointer flex flex-col justify-center hover:text-orange-500 text-xl' />
           </Tooltip>

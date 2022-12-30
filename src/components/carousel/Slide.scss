@@ -4,20 +4,30 @@
         height: 6px;
         border-radius: 50%;
         background-color: transparent;
-        border-color: #e99c2e;
+        border-color: transparent;
         border-width: 1px;
 
         &.slick-active {
-            height: 24px;
+            // height: 24px;
+            // top: -10px;
+            width: 6px;
             button {
-                width: 24px;
-                height: 24px;
+                // width: 24px;
+                // height: 24px;
                 border-radius: 50%;
                 background-color: transparent;
                 border-color: #e99c2e;
                 border-width: 1px;
-                top: -5px;
             }
         }
     }
+}
+
+:where(.css-dev-only-do-not-override-acm2ia).ant-carousel .slick-dots li button::after {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #e99c2e;
+    // left: 25%;
+    // top: 25%;
 }
