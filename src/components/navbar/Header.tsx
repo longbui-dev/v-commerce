@@ -6,7 +6,7 @@ import './Header.scss';
 
 function Header() {
   return (
-    <Row className="flex justify-around absolute z-10 w-full header">
+    <Row className="flex justify-around p-6 absolute z-10 w-full header">
       <Col span={6} className="flex justify-center"><Logo /></Col>
       <Col span={12} className="flex justify-center"><NavBar /></Col>
       <Col span={6} className="flex justify-center"><Toolbar /></Col>
