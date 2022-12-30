@@ -2,7 +2,7 @@
     background-color: #e99c2e;
 }
 
-:where(.css-dev-only-do-not-override-acm2ia).ant-btn-primary:not(:disabled):hover{
+:where(.css-dev-only-do-not-override-acm2ia).ant-btn-primary.buttonAdd:hover{
     color: #e99c2e;
     background-color: transparent;
     border-color: #e99c2e;
@@ -11,4 +11,9 @@
 .buttonMore{
     background-color: #f1f5f9;
     color: #e99c2e;
+}
+
+.buttonMore:hover{
+    background-color: #f1f5f9 !important;
+    color: #e99c2e !important;
 }

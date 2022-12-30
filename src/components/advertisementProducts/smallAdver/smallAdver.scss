@@ -1,0 +1,20 @@
+.productHover.ant-card-hoverable:hover {
+    .ant-card-body{
+        .ant-card-meta {
+            .ant-card-meta-detail{
+                .ant-card-meta-title {
+                    color: #e99c2e !important;
+                }
+            }
+        } 
+    }
+}
+
+.ant-card-body {
+    padding-top: 0 !important;
+}
+
+.ant-card-meta-title {
+    font-size: 20px !important;
+    color: #5f5b57 !important;
+}

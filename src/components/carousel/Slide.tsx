@@ -19,7 +19,7 @@ const contentStyle: React.CSSProperties = {
 };
 
 const Slide: React.FC = (props) => (
-  <Carousel dots={{ className: "dots"}}> 
+  <Carousel autoplay dots={{ className: "dots"}}> 
     <div>
       <div style={contentStyle}>
         <InforCarousel />
