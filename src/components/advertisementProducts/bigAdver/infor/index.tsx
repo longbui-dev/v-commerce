@@ -6,7 +6,7 @@ import ButtonComponent from "./button";
 
 function InforBigAdver(props: any) { 
     return (
-        <div className="w-full items-start pt-10 pr-4 inforAdvertisementProducts">
+        <div className="items-start pt-10 pr-4 inforAdvertisementProducts">
             <Title />
             <Description />
             <Price />

@@ -2,7 +2,7 @@
   color: #e99c2e
 } 
 .secondColor {
-  color: #616060;
+  background: #f1f5f9;
 }
 
 .App {
@@ -14,16 +14,4 @@
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-}
-
-@media (min-width: 1200px){
-    .container {
-      width: 1170px;
-  }
-}
-
-@media (min-width: 992px){
-  .container {
-    width: 970px;
-  }
 }
