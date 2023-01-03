@@ -21,28 +21,28 @@ const contentStyle: React.CSSProperties = {
 
 const Slide: React.FC = (props) => (
   <div className='bg-slate-100'>
-    <Carousel autoplay dots={{ className: "dots"}} className="container"> 
+    <Carousel autoplay dots={{ className: "dots"}} className="flex justify-center"> 
       <div>
         <div style={contentStyle}>
-          <Row className="flex justify-around py-10 z-10 w-full header container">
-            <Col span={14} className="flex justify-center"><InforCarousel /></Col>
-            <Col span={10} className="flex justify-center"> <Picture image={imgSlider1}/></Col>
+          <Row className="flex justify-center py-10 z-10 w-full header container" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+            <Col span={14} className="flex justify-center gutter-row"><InforCarousel /></Col>
+            <Col span={10} className="flex justify-center gutter-row"> <Picture image={imgSlider1}/></Col>
           </Row>
         </div>
       </div>
       <div>
       <div style={contentStyle}>
-        <Row className="flex justify-around py-10 z-10 w-full header container">
-          <Col span={14} className="flex justify-center"><InforCarousel /></Col>
-          <Col span={10} className="flex justify-center"> <Picture image={imgSlider1}/></Col>
+        <Row className="flex justify-center py-10 z-10 w-full header container" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+          <Col span={14} className="flex justify-center gutter-row"><InforCarousel /></Col>
+          <Col span={10} className="flex justify-center gutter-row"> <Picture image={imgSlider2}/></Col>
         </Row>
         </div>
       </div>
       <div>
       <div style={contentStyle}>
-        <Row className="flex justify-around py-10 z-10 w-full header container">
-          <Col span={14} className="flex justify-center"><InforCarousel /></Col>
-          <Col span={10} className="flex justify-center"> <Picture image={imgSlider1}/></Col>
+        <Row className="flex justify-around py-10 z-10 w-full header container" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+          <Col span={14} className="flex justify-center gutter-row"><InforCarousel /></Col>
+          <Col span={10} className="flex justify-center gutter-row"> <Picture image={imgSlider3}/></Col>
         </Row>
         </div>
       </div>
