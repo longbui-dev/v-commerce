@@ -5,6 +5,7 @@ import imgSlider1 from '../../assets/img/slider1';
 import imgSlider2 from '../../assets/img/slider2';
 import imgSlider3 from '../../assets/img/slider3';
 import InforCarousel from './infor';
+import { Col, Row } from "antd";
 import './Slide.scss';
 
 const contentStyle: React.CSSProperties = {
@@ -14,31 +15,39 @@ const contentStyle: React.CSSProperties = {
   position: 'relative',
   display: 'flex',
   justifyContent: 'center',
-  paddingTop: '130px',
+  paddingTop: '30px',
   width: '100%',
 };
 
 const Slide: React.FC = (props) => (
-  <Carousel autoplay dots={{ className: "dots"}}> 
-    <div>
+  <div className='bg-slate-100'>
+    <Carousel autoplay dots={{ className: "dots"}} className="container"> 
+      <div>
+        <div style={contentStyle}>
+          <Row className="flex justify-around py-10 z-10 w-full header container">
+            <Col span={14} className="flex justify-center"><InforCarousel /></Col>
+            <Col span={10} className="flex justify-center"> <Picture image={imgSlider1}/></Col>
+          </Row>
+        </div>
+      </div>
+      <div>
       <div style={contentStyle}>
-        <InforCarousel />
-        <Picture image={imgSlider1}/>
+        <Row className="flex justify-around py-10 z-10 w-full header container">
+          <Col span={14} className="flex justify-center"><InforCarousel /></Col>
+          <Col span={10} className="flex justify-center"> <Picture image={imgSlider1}/></Col>
+        </Row>
+        </div>
       </div>
-    </div>
-    <div>
-    <div style={contentStyle}>
-        <InforCarousel />
-        <Picture image={imgSlider2}/>
+      <div>
+      <div style={contentStyle}>
+        <Row className="flex justify-around py-10 z-10 w-full header container">
+          <Col span={14} className="flex justify-center"><InforCarousel /></Col>
+          <Col span={10} className="flex justify-center"> <Picture image={imgSlider1}/></Col>
+        </Row>
+        </div>
       </div>
-    </div>
-    <div>
-    <div style={contentStyle}>
-        <InforCarousel />
-        <Picture image={imgSlider3}/>
-      </div>
-    </div>
-  </Carousel>
+    </Carousel>
+  </div>
 );
     
 export default Slide;
