@@ -22,11 +22,11 @@ function Header() {
     window.addEventListener("scroll", listenScrollEvent)
   })
   return (
-    <div style={{background: headerBgColor, transition:headerTransition}} className="sticky">
-      <Row className="flex justify-around py-10 w-full header container">
-        <Col span={8} className="flex justify-center"><Logo /></Col>
-        <Col span={10} className="flex justify-center"><NavBar /></Col>
-        <Col span={6} className="flex justify-center"><Toolbar /></Col>
+    <div style={{background: headerBgColor, transition:headerTransition}} className="sticky flex justify-around ">
+      <Row className="flex justify-around py-10 w-full header container" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+        <Col span={8} className="flex justify-center gutter-row"><Logo /></Col>
+        <Col span={10} className="flex justify-center gutter-row"><NavBar /></Col>
+        <Col span={6} className="flex justify-center gutter-row"><Toolbar /></Col>
       </Row>
     </div>
     
