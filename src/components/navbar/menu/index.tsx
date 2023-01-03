@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { MenuProps } from 'antd';
-import { Menu } from 'antd';
+import { Space, Menu, Dropdown } from 'antd';
+import { MenuOutlined } from '@ant-design/icons';
 import './Menu.scss';
 
 const items: MenuProps['items'] = [
@@ -29,7 +30,7 @@ const items: MenuProps['items'] = [
 function NavBar() {
   const [current, setCurrent] = useState('home');
   const [headerBgColor, setHeaderBgColor] = useState("#f1f5f9")
-
+  
   const listenScrollEvent = () => {
     window.scrollY > 50
       ? setHeaderBgColor("white")
@@ -42,8 +43,14 @@ function NavBar() {
     setCurrent(e.key);
   };
   return (
-    <div className='flex flex-row w-full border-0 border-white '>
-        <Menu onClick={onClick} selectedKeys={[current]} items={items} style={{backgroundColor: headerBgColor}} className='flex w-full bg-slate-100 text-sm font-bold text-gray-500'/>
+    <div className='flex flex-row border-0 border-white'>
+      <Menu onClick={onClick} selectedKeys={[current]} items={items} style={{backgroundColor: headerBgColor}} className='flex w-full bg-slate-100 text-base font-bold text-gray-500 menuDesktop'/>
+      
+      <Dropdown menu={{ items }} trigger={['click']} placement="bottom" className='border-2 border-current rounded-lg dropdownMenu'>
+          <Space>
+            <MenuOutlined />
+          </Space>
+      </Dropdown>
     </div>
   )
 }

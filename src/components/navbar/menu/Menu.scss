@@ -1,5 +1,5 @@
-:where(.css-dev-only-do-not-override-acm2ia).ant-menu-light.ant-menu-root.ant-menu-vertical {
-    border-inline-end: 0
+.menuDesktop {
+    border-inline-end: 0 !important;
 }
 
 :where(.css-dev-only-do-not-override-acm2ia).ant-menu-light:not(.ant-menu-horizontal) .ant-menu-item:not(.ant-menu-item-selected):hover{
@@ -16,6 +16,24 @@
     background-color: #f1f5f9,
 }
 
-// :where(.css-dev-only-do-not-override-acm2ia).ant-menu-light{
-//     background-color: #f1f5f9,
-// }
+:where(.css-dev-only-do-not-override-acm2ia).ant-menu-vertical .ant-menu-item{
+    min-width: 125px;
+}
+
+@media (min-width: 1024px){
+    .dropdownMenu{
+        display: none;
+    }
+}
+
+@media (max-width: 1024px){
+    .dropdownMenu{
+        display: block;
+        border: 1px solid #e99c2e;
+        color: #e99c2e;
+        padding: 11px;
+    }
+    .menuDesktop {
+        display: none !important;
+    }
+}
