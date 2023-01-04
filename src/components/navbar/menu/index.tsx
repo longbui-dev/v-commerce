@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import type { MenuProps } from 'antd';
-import { Menu } from 'antd';
+import { Collapse , Menu } from 'antd';
+import { MenuOutlined } from '@ant-design/icons';
 import './Menu.scss';
+
 
 const items: MenuProps['items'] = [
   {
@@ -26,6 +28,8 @@ const items: MenuProps['items'] = [
   },
 ];
 
+const { Panel } = Collapse;
+
 function NavBar() {
   const [current, setCurrent] = useState('home');
   const [headerBgColor, setHeaderBgColor] = useState("#f1f5f9")
@@ -41,9 +45,23 @@ function NavBar() {
   const onClick: MenuProps['onClick'] = (e) => {
     setCurrent(e.key);
   };
+  const onChange = (key: string | string[]) => {
+    console.log(key);
+  };
+
+ 
   return (
-    <div className='flex flex-row w-full border-0 border-white '>
-        <Menu onClick={onClick} selectedKeys={[current]} items={items} style={{backgroundColor: headerBgColor}} className='flex w-full bg-slate-100 text-sm font-bold text-gray-500'/>
+    <div className='flex flex-row border-0 border-white'>
+      <Menu onClick={onClick} selectedKeys={[current]} items={items} style={{backgroundColor: headerBgColor}} className='flex w-full bg-slate-100 text-base font-bold text-gray-500 menuDesktop'/>
+      
+      <Collapse onChange={onChange} 
+        expandIcon={({ isActive }) => <MenuOutlined rotate={isActive ? 90 : 0} />} 
+        className='border-transparent rounded-lg dropdownMenu'
+      >
+        <Panel header="" key="1" className='absolute panelCollapse'>
+            <Menu onClick={onClick} selectedKeys={[current]} items={items} className='menuMobile'/>
+        </Panel>
+      </Collapse>
     </div>
   )
 }

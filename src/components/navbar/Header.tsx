@@ -2,32 +2,38 @@ import { useEffect, useState } from "react";
 import Logo from "./logo";
 import NavBar from "./menu";
 import Toolbar from "./toolbar";
-import { Col, Row } from "antd";
 import './Header.scss';
 
-// interface HeaderType {
-//   headerBgColor?: String,
-//   headerTransition?: String
-// }
-
 function Header() {
-  const [headerBgColor, setHeaderBgColor] = useState("#f1f5f9")
-  const [headerTransition, setHeaderTransition] = useState("none")
-  const listenScrollEvent = () => {
-    window.scrollY > 50
-      ? setHeaderBgColor("white")
-      : setHeaderBgColor("#f1f5f9")
-  }
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => {
+    if (typeof window !== "undefined") {
+      if (window.pageYOffset > 50) {
+        if (!show) {
+          setShow(true);
+        }
+      }
+      if (window.pageYOffset < 50) {
+        setShow(false);
+      }
+    }
+  };
+
   useEffect(() => {
-    window.addEventListener("scroll", listenScrollEvent)
-  })
+      window.addEventListener("scroll", handleShow);
+  }, []);
+
   return (
-    <div style={{background: headerBgColor, transition:headerTransition}} className="sticky">
-      <Row className="flex justify-around py-10 w-full header container">
-        <Col span={8} className="flex justify-center"><Logo /></Col>
-        <Col span={10} className="flex justify-center"><NavBar /></Col>
-        <Col span={6} className="flex justify-center"><Toolbar /></Col>
-      </Row>
+    <div className={show ? 'sticked' : 'sticky'}>
+      <div className="flex justify-around py-10 header container w-full">
+        <div className="flex justify-around w-full headerLogoNavBar">
+          <div className="flex justify-center headerLogo"><Logo /></div>
+          <div className="flex justify-center headerNavBar"><NavBar /></div>
+        </div>
+       
+        <div className="flex justify-center w-40"><Toolbar /></div>
+      </div>
     </div>
     
   );
