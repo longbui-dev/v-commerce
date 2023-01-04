@@ -5,19 +5,27 @@ import Toolbar from "./toolbar";
 import './Header.scss';
 
 function Header() {
-  const [headerBgColor, setHeaderBgColor] = useState("#f1f5f9")
-  const [headerTransition, setHeaderTransition] = useState("none")
-  const listenScrollEvent = () => {
-    window.scrollY > 50
-      ? setHeaderBgColor("white")
-      : setHeaderBgColor("#f1f5f9")
-  }
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => {
+    if (typeof window !== "undefined") {
+      if (window.pageYOffset > 50) {
+        if (!show) {
+          setShow(true);
+        }
+      }
+      if (window.pageYOffset < 50) {
+        setShow(false);
+      }
+    }
+  };
+
   useEffect(() => {
-    window.addEventListener("scroll", listenScrollEvent)
-  })
+      window.addEventListener("scroll", handleShow);
+  }, []);
 
   return (
-    <div style={{background: headerBgColor, transition:headerTransition}} className="sticky">
+    <div className={show ? 'sticked' : 'sticky'}>
       <div className="flex justify-around py-10 header container w-full">
         <div className="flex justify-around w-full headerLogoNavBar">
           <div className="flex justify-center headerLogo"><Logo /></div>
