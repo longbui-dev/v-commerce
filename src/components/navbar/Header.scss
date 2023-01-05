@@ -5,6 +5,16 @@
     background: #f1f5f9;
 }
 
+.header {
+    margin: 0 auto !important;
+    @media (max-width: 1024px){
+        margin: 0 !important;
+    }
+    @media (max-width: 768px){
+        padding: 20px !important;
+    }
+}
+
 .sticked {
     background: white;
     box-shadow: 0 2px 5px #d4d4d8;

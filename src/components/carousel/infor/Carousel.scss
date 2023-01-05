@@ -1,15 +1,14 @@
 .inforCarousel {
-    animation: shimmy 3s infinite;
-    animation-direction: alternate;
+    animation: carousel 1s alternate;
+    @media (max-width: 1024px){
+        padding-top: 2rem;
+    }
 }
 
-@keyframes shimmy {
+@keyframes carousel {
     0% {
-      transform: translate(0, 50px);    
+        transform: scale(0, 1);
     }
-    // 100% {
-    //   transform: translate(20px, 0);
-    // }
 }
 
 
