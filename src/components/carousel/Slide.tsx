@@ -15,13 +15,12 @@ const contentStyle: React.CSSProperties = {
   position: 'relative',
   display: 'flex',
   justifyContent: 'center',
-  paddingTop: '30px',
   width: '100%',
 };
 
 const Slide: React.FC = (props) => (
   <div className='bg-slate-100'>
-    <Carousel autoplay dots={{ className: "dots"}} className="flex justify-center"> 
+    <Carousel dots={{ className: "dots"}} className="flex justify-center"> 
       <div>
         <div style={contentStyle}>
           <Row className="flex justify-center py-10 z-10 w-full header container" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
