@@ -11,11 +11,48 @@
     }
 }
 
-.ant-card-body {
-    padding-top: 0 !important;
+.smallAdverInfor {
+    .ant-card-meta-title {
+        font-size: 20px !important;
+        color: #5f5b57 !important;
+    }
 }
 
-.ant-card-meta-title {
-    font-size: 20px !important;
-    color: #5f5b57 !important;
+@media (max-width: 1024px){
+    .productHover {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        padding: 1rem 0;
+    }
+
+    .smallAdverImg {
+        padding: 1.5rem 3rem !important;
+    }
+
+    .smallAdverInfor {
+        .ant-card-meta-title {
+            text-align: start;
+        }
+        .ant-card-meta-description {
+            text-align: start;
+        }
+    }
 }
+
+
+@media (max-width: 638px){
+    .productHover {
+        .ant-card-cover {
+            display: flex;
+            justify-content: center;
+            
+            .smallAdverImg {
+                padding: 1.5rem 1rem !important;
+                width: 240px;
+                height: auto;
+            }
+        }
+    }
+}
+

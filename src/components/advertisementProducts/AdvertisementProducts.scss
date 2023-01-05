@@ -1,0 +1,13 @@
+.AdvertisementProducts {
+    @media (max-width: 1024px){
+        display: block;
+        padding: 4rem 0;
+    }
+}
+
+.AdvertisementProductsIpad {
+    @media (max-width: 1024px){
+        max-width: 100%;
+        margin-bottom: 25px;
+    }
+}
