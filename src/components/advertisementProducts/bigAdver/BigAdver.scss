@@ -7,3 +7,10 @@
 .advertisementProducts:hover {
      box-shadow: none;
 }
+
+
+@media (max-width: 638px){
+    .bigAdverMobile {
+        padding: 0 10px !important;
+    }
+}
