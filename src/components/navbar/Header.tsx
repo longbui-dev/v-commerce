@@ -32,7 +32,7 @@ function Header() {
           <div className="flex justify-center headerNavBar"><NavBar /></div>
         </div>
        
-        <div className="flex justify-center w-40"><Toolbar /></div>
+        <div className="flex justify-center w-1/4"><Toolbar /></div>
       </div>
     </div>
     
