@@ -6,7 +6,7 @@ import './Carousel.scss'
 
 function InforCarousel(props: any) { 
     return (
-        <div className="w-full items-start pt-20 pl-48 inforCarousel">
+        <div className="w-full items-start pt-20 pl-28 inforCarousel">
             <Title />
             <Description />
             <Price />

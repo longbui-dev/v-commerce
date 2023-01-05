@@ -1,3 +1,37 @@
+.headerStyle{
+    height: 750px;
+    text-align: center;
+    background: #f1f5f9;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    @media (max-width: 1280px){
+        height: 600px;
+    }
+    @media (max-width: 1024px){
+        height: 500px;
+    }
+    @media (max-width: 540px){
+        .inforCarousel h1 {
+            font-size: 1.25rem !important;
+        }
+        .colInfor{
+           max-width: 100% !important; 
+           flex: 1 !important;
+           padding: 0 50px !important;
+        }
+    }
+}
+
+@media (max-width: 540px){
+    .headerStyle{
+        .colPicture{
+            display: none;
+        }
+    }
+}
+
 :where(.css-dev-only-do-not-override-acm2ia).ant-carousel .slick-dots {
     li {
         width: 6px;
