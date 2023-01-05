@@ -7,13 +7,13 @@ import './AdvertisementProducts.scss'
 
 function AdvertisementProducts() {
     return (
-      <div>
-        <Row className="flex justify-around py-24 px-44 container">
-          <Col span={6} className="flex justify-center">
+      <div className="flex justify-center">
+        <Row className="flex justify-around py-24 px-44 container" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+          <Col span={6} className="flex justify-center gutter-row">
             <SmallAdver image={smallAdver1} title='aim chair' description="Nemo enim ipsam voluptatem quia volu ptas sit asperna aut odit aut fugit." />
           </Col>
-          <Col span={12} className="flex justify-center"><BigAdver /></Col>
-          <Col span={6} className="flex justify-center">
+          <Col span={12} className="flex justify-center gutter-row"><BigAdver /></Col>
+          <Col span={6} className="flex justify-center gutter-row">
             <SmallAdver image={smallAdver2} title='Hanging Lamp' description="Nemo enim ipsam voluptatem quia volu ptas sit asperna aut odit aut fugit."/>
           </Col>
         </Row>
