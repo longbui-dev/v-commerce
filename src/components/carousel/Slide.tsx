@@ -1,16 +1,15 @@
 import React from 'react';
-import { Carousel } from 'antd';
+import { Col, Row, Carousel } from 'antd';
 import Picture from './picture';
 import imgSlider1 from '../../assets/img/slider1';
 import imgSlider2 from '../../assets/img/slider2';
 import imgSlider3 from '../../assets/img/slider3';
 import InforCarousel from './infor';
-import { Col, Row } from "antd";
 import './Slide.scss';
 
 const Slide: React.FC = (props) => (
   <div className='bg-slate-100'>
-    <Carousel autoplay dots={{ className: "dots"}} className="flex justify-center"> 
+    <Carousel dots={{ className: "dots"}} className="flex justify-center"> 
       <div>
         <div className="headerStyle">
           <Row className="flex justify-center pb-10 z-10 w-full container" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>

@@ -13,6 +13,8 @@
         height: 500px;
     }
     @media (max-width: 540px){
+        height: 900px;
+
         .inforCarousel h1 {
             font-size: 1.25rem !important;
         }
@@ -21,13 +23,18 @@
            flex: 1 !important;
            padding: 0 50px !important;
         }
-    }
-}
 
-@media (max-width: 540px){
-    .headerStyle{
-        .colPicture{
-            display: none;
+        .colPicture {
+            max-width: 100%;
+
+            .slidePicture {
+                margin-top: 2rem;
+
+                img {
+                    width: 100%;
+                    margin: 0 auto;
+                }
+            }
         }
     }
 }
