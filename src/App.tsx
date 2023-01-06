@@ -9,21 +9,24 @@ import LatestBlog from './components/latestBlog/LatestBlog';
 import Clients from './components/clients/Clients';
 import NewsLetter from './components/newsLetter/NewsLetter';
 import Footer from './components/footer/Footer';
+import { BrowserRouter as Router} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App relative">
-      <Header />
-      <Slide />
-      <AdvertisementProducts />
-      <NewArrivals />
-      <CollectionDetail />
-      <FeaturedProducts />
-      <LatestBlog />
-      <Clients />
-      <NewsLetter />
-      <Footer />
-    </div>
+    <Router>
+      <div className="App relative">
+        <Header />
+        <Slide />
+        <AdvertisementProducts />
+        <NewArrivals />
+        <CollectionDetail />
+        <FeaturedProducts />
+        <LatestBlog />
+        <Clients />
+        <NewsLetter />
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
