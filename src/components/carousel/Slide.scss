@@ -15,6 +15,10 @@
     @media (max-width: 540px){
         height: 900px;
 
+        .slideDisplayMobile {
+            display: block;
+        }
+
         .inforCarousel h1 {
             font-size: 1.25rem !important;
         }
@@ -25,7 +29,7 @@
         }
 
         .colPicture {
-            max-width: 100%;
+           margin: 0 auto;
 
             .slidePicture {
                 margin-top: 2rem;

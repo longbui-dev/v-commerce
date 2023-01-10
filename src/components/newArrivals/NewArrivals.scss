@@ -22,7 +22,7 @@
             left: 0;
             height: 0;
             width: 0;
-            background: #64748b;
+            background: #6a77811a;
             transition: .3s linear;
         }
 
@@ -65,6 +65,23 @@
     }
 
     @media (max-width: 1024px){
+        .textHoverChangeColor  {
+            max-width: 100%;
+        }
+    }
+
+    @media (max-width: 768px){
+        display: block;
+        padding-left: 10px !important;
+        padding-right: 10px !important; 
+        
+        .textHoverChangeColor  {
+            max-width: 50%;
+            margin: 0 auto;
+        }
+    }
+
+    @media (max-width: 520px){
         .textHoverChangeColor  {
             max-width: 100%;
         }

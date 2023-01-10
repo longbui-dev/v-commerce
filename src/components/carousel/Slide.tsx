@@ -12,7 +12,7 @@ const Slide: React.FC = (props) => (
     <Carousel dots={{ className: "dots"}} className="flex justify-center"> 
       <div>
         <div className="headerStyle">
-          <Row className="flex justify-center pb-10 z-10 w-full container" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+          <Row className="flex justify-center pb-10 z-10 w-full container slideDisplayMobile" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
             <Col span={14} className="flex justify-center gutter-row colInfor"><InforCarousel /></Col>
             <Col span={10} className="flex justify-center gutter-row colPicture"> <Picture image={imgSlider1}/></Col>
           </Row>
@@ -20,7 +20,7 @@ const Slide: React.FC = (props) => (
       </div>
       <div>
       <div className="headerStyle">
-        <Row className="flex justify-center pb-10 z-10 w-full container" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+        <Row className="flex justify-center pb-10 z-10 w-full container slideDisplayMobile" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
           <Col span={14} className="flex justify-center gutter-row colInfor"><InforCarousel /></Col>
           <Col span={10} className="flex justify-center gutter-row colPicture"> <Picture image={imgSlider2}/></Col>
         </Row>
@@ -28,7 +28,7 @@ const Slide: React.FC = (props) => (
       </div>
       <div>
       <div className="headerStyle">
-        <Row className="flex justify-around pb-10 z-10 w-full container" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+        <Row className="flex justify-around pb-10 z-10 w-full container slideDisplayMobile" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
           <Col span={14} className="flex justify-center gutter-row colInfor"><InforCarousel /></Col>
           <Col span={10} className="flex justify-center gutter-row colPicture"> <Picture image={imgSlider3}/></Col>
         </Row>

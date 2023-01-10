@@ -4,6 +4,7 @@ import arrivals1 from '../../assets/img/arrivals1';
 import arrivals2 from '../../assets/img/arrivals2';
 import arrivals3 from '../../assets/img/arrivals3';
 import arrivals4 from '../../assets/img/arrivals4';
+import InformationNewArrivals from './information';
 import './NewArrivals.scss';
 
 function NewArrivals() {
@@ -18,59 +19,35 @@ function NewArrivals() {
             <Row className="flex justify-around py-10 px-24 w-full newArrivals" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
               <Col span={6} className="gutter-row relative cursor-pointer textHoverChangeColor">
                 <ImageAnimation image={arrivals1} sales="sale"/>
-                <div className='p-4'>
-                  <h4 className='flex justify-center text-lg font-semibold text-zinc-600 textHover'>Wooden Chair</h4>
-                  <p className='flex justify-center mt-2 text-base text-zinc-600'>$65.00</p>
-                </div>
+                <InformationNewArrivals title="Wooden Chair" price="$65.00"/>
               </Col>
               <Col span={6} className="gutter-row relative cursor-pointer textHoverChangeColor">
                 <ImageAnimation image={arrivals2} sales="sale"/>
-                <div className='p-4'>
-                  <h4 className='flex justify-center text-lg font-semibold text-zinc-600 textHover'>Single Armchair</h4>
-                  <p className='flex justify-center mt-2 text-base text-zinc-600'>$65.00</p>
-                </div>
+                <InformationNewArrivals title="Single Armchair" price="$85.00"/>
               </Col>
               <Col span={6} className="gutter-row relative cursor-pointer textHoverChangeColor">
                 <ImageAnimation image={arrivals3} />
-                <div className='p-4'>
-                  <h4 className='flex justify-center text-lg font-semibold text-zinc-600 textHover'>Wooden Armchair</h4>
-                  <p className='flex justify-center mt-2 text-base text-zinc-600'>$65.00</p>
-                </div>
+                <InformationNewArrivals title="Wooden Armchair" price="$45.00"/>
               </Col>
               <Col span={6} className="gutter-row relative cursor-pointer textHoverChangeColor">
                 <ImageAnimation image={arrivals4} sales="sale"/>
-                <div className='p-4'>
-                  <h4 className='flex justify-center text-lg font-semibold text-zinc-600 textHover'>Stylish Chair</h4>
-                  <p className='flex justify-center mt-2 text-base text-zinc-600'>$65.00</p>
-                </div>
+                <InformationNewArrivals title="Stylish Chair" price="$95.00"/>
               </Col>
               <Col span={6} className="gutter-row relative cursor-pointer textHoverChangeColor">
                 <ImageAnimation image={arrivals1} sales="sale"/>
-                <div className='p-4'>
-                  <h4 className='flex justify-center text-lg font-semibold text-zinc-600 textHover'>Wooden Chair</h4>
-                  <p className='flex justify-center mt-2 text-base text-zinc-600'>$65.00</p>
-                </div>
+                <InformationNewArrivals title="Wooden Chair" price="$35.00"/>
               </Col>
               <Col span={6} className="gutter-row relative cursor-pointer textHoverChangeColor">
                 <ImageAnimation image={arrivals2} sales="sale"/>
-                <div className='p-4'>
-                  <h4 className='flex justify-center text-lg font-semibold text-zinc-600 textHover'>Single Armchair</h4>
-                  <p className='flex justify-center mt-2 text-base text-zinc-600'>$65.00</p>
-                </div>
+                <InformationNewArrivals title="Single Armchair" price="$25.00"/>
               </Col>
               <Col span={6} className="gutter-row relative cursor-pointer textHoverChangeColor">
                 <ImageAnimation image={arrivals3} />
-                <div className='p-4'>
-                  <h4 className='flex justify-center text-lg font-semibold text-zinc-600 textHover'>Wooden Armchair</h4>
-                  <p className='flex justify-center mt-2 text-base text-zinc-600'>$65.00</p>
-                </div>
+                <InformationNewArrivals title="Wooden Armchair" price="$15.00"/>
               </Col>
               <Col span={6} className="gutter-row relative cursor-pointer textHoverChangeColor">
                 <ImageAnimation image={arrivals4} sales="sale"/>
-                <div className='p-4'>
-                  <h4 className='flex justify-center text-lg font-semibold text-zinc-600 textHover'>Stylish Chair</h4>
-                  <p className='flex justify-center mt-2 text-base text-zinc-600'>$65.00</p>
-                </div>
+                <InformationNewArrivals title="Stylish Chair" price="$55.00"/>
               </Col>
             </Row>
           </div>
