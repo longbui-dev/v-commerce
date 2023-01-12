@@ -7,11 +7,11 @@ function Footer() {
         <div className='container block justify-center'>
           <div className="block align-[4px]">
             <div className="flex items-center justify-center gap-x-4 py-3 colorFooter">
-              <FacebookOutlined  className=""/>
-              <InstagramOutlined  className=""/>
-              <LinkedinOutlined  className=""/>
-              <GoogleOutlined  className=""/>
-              <BehanceOutlined  className=""/>
+              <FacebookOutlined />
+              <InstagramOutlined />
+              <LinkedinOutlined />
+              <GoogleOutlined />
+              <BehanceOutlined />
             </div>
 
             <span className="flex items-center justify-center colorFooter">© 2045 All Rights Reserved | Design by: ThemeSINE</span>
