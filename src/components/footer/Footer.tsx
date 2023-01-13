@@ -3,7 +3,7 @@ import './Footer.scss';
 
 function Footer() {
     return (
-      <div className="secondColorBg h-40 flex justify-center items-center">
+      <div id="contact" className="secondColorBg h-40 flex justify-center items-center">
         <div className='container block justify-center'>
           <div className="block align-[4px]">
             <div className="flex items-center justify-center gap-x-4 py-3 colorFooter">

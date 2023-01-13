@@ -6,7 +6,7 @@ import './NewArrivals.scss';
 
 function NewArrivals() {
     return (
-      <div>
+      <div id='newArrival'>
         <div className='container m-auto'>
           <div className='flex justify-center'>
             <h1 className='capitalize text-4xl font-semibold text-gray-500'>new arrivals</h1>

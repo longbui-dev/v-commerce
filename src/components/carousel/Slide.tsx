@@ -6,7 +6,7 @@ import { slideDatas } from '../../mockdata/Slide';
 import './Slide.scss';
 
 const Slide: React.FC = (props) => (
-  <div className='bg-slate-100'>
+  <div id='slide' className='bg-slate-100'>
     <Carousel autoplay  dots={{ className: "dots"}} className="flex justify-center"> 
       {
         slideDatas.data.map((slideData) => (
