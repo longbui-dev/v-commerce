@@ -5,7 +5,7 @@ import ImageFeatureProducts from "./image";
 
 function FeaturedProducts() {
     return (
-      <div>
+      <div id="features">
         <div className='container m-auto'>
           <div className='flex justify-center'>
             <h1 className='capitalize text-3xl font-semibold text-gray-500 p-8 pt-24'>featured products</h1>

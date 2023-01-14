@@ -5,7 +5,7 @@ import InformationLatestBlog from './information';
 
 function LatestBlog() {
     return (
-      <div>
+      <div id='blog'>
         <div className='container m-auto'>
           <div className='flex justify-center'>
             <h1 className='capitalize text-3xl p-14 font-semibold text-gray-500'>latest blog</h1>

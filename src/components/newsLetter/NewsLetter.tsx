@@ -7,13 +7,13 @@ function NewsLetter() {
     return (
       <div>
         <div className='container m-auto'>
-          <Row className="flex justify-between flex-nowrap py-10 px-32 w-full newArrivals" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+          <Row className="flex justify-between flex-nowrap py-10 px-32 w-full newArrivals newsLetters" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
             {
-              newsLetters.data.map(newsLetter => (
-                <Col span={6} key={newsLetter.id} className="gutter-row capitalize relative cursor-pointer newsLetters">
+              newsLetters.data.map((newsLetter) => (
+                <Col span={6} key={newsLetter.id} className="gutter-row capitalize relative cursor-pointer newsLettersStyle">
                   <Descriptions title={newsLetter.title} column={1} className="text-lg mb-11" >
-                    {newsLetter.inforDetail.map(getInfor => (
-                      <Descriptions.Item className='cursor-pointer flex justify-start text-sm text-zinc-600'>{getInfor.infor}</Descriptions.Item>
+                    {newsLetter.inforDetail.map((getInfor, index) => (
+                      <Descriptions.Item key={index} className='cursor-pointer flex justify-start text-sm text-zinc-600'>{getInfor.infor}</Descriptions.Item>
                     ))}
                   </Descriptions>
                 </Col> 

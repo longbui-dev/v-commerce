@@ -15,17 +15,3 @@
   width: 100% !important;
 }
 
-
-
-.buttonBackTop {
-  animation-direction: alternate;
-  animation-duration: 1s;
-}
-
-.buttonBackTop.ant-float-btn-default .ant-float-btn-body {
-  background-color: #e99c2e !important;
-}
-
-.buttonBackTop.ant-float-btn-default .ant-float-btn-body .ant-float-btn-content .ant-float-btn-icon {
-  color: white ;
-}

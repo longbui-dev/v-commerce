@@ -22,14 +22,14 @@ const responsive = {
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 2
+    items: 2,
   }
 };
 function Clients() {
   return (
     <div className='flex h-52 items-center clients cursor-pointer'>
       <div className='container m-auto'>
-        <Carousel responsive={responsive} removeArrowOnDeviceType={["superLargeDesktop", "desktop", "tablet", "mobile"]}>
+        <Carousel responsive={responsive} centerMode={true} swipeable={true} draggable={true} removeArrowOnDeviceType={["superLargeDesktop", "desktop", "tablet", "mobile"]}>
           <img src={clients1} alt="client" />
           <img src={clients2} alt="client" />
           <img src={clients3} alt="client" />
