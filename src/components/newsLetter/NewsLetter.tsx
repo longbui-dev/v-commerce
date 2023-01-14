@@ -7,7 +7,7 @@ function NewsLetter() {
     return (
       <div>
         <div className='container m-auto'>
-          <Row className="flex justify-between flex-nowrap py-10 px-32 w-full newArrivals" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+          <Row className="flex justify-between flex-nowrap py-10 px-32 w-full newArrivals newsLetters" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
             {
               newsLetters.data.map((newsLetter) => (
                 <Col span={6} key={newsLetter.id} className="gutter-row capitalize relative cursor-pointer newsLettersStyle">

@@ -9,7 +9,6 @@ import LatestBlog from './components/latestBlog/LatestBlog';
 import Clients from './components/clients/Clients';
 import NewsLetter from './components/newsLetter/NewsLetter';
 import Footer from './components/footer/Footer';
-import { FloatButton  } from 'antd';
 
 function App() {
   return (
@@ -24,7 +23,6 @@ function App() {
       <Clients />
       <NewsLetter />
       <Footer />
-      <FloatButton.BackTop className="buttonBackTop mainColorBg mainColor"/>
     </div>
   );
 }
