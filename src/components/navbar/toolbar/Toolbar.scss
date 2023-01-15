@@ -3,3 +3,8 @@
     top: -1px;
     transform: translate(20%, -50%);
 }
+
+:where(.css-dev-only-do-not-override-acm2ia).ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item {
+    padding: 20px 15px;
+    font-size: 9px;
+}

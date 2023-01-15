@@ -1,18 +1,61 @@
 import './Toolbar.scss';
 import {SearchOutlined, SettingOutlined, ShoppingCartOutlined} from '@ant-design/icons';
-import { Badge, Space, Tooltip } from 'antd';
+import type { MenuProps } from 'antd';
+import { Badge, Space, Dropdown} from 'antd';
+import { productsCart } from '../../../mockdata/ProductsCart';
 
+
+const items: MenuProps['items'] = [
+  {
+    key: '1',
+    label: (
+      <div className='flex justify-around w-52'>
+        <div><img src={productsCart.data[0].image} alt="chair" className='w-12 h-12' /></div>
+        <div className='block'>
+          <div className='text-[#6f6f6f] text-sm font-bold capitalize'>{productsCart.data[0].productName}</div>
+          <div className='text-[#a09e9c] text-xs'>1 X - $ {productsCart.data[0].price}</div>
+        </div>
+        <div className='top-0'>x</div>
+      </div>
+    ),
+  },
+  {
+    key: '2',
+    label: (
+      <div className='flex justify-around w-52'>
+        <div><img src={productsCart.data[1].image} alt="chair" className='w-12 h-12' /></div>
+        <div className='block'>
+          <div className='text-[#6f6f6f] text-sm font-bold capitalize'>{productsCart.data[1].productName}</div>
+          <div className='text-[#a09e9c] text-xs'>1 X - $ {productsCart.data[1].price}</div>
+        </div>
+        <div className='top-0'>x</div>
+      </div>
+    ),
+  },
+  {
+    key: '3',
+    label: (
+      <div className='flex justify-around w-52'>
+        <div><img src={productsCart.data[2].image} alt="chair" className='w-12 h-12' /></div>
+        <div className='block'>
+          <div className='text-[#6f6f6f] text-sm font-bold capitalize'>{productsCart.data[2].productName}</div>
+          <div className='text-[#a09e9c] text-xs'>1 X - $ {productsCart.data[2].price}</div>
+        </div>
+        <div className='top-0'>x</div>
+      </div>
+    ),
+  },
+];
 function Toolbar() {
-  const text = <span>Cart</span>;
   return (
     <div className='flex flex-row justify-around text-lg'>
-      <SearchOutlined className='cursor-pointer flex flex-col justify-center px-2 hover:text-orange-500'/>
-      <SettingOutlined className='cursor-pointer flex flex-col justify-center px-2 hover:text-orange-500' />
+      <SearchOutlined className='cursor-pointer flex flex-col justify-center px-2 hover:text-[#e99c2e]'/>
+      <SettingOutlined className='cursor-pointer flex flex-col justify-center px-2 hover:text-[#e99c2e]' />
       <Space size="middle" className='mt-2'>
         <Badge size="default" count={2}>
-          <Tooltip placement="topLeft" title={text}>
-            <ShoppingCartOutlined className='cursor-pointer flex flex-col justify-center px-2 hover:text-orange-500 text-xl' />
-          </Tooltip>
+          <Dropdown placement="topLeft" menu={{ items }}>
+            <ShoppingCartOutlined className='cursor-pointer flex flex-col justify-center px-2 hover:text-[#e99c2e] text-xl' />
+          </Dropdown>
         </Badge>
       </Space>
     </div>
