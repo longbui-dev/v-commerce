@@ -12,8 +12,8 @@ const items: MenuProps['items'] = [
       <div className='flex justify-around w-52'>
         <div><img src={productsCart.data[0].image} alt="chair" className='w-12 h-12' /></div>
         <div className='block'>
-          <div className='text-[#6f6f6f] text-base font-bold capitalize'>{productsCart.data[0].productName}</div>
-          <div className='text-[#a09e9c] text-sm'>1 X - $ {productsCart.data[0].price}</div>
+          <div className='text-[#6f6f6f] text-sm font-bold capitalize'>{productsCart.data[0].productName}</div>
+          <div className='text-[#a09e9c] text-xs'>1 X - $ {productsCart.data[0].price}</div>
         </div>
         <div className='top-0'>x</div>
       </div>
@@ -25,8 +25,8 @@ const items: MenuProps['items'] = [
       <div className='flex justify-around w-52'>
         <div><img src={productsCart.data[1].image} alt="chair" className='w-12 h-12' /></div>
         <div className='block'>
-          <div className='text-[#6f6f6f] text-base font-bold capitalize'>{productsCart.data[1].productName}</div>
-          <div className='text-[#a09e9c] text-sm'>1 X - $ {productsCart.data[1].price}</div>
+          <div className='text-[#6f6f6f] text-sm font-bold capitalize'>{productsCart.data[1].productName}</div>
+          <div className='text-[#a09e9c] text-xs'>1 X - $ {productsCart.data[1].price}</div>
         </div>
         <div className='top-0'>x</div>
       </div>
@@ -38,8 +38,8 @@ const items: MenuProps['items'] = [
       <div className='flex justify-around w-52'>
         <div><img src={productsCart.data[2].image} alt="chair" className='w-12 h-12' /></div>
         <div className='block'>
-          <div className='text-[#6f6f6f] text-base font-bold capitalize'>{productsCart.data[2].productName}</div>
-          <div className='text-[#a09e9c] text-sm'>1 X - $ {productsCart.data[2].price}</div>
+          <div className='text-[#6f6f6f] text-sm font-bold capitalize'>{productsCart.data[2].productName}</div>
+          <div className='text-[#a09e9c] text-xs'>1 X - $ {productsCart.data[2].price}</div>
         </div>
         <div className='top-0'>x</div>
       </div>
