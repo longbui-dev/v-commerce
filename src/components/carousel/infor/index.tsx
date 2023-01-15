@@ -1,8 +1,15 @@
 import { Button, Space } from 'antd';
 import {PlusCircleOutlined} from '@ant-design/icons';
 import './Information.scss';
+import { Route, Routes, useNavigate } from "react-router-dom";
+import PageDetailProduct from '../../pageDetailProduct';
 
 function InforCarousel(props: any) { 
+    const navigate = useNavigate();
+    const moveToDetailProductPage = () => {
+        navigate(`/pageDetailProduct`, {replace: true});
+    }
+    
     return (
         <div className="w-full items-start pt-20 pl-28 inforCarousel">
             <div className="flex flex-col justify-start items-start">
@@ -18,9 +25,12 @@ function InforCarousel(props: any) {
                         add to cart
                     </Button>
 
-                    <Button type="primary" className='capitalize text-base font-medium secondColorBg mainColor border-slate-100 hover:border-orange-500 buttonMore'>
+                    <Button type="primary" onClick={moveToDetailProductPage} className='capitalize text-base font-medium secondColorBg mainColor border-slate-100 hover:border-[#e99c2e] buttonMore'>
                         more info
                     </Button>
+                    <Routes>
+                        <Route path="/pageDetailProduct" element={<PageDetailProduct />} />
+                    </Routes>
                 </Space>
             </div>
         </div>
