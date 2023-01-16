@@ -12,6 +12,8 @@ export const slideDatas = {
             price: 399.000,
             oldPrice: 499.000,
             image: imgSlider1,
+            rate: 4,
+            reviews: 30,
         },
         {
             id: 2,
@@ -20,6 +22,8 @@ export const slideDatas = {
             price: 399.000,
             oldPrice: 499.000,
             image: imgSlider2,
+            rate: 3.5,
+            reviews: 20,
         },
         {
             id: 3,
@@ -28,6 +32,8 @@ export const slideDatas = {
             price: 399.000,
             oldPrice: 499.000,
             image: imgSlider3,
+            rate: 3,
+            reviews: 50,
         }
     ],
 };

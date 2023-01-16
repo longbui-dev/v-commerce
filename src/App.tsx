@@ -1,25 +1,26 @@
 import './App.scss';
 import Header from './components/navbar/Header';
-import Slide from './components/carousel/Slide';
-import AdvertisementProducts from './components/advertisementProducts/AdvertisementProducts';
-import NewArrivals from './components/newArrivals/NewArrivals';
-import CollectionDetail from './components/collectionDetail/CollectionDetail';
-import FeaturedProducts from './components/featuredProducts/FeaturedProducts';
-import LatestBlog from './components/latestBlog/LatestBlog';
+import PageDetailProduct from './components/pageDetailProduct';
+import { Route, Routes } from 'react-router-dom';
+import Footer from './components/footer/Footer';
+import HomePage from './components/pageHome';
 import Clients from './components/clients/Clients';
 import NewsLetter from './components/newsLetter/NewsLetter';
-import Footer from './components/footer/Footer';
+import PageCart from './components/pageCart';
 
 function App() {
   return (
     <div className="App relative">
       <Header />
-      <Slide />
-      <AdvertisementProducts />
-      <NewArrivals />
-      <CollectionDetail />
-      <FeaturedProducts />
-      <LatestBlog />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+      <Routes>
+        <Route path="pageDetailProduct" element={<PageDetailProduct />} />
+      </Routes>
+      <Routes>
+        <Route path="/pageCart" element={<PageCart />} />
+      </Routes>
       <Clients />
       <NewsLetter />
       <Footer />

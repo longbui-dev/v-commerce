@@ -1,13 +1,12 @@
 import { Button, Space } from 'antd';
 import {PlusCircleOutlined} from '@ant-design/icons';
 import './Information.scss';
-import { Route, Routes, useNavigate } from "react-router-dom";
-import PageDetailProduct from '../../pageDetailProduct';
+import { Link, useNavigate } from "react-router-dom";
 
 function InforCarousel(props: any) { 
     const navigate = useNavigate();
     const moveToDetailProductPage = () => {
-        navigate(`/pageDetailProduct`, {replace: true});
+        navigate(`/pageDetailProduct`);
     }
     
     return (
@@ -27,11 +26,9 @@ function InforCarousel(props: any) {
 
                     <Button type="primary" onClick={moveToDetailProductPage} className='capitalize text-base font-medium secondColorBg mainColor border-slate-100 hover:border-[#e99c2e] buttonMore'>
                         more info
+                        <Link to="/pageDetailProduct"></Link>
                     </Button>
-                    <Routes>
-                        <Route path="/pageDetailProduct" element={<PageDetailProduct />} />
-                    </Routes>
-                </Space>
+                </Space>    
             </div>
         </div>
     )

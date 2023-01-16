@@ -3,6 +3,7 @@ import {SearchOutlined, SettingOutlined, ShoppingCartOutlined} from '@ant-design
 import type { MenuProps } from 'antd';
 import { Badge, Space, Dropdown} from 'antd';
 import { productsCart } from '../../../mockdata/ProductsCart';
+import { Link, useNavigate } from "react-router-dom";
 
 
 const items: MenuProps['items'] = [
@@ -47,11 +48,17 @@ const items: MenuProps['items'] = [
   },
 ];
 function Toolbar() {
+  const navigate = useNavigate();
+  const moveToCart = () => {
+      navigate(`/PageCart`);
+  }
+
   return (
     <div className='flex flex-row justify-around text-lg'>
       <SearchOutlined className='cursor-pointer flex flex-col justify-center px-2 hover:text-[#e99c2e]'/>
       <SettingOutlined className='cursor-pointer flex flex-col justify-center px-2 hover:text-[#e99c2e]' />
-      <Space size="middle" className='mt-2'>
+      <Space size="middle" className='mt-2' onClick={moveToCart}>
+        <Link to="/PageCart"></Link>
         <Badge size="default" count={2}>
           <Dropdown placement="topLeft" menu={{ items }}>
             <ShoppingCartOutlined className='cursor-pointer flex flex-col justify-center px-2 hover:text-[#e99c2e] text-xl' />
