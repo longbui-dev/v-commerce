@@ -11,7 +11,7 @@ const { Panel } = Collapse;
 const menuItems = [
   {
     key: "1",
-    href: "/",
+    href: "#slide",
     title: "Home",
   },
   {

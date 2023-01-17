@@ -4,7 +4,6 @@ import PageDetailProduct from './components/pageDetailProduct';
 import { Route, Routes } from 'react-router-dom';
 import Footer from './components/footer/Footer';
 import HomePage from './components/pageHome';
-import Clients from './components/clients/Clients';
 import NewsLetter from './components/newsLetter/NewsLetter';
 import PageCart from './components/pageCart';
 
@@ -21,7 +20,6 @@ function App() {
       <Routes>
         <Route path="/pageCart" element={<PageCart />} />
       </Routes>
-      <Clients />
       <NewsLetter />
       <Footer />
     </div>

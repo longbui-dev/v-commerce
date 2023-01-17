@@ -5,6 +5,7 @@ import NewArrivals from '../newArrivals/NewArrivals';
 import CollectionDetail from '../collectionDetail/CollectionDetail';
 import FeaturedProducts from '../featuredProducts/FeaturedProducts';
 import LatestBlog from '../latestBlog/LatestBlog';
+import Clients from '../clients/Clients';
 
 function HomePage() {
     return (
@@ -15,6 +16,7 @@ function HomePage() {
         <CollectionDetail />
         <FeaturedProducts />
         <LatestBlog />
+        <Clients />
       </div>
     );
 }

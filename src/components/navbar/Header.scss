@@ -7,6 +7,7 @@
 
 .header {
     margin: 0 auto !important;
+    min-height: 50px;
     @media (max-width: 1024px){
         margin: 0 !important;
     }
@@ -22,10 +23,11 @@
     transition: all 0.5s ease-in-out;
     width: 100%;
     z-index: 100;
-    .header {
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-    }
+    margin-top: 1px;
+}
+
+.logoSine {
+    font-family: 'Roboto',sans-serif;
 }
 
 @media (max-width: 1280px){

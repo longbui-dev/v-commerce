@@ -26,8 +26,8 @@ function Header() {
 
   return (
     <div className={show ? 'sticked' : 'sticky'}>
-      <div className="flex justify-around py-10 header container w-full">
-        <div className="flex justify-around w-full headerLogoNavBar">
+      <div className="flex justify-around py-6 header container w-full">
+        <div className="flex justify-around w-full items-center headerLogoNavBar">
           <div className="flex justify-center headerLogo"><Logo /></div>
           <div className="flex justify-center headerNavBar"><NavBar /></div>
         </div>

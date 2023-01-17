@@ -18,6 +18,6 @@ export const cart = [
 export const sumMoney = [
     {
       key: 1,
-      sumMoney: 478.400,
+      sumPay: 478.400,
     }
 ];
