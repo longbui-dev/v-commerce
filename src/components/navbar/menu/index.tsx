@@ -60,7 +60,7 @@ const items: MenuProps["items"] = [
 ];
 
 function NavBar() {
-  const [current, setCurrent] = useState("home");
+  const [visible, setVisible] = useState(false);
   const [headerBgColor, setHeaderBgColor] = useState("#f1f5f9");
 
   const listenScrollEvent = () => {
@@ -71,8 +71,8 @@ function NavBar() {
   useEffect(() => {
     window.addEventListener("scroll", listenScrollEvent);
   });
-  const onClick: MenuProps["onClick"] = (e) => {
-    setCurrent(e.key);
+  const closeMenu: MenuProps["onClick"] = (e) => {
+    setVisible(false)
   };
   const onChange = (key: string | string[]) => {
     // console.log(key);
@@ -114,7 +114,7 @@ function NavBar() {
           /> */}
 
           <Anchor affix={false} offsetTop={0} 
-            items={menuItems}
+            items={menuItems} 
             style={{backgroundColor: headerBgColor}} className='menuMobile'/>
         </Panel>
       </Collapse>

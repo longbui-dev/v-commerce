@@ -70,6 +70,8 @@
     }
     .ant-collapse-content{
         background-color: white !important;
+        overflow-y: auto!important;
+        max-height: 300px;
         .ant-collapse-content-box{
             padding: 0px !important;
             @media (max-width: 481px){
@@ -81,7 +83,8 @@
             @media (max-width: 1024px){
                 .ant-anchor .ant-anchor-link {
                     padding-inline: 35px 35px;
-                    padding-block: 20px;
+                    padding-block: 20px;    
+                    padding: 30px 35px;
                 }
             }
         }
