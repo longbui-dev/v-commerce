@@ -3,6 +3,7 @@ import Logo from "./logo";
 import NavBar from "./menu";
 import Toolbar from "./toolbar";
 import './Header.scss';
+import Search from "./search";
 
 function Header() {
   const [show, setShow] = useState(false);
@@ -26,6 +27,7 @@ function Header() {
 
   return (
     <div className={show ? 'sticked' : 'sticky'}>
+      <div><Search /></div>
       <div className="flex justify-around py-6 header container w-full">
         <div className="flex justify-around w-full items-center headerLogoNavBar">
           <div className="flex justify-center headerLogo"><Logo /></div>

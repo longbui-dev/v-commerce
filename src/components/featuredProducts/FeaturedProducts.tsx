@@ -17,7 +17,7 @@ function FeaturedProducts() {
                 <Col span={6} key={featuredProduct.id} className="gutter-row relative cursor-pointer capitalize textHoverChangeColor">
                   <ImageFeatureProducts image={featuredProduct.image} />
                   <div className="flex justify-center px-4 pt-4 ">
-                    <Rate allowHalf defaultValue={featuredProduct.rate} className="text-sm pr-4" />
+                    <Rate disabled defaultValue={featuredProduct.rate} className="text-sm pr-4" />
                     <span className="text-zinc-400 flex justify-center">({featuredProduct.reviews} Review)</span>
                   </div>
                   <InformationNewArrivals productName={featuredProduct.productName} price={featuredProduct.price} />

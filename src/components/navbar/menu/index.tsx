@@ -3,6 +3,7 @@ import type { MenuProps } from "antd";
 import { Collapse, Menu, Anchor } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import "./Menu.scss";
+import SubMenu from "antd/es/menu/SubMenu";
 // import { Link } from "react-router-dom";
 
 const { Panel } = Collapse;
@@ -60,7 +61,8 @@ const items: MenuProps["items"] = [
 ];
 
 function NavBar() {
-  const [visible, setVisible] = useState(false);
+  const [current, setCurrent] = useState("home");
+  const [showMenu, setShowMenu] = useState(false);
   const [headerBgColor, setHeaderBgColor] = useState("#f1f5f9");
 
   const listenScrollEvent = () => {
@@ -71,8 +73,8 @@ function NavBar() {
   useEffect(() => {
     window.addEventListener("scroll", listenScrollEvent);
   });
-  const closeMenu: MenuProps["onClick"] = (e) => {
-    setVisible(false)
+  const clickShowMenu: MenuProps["onClick"] = (e) => {
+    setShowMenu(!showMenu)
   };
   const onChange = (key: string | string[]) => {
     // console.log(key);
@@ -99,25 +101,27 @@ function NavBar() {
         style={{backgroundColor: headerBgColor}} className='flex w-full bg-slate-100 text-base font-bold text-gray-500 menuDesktop'/>
 
       <Collapse
-        onChange={onChange}
+        onChange={onChange} 
         expandIcon={({ isActive }) => (
           <MenuOutlined rotate={isActive ? 90 : 0} />
         )}
         className="border-transparent rounded-lg dropdownMenu"
       >
+      
         <Panel header="" key="1" className="absolute panelCollapse">
           {/* <Menu
             onClick={onClick}
             selectedKeys={[current]}
-            items={items}
+            items={items}  mode="horizontal"
             className="menuMobile"
           /> */}
-
-          <Anchor affix={false} offsetTop={0} 
-            items={menuItems} 
-            style={{backgroundColor: headerBgColor}} className='menuMobile'/>
+          <Anchor affix={false} offsetTop={0}
+              items={menuItems} 
+              style={{backgroundColor: headerBgColor}} className='menuMobile'/>
+           
+           
         </Panel>
-      </Collapse>
+      </Collapse> 
     </div>
   );
 }
