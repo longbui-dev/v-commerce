@@ -62,12 +62,6 @@
     margin-top: -20px;
     width: 100%;
     left: 0;
-    @media (max-width: 768px){
-        // margin-left: -100px;
-    }
-    @media (max-width: 571px){
-        margin-left: -60px;
-    }
     .ant-collapse-content{
         background-color: white !important;
         overflow-y: auto!important;

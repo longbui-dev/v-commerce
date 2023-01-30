@@ -17,7 +17,7 @@ function InforPageDetailProduct(props: any) {
                     <div className="flex flex-row justify-start items-start font-medium text-lg pl-4">${props.price}</div>
                 </div>
                 <div className="flex justify-center pt-4 ">
-                    <Rate allowHalf defaultValue={props.rate} className="text-sm pr-4" />
+                    <Rate allowHalf disabled defaultValue={props.rate} className="text-sm pr-4" />
                     <span className="text-zinc-400 flex justify-center">({props.reviews} Review)</span>
                 </div>
                 <div className="flex flex-column justify-center items-center pt-4 text-gray-500">Số lượng: 

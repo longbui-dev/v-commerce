@@ -1,7 +1,6 @@
 import './Toolbar.scss';
 import {SearchOutlined, SettingOutlined, ShoppingCartOutlined} from '@ant-design/icons';
-import { Button, MenuProps } from 'antd';
-import { Badge, Space, Dropdown} from 'antd';
+import { Button, MenuProps, Badge, Space, Dropdown } from 'antd';
 import { productsCart } from '../../../mockdata/ProductsCart';
 import { Link, useNavigate } from "react-router-dom";
 import Search from '../search';

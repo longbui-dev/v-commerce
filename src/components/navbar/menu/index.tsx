@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { MenuProps } from "antd";
 import { Collapse, Menu, Anchor } from "antd";
-import { MenuOutlined } from "@ant-design/icons";
+import { CloseSquareOutlined, MenuOutlined } from "@ant-design/icons";
 import "./Menu.scss";
 import SubMenu from "antd/es/menu/SubMenu";
 // import { Link } from "react-router-dom";
@@ -100,10 +100,10 @@ function NavBar() {
         items={menuItems}
         style={{backgroundColor: headerBgColor}} className='flex w-full bg-slate-100 text-base font-bold text-gray-500 menuDesktop'/>
 
-      <Collapse
+      <Collapse 
         onChange={onChange} 
         expandIcon={({ isActive }) => (
-          <MenuOutlined rotate={isActive ? 90 : 0} />
+          isActive ? <CloseSquareOutlined /> : <MenuOutlined />
         )}
         className="border-transparent rounded-lg dropdownMenu"
       >
@@ -115,11 +115,11 @@ function NavBar() {
             items={items}  mode="horizontal"
             className="menuMobile"
           /> */}
-          <Anchor affix={false} offsetTop={0}
-              items={menuItems} 
-              style={{backgroundColor: headerBgColor}} className='menuMobile'/>
-           
-           
+          <Anchor affix={false} offsetTop={0} 
+            items={menuItems} onClick={() => {
+              window.location.href = "javascript:void(0)";
+          }}
+            style={{backgroundColor: headerBgColor}} className='menuMobile'/>
         </Panel>
       </Collapse> 
     </div>
