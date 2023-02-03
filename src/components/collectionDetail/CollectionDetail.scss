@@ -61,6 +61,6 @@
     background: #3f3f46;
 }
 
-:where(.css-dev-only-do-not-override-acm2ia).ant-btn-primary:not(:disabled):hover {
-    background: #e99c2e;
+.buttonCollectionDetail:hover {
+    background: #e99c2e !important;
 }

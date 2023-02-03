@@ -106,3 +106,13 @@
 .textHoverChangeColor:hover .textHover {
     color: #e99c2e;
 }
+
+.buttonNewProducts {
+    background: #e99c2e;
+}
+
+.buttonNewProducts:hover{
+    background: white !important;
+    color: #e99c2e !important;
+    border-color: #e99c2e !important;
+}
