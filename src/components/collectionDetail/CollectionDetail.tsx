@@ -13,7 +13,7 @@ function CollectionDetail() {
               <p className='font-bold'>{collection.data[0].description}</p>
               <div className='collectionPrice font-bold mb-8 text-sm'><h4 className='capitalize text-white'>string from <span className='mainColor'>$ {collection.data[0].price}</span></h4></div>
               <Space className='h-12 leading-10 mainColorBg rounded-lg p-6 cursor-pointer'>
-                <Button type="primary" className='capitalize shadow-none'>
+                <Button type="primary" className='capitalize shadow-none buttonCollectionDetail'>
                   <div className='flex self-center font-bold text-base'>view more</div>
                 </Button>
               </Space>

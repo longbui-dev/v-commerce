@@ -1,10 +1,11 @@
+import { configureStore } from '@reduxjs/toolkit'
+import counterReducer from './slices/countAmountProductsInCart'
+import allProductsSlice from './slices/allProducts'
 
-function Store() {
-  return (
-    <div>
-     
-    </div>
-  );
-}
-
-export default Store;
+export default configureStore({
+  devTools: true,
+  reducer: {
+    counter: counterReducer,
+    allProducts: allProductsSlice
+  }
+})
