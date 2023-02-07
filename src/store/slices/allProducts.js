@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { createSelector } from 'reselect'
 
 const initialState = {
   allProducts: [],
@@ -10,6 +9,12 @@ const initialState = {
   priceProductsNewArrivals: 0,
   status: '',
   error: null,
+  advertisementProducts: [],
+  idAdvertisementProducts: '',
+  imageAdvertisementProducts: '',
+  titleAdvertisementProducts: '',
+  describeAdvertisementProducts: '',
+  priceAdvertisementBigProducts: 0,
 }
 
 export const fetchAllProducts = createAsyncThunk('products/fetchAllproducts', async () => {
@@ -37,7 +42,23 @@ const allProductsSlice = createSlice({
         .addCase(fetchAllProducts.fulfilled, (state, action) => {
             state.status = 'succeeded'
             state.allProducts = action.payload
-            // console.log( state.allProducts)
+            state.advertisementProducts = action.payload
+
+            state.advertisementProducts = state.advertisementProducts.slice(0,3).map((product) => {
+                state.idAdvertisementProducts = product.id
+                state.titleAdvertisementProducts = product.title
+                state.imageAdvertisementProducts = product.category.image
+                state.describeAdvertisementProducts = product.description
+                state.priceAdvertisementBigProducts = product.price
+                return ({
+                    idAdvertisementProducts: product.id,
+                    titleAdvertisementProducts: product.title,
+                    imageAdvertisementProducts: product.category.image,
+                    describeAdvertisementProducts : product.description,
+                    priceAdvertisementBigProducts: product.price
+                })
+            })
+
             state.inforProductsNewArrivals = state.allProducts.map((product) => {
                 state.idProductsNewArrivals = product.id
                 state.nameProductsNewArrivals = product.category.name
@@ -59,5 +80,6 @@ const allProductsSlice = createSlice({
 })
 
 export const { showProducts } = allProductsSlice.actions
+export const advertisementProducts = (state) => state.allProducts.advertisementProducts;
 export const inforProductsNewArrivals = (state) => state.allProducts.inforProductsNewArrivals;
 export default allProductsSlice.reducer
