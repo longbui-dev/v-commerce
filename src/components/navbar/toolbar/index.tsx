@@ -3,17 +3,10 @@ import {SearchOutlined, SettingOutlined, ShoppingCartOutlined} from '@ant-design
 import { Button, MenuProps, Badge, Space, Dropdown } from 'antd';
 import { productsCart } from '../../../mockdata/ProductsCart';
 import { Link, useNavigate } from "react-router-dom";
-import Search from '../search';
-import { useState } from 'react';
 
-
-function Toolbar() {
+function Toolbar(props: any) {
   const navigate = useNavigate();
-  const moveToCart = () => {
-      navigate(`/PageCart`);
-  }
-
-  const [showSearch, setShowSearch] = useState(false)
+  const moveToCart = () => navigate(`/PageCart`);
 
   const items: MenuProps['items'] = [
     {
@@ -69,13 +62,9 @@ function Toolbar() {
     },
   ];
 
-  const handleSearch = () => { 
-    setShowSearch(!showSearch)
-  }
-
   return (
     <div className='flex flex-row justify-around text-lg'>
-      <SearchOutlined className='cursor-pointer flex flex-col justify-center px-2 text-[#a9a6a6] hover:text-[#e99c2e]' onClick={handleSearch}/>
+      <SearchOutlined className='cursor-pointer flex flex-col justify-center px-2 text-[#a9a6a6] hover:text-[#e99c2e]' onClick={() => props.handleSearch()}/>
       <SettingOutlined className='cursor-pointer flex flex-col justify-center px-2 text-[#a9a6a6] hover:text-[#e99c2e]' />
       <Space size="middle" className='mt-2 iconCart'>
         <Badge size="default" count={2}>
