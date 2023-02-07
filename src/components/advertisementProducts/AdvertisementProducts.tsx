@@ -1,9 +1,6 @@
 import { Col, Row } from "antd";
 import BigAdver from "./bigAdver";
 import SmallAdver from "./smallAdver";
-import smallAdver1 from "../../assets/img/smallAdver1";
-import smallAdver2 from "../../assets/img/smallAdver2";
-// import { advertisementProducts } from "../../mockdata/AdvertisementProducts";
 import './AdvertisementProducts.scss';
 import { useDispatch, useSelector } from "react-redux";
 import { advertisementProducts, fetchAllProducts } from "../../store/slices/allProducts";
