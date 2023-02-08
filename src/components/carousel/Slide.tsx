@@ -10,7 +10,7 @@ function Slide() {
   const carouselProductShow = useSelector(advertisementProducts)
 
   return (
-    <div id='slide' className='bg-slate-100 -m-px'>
+    <div id='home' className='bg-slate-100 -m-px'>
       <Carousel autoplay dots={{ className: "dots"}} className="flex justify-center"> 
         {
           carouselProductShow.map((productShow : any) => (
@@ -18,7 +18,7 @@ function Slide() {
               <div className="headerStyle">
                 <Row className="flex justify-center pb-10 z-10 w-full container slideDisplayMobile" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                   <Col span={14} className="flex justify-center gutter-row colInfor">
-                    <InforCarousel productName={productShow.titleAdvertisementProducts} description={productShow.describeAdvertisementProducts} price={productShow.priceAdvertisementBigProducts} oldPrice={productShow.priceAdvertisementBigProducts}/>
+                    <InforCarousel id={productShow.idAdvertisementProducts} productName={productShow.titleAdvertisementProducts} description={productShow.describeAdvertisementProducts} price={productShow.priceAdvertisementBigProducts} oldPrice={productShow.priceAdvertisementBigProducts}/>
                   </Col>
                   <Col span={10} className="flex justify-center gutter-row colPicture"> <Picture image={productShow.imageAdvertisementProducts}/></Col>
                 </Row>

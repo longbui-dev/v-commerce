@@ -4,12 +4,26 @@ import { slideDatas } from "../../mockdata/Slide";
 import "../carousel/Slide.scss";
 import "./PageDetailProduct.scss";
 import InforPageDetailProduct from "./infor";
+import { advertisementProducts } from "../../store/slices/allProducts";
+import { useSelector } from 'react-redux';
+import { useEffect } from "react";
+import { useLocation } from "react-router";
 
 function PageDetailProduct() {
+  
+  const carouselProductShow = useSelector(advertisementProducts)
+  const location = useLocation();
+  const tabId = location.pathname.split("t/").pop();
+
   return (
     <div id="pageDetailProduct">
       <div className="bg-slate-100 flex justify-center max-w-full container">
         <div className="headerStyle pageDetailProduct">
+          {
+            carouselProductShow.map((detailProduct: any)=>{
+              console.log(detailProduct.idAdvertisementProducts)
+            })
+          }
           <Row
             className="flex justify-center pb-10 z-10 w-full container slideDisplayMobile"
             gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}

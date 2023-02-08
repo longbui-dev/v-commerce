@@ -2,11 +2,13 @@ import { Button, Space } from 'antd';
 import {PlusCircleOutlined} from '@ant-design/icons';
 import './Information.scss';
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
 
 function InforCarousel(props: any) { 
+
     const navigate = useNavigate();
-    const moveToDetailProductPage = () => {
-        navigate(`/pageDetailProduct`);
+    const moveToDetailProductPage = (id : any) => {
+        navigate(`/pageDetailProduct/${id}`);
     }
     
     return (
@@ -24,9 +26,9 @@ function InforCarousel(props: any) {
                         add to cart
                     </Button>
 
-                    <Button type="primary" onClick={moveToDetailProductPage} className='capitalize text-base font-medium secondColorBg mainColor border-slate-100 hover:border-[#e99c2e] buttonMore'>
+                    <Button type="primary" onClick={()=>moveToDetailProductPage(props.id)} className='capitalize text-base font-medium secondColorBg mainColor border-slate-100 hover:border-[#e99c2e] buttonMore'>
                         more info
-                        <Link to="/pageDetailProduct"></Link>
+                        {/* <Link to="/pageDetailProduct"></Link> */}
                     </Button>
                 </Space>    
             </div>

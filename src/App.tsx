@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
       </Routes>
       <Routes>
-        <Route path="pageDetailProduct" element={<PageDetailProduct />} />
+        <Route path="/pageDetailProduct/:id" element={<PageDetailProduct />} />
       </Routes>
       <Routes>
         <Route path="/pageCart" element={<PageCart />} />

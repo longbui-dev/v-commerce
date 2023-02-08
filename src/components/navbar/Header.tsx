@@ -4,19 +4,24 @@ import NavBar from "./menu";
 import Toolbar from "./toolbar";
 import "./Header.scss";
 import Search from "./search";
+import { useLocation } from "react-router-dom";
 
 function Header() {
   const [show, setShow] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const location = useLocation();
+  const shouldShowMenu =
+    location.pathname !== "/pageDetailProduct/:id" &&
+    location.pathname !== "/PageCart";
 
   const handleShow = () => {
-    if (typeof window !== "undefined") {
-      window.pageYOffset >= 50 && !show ? setShow(true) : setShow(false);
-    }
+    setShow(() => {
+      return window.pageYOffset >= 50 ? true : false;
+    });
   };
 
   const handleShowSearch = () => {
-    setShowSearch(!showSearch)
+    setShowSearch(!showSearch);
   };
 
   useEffect(() => {
@@ -25,7 +30,7 @@ function Header() {
 
   return (
     <div className={show ? "sticked" : "sticky"}>
-      <div className={showSearch? 'block' : 'hidden'}>
+      <div className={showSearch ? "block" : "hidden"}>
         <Search />
       </div>
       <div className="flex justify-around py-6 header container w-full">
@@ -33,13 +38,17 @@ function Header() {
           <div className="flex justify-center headerLogo">
             <Logo />
           </div>
-          <div className="flex justify-center headerNavBar">
+          <div
+            className={`flex justify-center headerNavBar ${
+              shouldShowMenu ? "block" : "hidden"
+            }`}
+          >
             <NavBar />
           </div>
         </div>
 
         <div className="flex justify-center w-1/4">
-          <Toolbar handleSearch={()=> handleShowSearch()} />
+          <Toolbar handleSearch={() => handleShowSearch()} />
         </div>
       </div>
     </div>
