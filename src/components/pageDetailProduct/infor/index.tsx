@@ -7,10 +7,10 @@ const { Panel } = Collapse;
 
 function InforPageDetailProduct(props: any) { 
     const onChange = (key: string | string[]) => {
-        console.log(key);
+        // console.log(key);
     };
     return (
-        <div className="w-full items-start pt-20 pl-28 inforCarousel">
+        <div className="w-full items-start pt-8 pl-28 inforCarousel">
             <div className="flex flex-col justify-start items-start">
                 <h1 className="capitalize text-gray-500 text-4xl pt-6">{props.productName}</h1>
                 <div className="flex flex-column justify-center items-center pt-4 text-gray-500">Starts from 

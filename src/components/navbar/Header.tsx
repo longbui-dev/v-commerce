@@ -10,8 +10,7 @@ function Header() {
   const [show, setShow] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const location = useLocation();
-  const shouldShowMenu =
-    location.pathname !== "/pageDetailProduct/:id" &&
+  const shouldShowMenu = !location.pathname.match(/pageDetailProduct\/\d+/) &&
     location.pathname !== "/PageCart";
 
   const handleShow = () => {
