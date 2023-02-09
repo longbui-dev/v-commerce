@@ -1,13 +1,18 @@
 import {ShoppingCartOutlined, HeartOutlined,ExpandOutlined} from '@ant-design/icons';
+import { useDispatch } from 'react-redux';
+import { increment } from '../../../store/slices/countAmountProductsInCart';
 
 function ImageAnimation(props: any) {
+
+    const dispatch = useDispatch()
+
     return (
         <div className='flex justify-center secondColorBg backgroundImg'>
             <img src={props.image} alt="new arrivals" />
             <div className='backgroundImgHover'></div>
             <div className={props.sales ? 'capitalize font-semibold mainColorBg textSale' : 'hidden'}>{props.sales}</div>
             <div className='newArrivalCart flex justify-between'>
-                <div className='flex justify-center'>
+                <div className='flex justify-center' onClick={()=>dispatch(increment())}>
                     <ShoppingCartOutlined className='cursor-pointer flex flex-col justify-center px-3' />
                     <span className='capitalize flex items-center text-xs'>add to cart</span>
                 </div>

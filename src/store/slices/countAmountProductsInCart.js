@@ -1,23 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const counterSlice = createSlice({
+export const amountProductsInCart = createSlice({
   name: 'counter',
   initialState: {
-    value: 0
+    amount: 0,
+    productsInCart: [],
   },
   reducers: {
     increment: state => {
-      state.value += 1
+      state.amount += 1
     },
+    
     decrement: state => {
-      state.value -= 1
+      state.amount -= 1
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
+
+    addCart: (state, action) => {
+     state.productsInCart.push(action.payload)
     }
   }
 })
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
-
-export default counterSlice.reducer
+export const { increment, decrement,addCart } = amountProductsInCart.actions
+export const selectCount = (state) => state.counter.amount
+export const productsInCart = (state) => state.counter.productsInCart
+export default amountProductsInCart.reducer

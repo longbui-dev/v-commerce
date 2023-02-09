@@ -3,11 +3,18 @@ import {SearchOutlined, SettingOutlined, ShoppingCartOutlined} from '@ant-design
 import { Button, MenuProps, Badge, Space, Dropdown } from 'antd';
 import { productsCart } from '../../../mockdata/ProductsCart';
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { productsInCart, selectCount } from '../../../store/slices/countAmountProductsInCart';
 
 function Toolbar(props: any) {
   const navigate = useNavigate();
   const moveToCart = () => navigate(`/PageCart`);
 
+  const showAmoutProduct = useSelector(selectCount) 
+  const productInCart = useSelector(productsInCart);
+  console.log(productInCart)
+
+  
   const items: MenuProps['items'] = [
     {
       key: '1',
@@ -67,7 +74,7 @@ function Toolbar(props: any) {
       <SearchOutlined className='cursor-pointer flex flex-col justify-center px-2 text-[#a9a6a6] hover:text-[#e99c2e]' onClick={() => props.handleSearch()}/>
       <SettingOutlined className='cursor-pointer flex flex-col justify-center px-2 text-[#a9a6a6] hover:text-[#e99c2e]' />
       <Space size="middle" className='mt-2 iconCart'>
-        <Badge size="default" count={2}>
+        <Badge size="default" count={showAmoutProduct}>
           <Dropdown placement="bottomLeft" menu={{ items }}>
             <ShoppingCartOutlined className='cursor-pointer flex flex-col justify-center px-2 text-[#a9a6a6] hover:text-[#e99c2e] text-xl' />
           </Dropdown>
