@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import toQueryString from '../../utils/toQueryString';
 
 const initialState = {
   allProducts: [],
@@ -23,17 +24,17 @@ export const fetchAllProducts = createAsyncThunk('products/fetchAllproducts', as
     return json
 })
 
+export const fetchProducts = createAsyncThunk('products/fetchAllproducts', async (input) => {
+    const query = toQueryString(input ?? '') // { offset: 0, limit: 10 }
+    const response = await fetch(`https://api.escuelajs.co/api/v1/products?${query}`)
+    const json = await response.json()
+    return json
+})
+
 const allProductsSlice = createSlice({ 
     name: 'allProducts',
     initialState,
-    reducers: {
-        // showProducts: (state) => {
-
-        //     state.inforProductsNewArrivals = 'abcd'
-        //     console.log('state', state.inforProductsNewArrivals)
-           
-        // }
-    },
+    reducers: {},
     extraReducers(builder) {
       builder
         .addCase(fetchAllProducts.pending, (state, action) => {
