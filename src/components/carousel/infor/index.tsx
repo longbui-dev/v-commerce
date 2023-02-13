@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
   increment,
-  addCart
+  addCart,
 } from "../../../store/slices/countAmountProductsInCart";
 
 function InforCarousel(props: any) {
@@ -25,7 +25,7 @@ function InforCarousel(props: any) {
         <h1 className="capitalize text-gray-500 text-4xl pt-6">
           {props.productName}
         </h1>
-        <p className="text-ellipsis overflow-hidden ... pt-8 text-base text-left leading-8 text-stone-400">
+        <p className="text-ellipsis overflow-hidden pt-8 text-base text-left leading-8 text-stone-400">
           {props.description}
         </p>
         <div className="flex flex-row justify-start items-start pt-4">
@@ -41,9 +41,9 @@ function InforCarousel(props: any) {
             type="primary"
             onClick={() => {
               dispatch(increment());
-              dispatch(addCart(props))
+              dispatch(addCart(props));
             }}
-            className=" capitalize text-base font-medium mainColorBg hover:bg-transparent buttonAdd"
+            className="capitalize text-base font-medium mainColorBg hover:bg-transparent buttonAdd"
           >
             <PlusCircleOutlined className="hover:text-orange-500 align-[0.1em]" />
             add to cart

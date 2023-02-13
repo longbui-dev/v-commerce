@@ -15,7 +15,7 @@ interface Product {
   price: number;
 }
 
-async function fetchProducts2(offset: number, limit: number): Promise<Product[]> {
+async function fetchArrivalsProducts(offset: number, limit: number): Promise<Product[]> {
   const response = await fetch(
     `https://api.escuelajs.co/api/v1/products?offset=${offset}&limit=${limit}`
   );
@@ -26,9 +26,9 @@ async function fetchProducts2(offset: number, limit: number): Promise<Product[]>
     title: rawProduct.title,
     price: rawProduct.price,
   }))
-} 
+}                               
 
-const limit = 10
+const limit = 8
 
 function NewArrivals() {
   const [errMsg, setErrMsg] = useState("")
@@ -38,10 +38,8 @@ function NewArrivals() {
 
   useEffect(() => {
     setLoading(true)
-    fetchProducts2(offset, limit)
+    fetchArrivalsProducts(offset, limit)
       .then(arrivalProducts => {
-        console.log("arrivalProducts")
-        console.log(arrivalProducts)
         setProducts(arrivalProducts)
       })
       .catch(err => {
@@ -53,8 +51,8 @@ function NewArrivals() {
   }, [])
 
   const showMore = async () => {
-    const newOffset = offset + 10
-    const newArrivalProducts = await fetchProducts2(newOffset, limit)
+    const newOffset = offset + 8
+    const newArrivalProducts = await fetchArrivalsProducts(newOffset, limit)
     setProducts([...products, ...newArrivalProducts])
     setOffset(newOffset)
   }
@@ -74,6 +72,7 @@ function NewArrivals() {
             gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
           >
             {products.map((product: any) =>
+            // newArrival.sale === true ? 
               (
                 <Col
                   span={6}
@@ -82,10 +81,23 @@ function NewArrivals() {
                 >
                   <ImageAnimation image={product.image} sales="Hot" />
                   <InformationNewArrivals
-                    productName={product.title}
+                    productName={product.title} 
                     price={product.price}
                   />
-                </Col>
+                </Col>    
+                // : (
+                //   <Col
+                //     span={6}
+                //     key={newArrival.id}
+                //     className="gutter-row relative cursor-pointer textHoverChangeColor"
+                //   >
+                //     <ImageAnimation image={newArrival.image} />
+                //     <InformationNewArrivals
+                //       productName={newArrival.productName}
+                //       price={newArrival.price}
+                //     />
+                //   </Col>
+                // )
               ) 
             )}
 
