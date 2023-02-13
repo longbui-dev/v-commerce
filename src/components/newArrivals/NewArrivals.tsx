@@ -5,21 +5,58 @@ import InformationNewArrivals from "./information";
 import "./NewArrivals.scss";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { fetchAllProducts, inforProductsNewArrivals } from "../../store/slices/allProducts";
+import { fetchAllProducts, fetchProducts, inforProductsNewArrivals } from "../../store/slices/allProducts";
+import axios from "axios";
+
+interface Product {
+  id: number;
+  image: string;
+  title: string;
+  price: number;
+}
+
+async function fetchProducts2(offset: number, limit: number): Promise<Product[]> {
+  const response = await fetch(
+    `https://api.escuelajs.co/api/v1/products?offset=${offset}&limit=${limit}`
+  );
+  const rawProducts = await response.json();
+  return rawProducts.map((rawProduct: any) => ({
+    id: rawProduct.id,
+    image: rawProduct.category.image,
+    title: rawProduct.title,
+    price: rawProduct.price,
+  }))
+} 
+
+const limit = 10
 
 function NewArrivals() {
-  const [itemsShown, setItemsShown] = useState(8);
+  const [errMsg, setErrMsg] = useState("")
+  const [isLoading, setLoading] = useState(false)
+  const [products, setProducts] = useState([] as Product[])
+  const [offset, setOffset]=  useState(0)
 
-  const dispatch = useDispatch();
+  useEffect(() => {
+    setLoading(true)
+    fetchProducts2(offset, limit)
+      .then(arrivalProducts => {
+        console.log("arrivalProducts")
+        console.log(arrivalProducts)
+        setProducts(arrivalProducts)
+      })
+      .catch(err => {
+        setErrMsg(err)
+      })
+      .finally(() =>{
+        setLoading(false)
+      })
+  }, [])
 
-  const productsNewArrivals = useSelector(inforProductsNewArrivals)
-
-  useEffect(() => { 
-    dispatch(fetchAllProducts() as any)
-  }, [dispatch, itemsShown]);
-
-  const showMore = () => {
-    setItemsShown(itemsShown + 4)
+  const showMore = async () => {
+    const newOffset = offset + 10
+    const newArrivalProducts = await fetchProducts2(newOffset, limit)
+    setProducts([...products, ...newArrivalProducts])
+    setOffset(newOffset)
   }
 
   return (
@@ -36,34 +73,20 @@ function NewArrivals() {
             className="flex justify-around py-10 px-24 w-full newArrivals"
             gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
           >
-            {productsNewArrivals.slice(0, itemsShown).map((productsNewArrival: any) =>
-              // newArrival.sale === true ? 
+            {products.map((product: any) =>
               (
                 <Col
                   span={6}
-                  key={productsNewArrival.idProductsNewArrivals}
+                  key={product.id}
                   className="gutter-row relative cursor-pointer textHoverChangeColor"
                 >
-                  <ImageAnimation image={productsNewArrival.imageProductsNewArrivals} sales="Hot" />
+                  <ImageAnimation image={product.image} sales="Hot" />
                   <InformationNewArrivals
-                    productName={productsNewArrival.nameProductsNewArrivals}
-                    price={productsNewArrival.priceProductsNewArrivals}
+                    productName={product.title}
+                    price={product.price}
                   />
                 </Col>
               ) 
-              // : (
-              //   <Col
-              //     span={6}
-              //     key={newArrival.id}
-              //     className="gutter-row relative cursor-pointer textHoverChangeColor"
-              //   >
-              //     <ImageAnimation image={newArrival.image} />
-              //     <InformationNewArrivals
-              //       productName={newArrival.productName}
-              //       price={newArrival.price}
-              //     />
-              //   </Col>
-              // )
             )}
 
             <Button type="primary" onClick={showMore} className='flex justify-center items-center capitalize p-6 mt-8 buttonNewProducts'>
