@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import amountProductsInCart from './slices/countAmountProductsInCart'
+import amountProductsInCart from './slices/amountProductsInCart'
 import allProductsSlice from './slices/allProducts'
 
 export default configureStore({

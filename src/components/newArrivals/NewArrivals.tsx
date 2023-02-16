@@ -1,12 +1,12 @@
 import { Button, Col, Row } from "antd";
 import ImageAnimation from "./image";
-import {useDispatch} from 'react-redux'
+// import {useDispatch} from 'react-redux'
 import InformationNewArrivals from "./information";
 import "./NewArrivals.scss";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { fetchAllProducts, fetchProducts, inforProductsNewArrivals } from "../../store/slices/allProducts";
-import axios from "axios";
+// import { useSelector } from "react-redux";
+// import { fetchAllProducts, fetchProducts, inforProductsNewArrivals } from "../../store/slices/allProducts";
+// import axios from "axios";
 
 interface Product {
   id: number;
@@ -79,7 +79,7 @@ function NewArrivals() {
                   key={product.id}
                   className="gutter-row relative cursor-pointer textHoverChangeColor"
                 >
-                  <ImageAnimation image={product.image} sales="Hot" />
+                  <ImageAnimation image={product.image} price={product.price} productName={product.title} sales="Hot" />
                   <InformationNewArrivals
                     productName={product.title} 
                     price={product.price}

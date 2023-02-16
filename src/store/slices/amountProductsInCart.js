@@ -5,12 +5,11 @@ export const amountProductsInCart = createSlice({
   initialState: {
     amount: 0,
     productsInCart: [],
-    amountProductsDuplicated: 1,
     totalPrice: 0,
-    isDuplicated: false,
+    amountChoosedProducts: 0,
   },
   reducers: {
-    increment: (state) => {
+    incrementProductsInCart: (state) => {
       state.amount += 1;
     },
 
@@ -18,19 +17,17 @@ export const amountProductsInCart = createSlice({
       state.amount -= 1;
     },
 
-    addCart: (state, action) => {
-      console.log("action.payload", action.payload);
+    addToCart: (state, action) => {
       state.productsInCart.push(action.payload);
-      console.log("state", state.productsInCart);
-      //  state.productsInCart.map(product => return product)
       state.totalPrice += action.payload.price;
+      state.amountChoosedProducts += 1;
     },
   },
 });
 
-export const { increment, decrement, addCart } = amountProductsInCart.actions;
+export const { incrementProductsInCart, decrement, addToCart } = amountProductsInCart.actions;
 export const selectCount = (state) => state.counter.amount;
 export const selectProductsInCart = (state) => state.counter.productsInCart;
 export const selectTotalPrice = (state) => state.counter.totalPrice;
-export const selectAmountProductsDuplicated = (state) => state.counter.amountProductsDuplicated;
+export const selectAmountChoosedProducts = (state) => state.counter.amountChoosedProducts;
 export default amountProductsInCart.reducer;

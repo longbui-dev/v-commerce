@@ -4,9 +4,9 @@ import "./Information.scss";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
-  increment,
-  addCart,
-} from "../../../store/slices/countAmountProductsInCart";
+  incrementProductsInCart,
+  addToCart,
+} from "../../../store/slices/amountProductsInCart";
 
 function InforCarousel(props: any) {
   const navigate = useNavigate();
@@ -40,8 +40,8 @@ function InforCarousel(props: any) {
           <Button
             type="primary"
             onClick={() => {
-              dispatch(increment());
-              dispatch(addCart(props));
+              dispatch(incrementProductsInCart());
+              dispatch(addToCart(props));
             }}
             className="capitalize text-base font-medium mainColorBg hover:bg-transparent buttonAdd"
           >

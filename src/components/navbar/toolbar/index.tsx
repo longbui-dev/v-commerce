@@ -4,16 +4,14 @@ import {
   SettingOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
-import { Button, MenuProps, Badge, Space, Dropdown } from "antd";
+import { Button, MenuProps, Badge, Space, Popover } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
   selectProductsInCart,
   selectCount,
-  selectTotalPrice,
-  selectAmountProductsDuplicated,
-} from "../../../store/slices/countAmountProductsInCart";
-import { useState } from "react";
+  selectTotalPrice
+} from "../../../store/slices/amountProductsInCart";
 
 function Toolbar(props: any) {
   const navigate = useNavigate();
@@ -22,47 +20,38 @@ function Toolbar(props: any) {
   const showAmoutProduct = useSelector(selectCount);
   const productsInCart = useSelector(selectProductsInCart);
   const totalPrice = useSelector(selectTotalPrice);
-  const amountProductsDuplicated = useSelector(selectAmountProductsDuplicated);
-  const isDuplicated = productsInCart.some(function (item: any, idx: number) {
-    return productsInCart.indexOf(item) !== idx;
-  });
-  console.log(productsInCart);
-  const buttonObject: MenuProps["items"] = [
-    {
-      key: "_",
-      label: (
-        <div className="flex justify-around text-center w-52">
-          <div className="text-[#6f6f6f] text-xs font-bold flex justify-center items-center">
-            Total: $ {totalPrice}
-          </div>
-          <Button
-            type="primary"
-            className=" capitalize text-base font-medium mainColorBg hover:bg-transparent buttonAdd"
-            onClick={moveToCart}
-          >
-            <Link to="/PageCart"></Link>
-            view cart
-          </Button>
-        </div>
-      ),
-    },
-  ];
+
+  const buttonObject = (
+    <div key={99999999} className="flex justify-between text-start w-52 mt-6">
+      <div className="text-[#6f6f6f] text-xs font-bold flex justify-center items-center">
+        Total: $ {totalPrice}
+      </div>
+      <Button
+        type="primary"
+        className=" capitalize text-base font-medium mainColorBg hover:bg-transparent buttonAdd"
+        onClick={moveToCart}
+      >
+        <Link to="/PageCart"></Link>
+        view cart
+      </Button>
+    </div>
+  );
 
   const uniqueIds: any[] = [];
+  console.log(uniqueIds);
   productsInCart.forEach((e: any) => {
     if (uniqueIds.indexOf(e.id) === -1) {
       uniqueIds.push(e.id);
     }
-  });
+  }); 
 
-  const items: MenuProps["items"] = uniqueIds.map((uniqueId: any) => {
-    const product = productsInCart.find((p: any) => p.id === uniqueId);
+  const items = uniqueIds
+    .map((uniqueId: any) => {
+      const product = productsInCart.find((p: any) => p.id === uniqueId);
 
-    return {
-      key: product.id,
-      label: (
-        <div className="flex justify-around w-52">
-          <div>
+      return (
+        <div key={product.id} className="flex justify-around w-52 mt-4 cursor-pointer">
+          <div className="w-max">
             <img src={product.image} alt="chair" className="w-12 h-auto pt-2" />
           </div>
           <div className="block pl-4">
@@ -76,9 +65,9 @@ function Toolbar(props: any) {
           </div>
           <div className="top-0">x</div>
         </div>
-      ),
-    };
-  });
+      );
+    })
+    .concat(buttonObject);
 
   return (
     <div className="flex flex-row justify-around text-lg">
@@ -89,9 +78,9 @@ function Toolbar(props: any) {
       <SettingOutlined className="cursor-pointer flex flex-col justify-center px-2 text-[#a9a6a6] hover:text-[#e99c2e]" />
       <Space size="middle" className="mt-2 iconCart">
         <Badge size="default" count={showAmoutProduct}>
-          <Dropdown placement="bottomLeft" menu={{ items }}>
+          <Popover placement="bottomLeft" content={items}>
             <ShoppingCartOutlined className="cursor-pointer flex flex-col justify-center px-2 text-[#a9a6a6] hover:text-[#e99c2e] text-xl" />
-          </Dropdown>
+          </Popover>
         </Badge>
       </Space>
     </div>

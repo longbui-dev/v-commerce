@@ -9,7 +9,7 @@ function Slide() {
   const carouselProductShow = useSelector(advertisementProducts);
 
   return (
-    <div id="home" className="bg-slate-100 -m-px">
+    <div id="home" className="bg-slate-100">
       <Carousel
         autoplay
         dots={{ className: "dots" }}
