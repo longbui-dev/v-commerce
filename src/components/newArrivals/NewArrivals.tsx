@@ -79,7 +79,7 @@ function NewArrivals() {
                   key={product.id}
                   className="gutter-row relative cursor-pointer textHoverChangeColor"
                 >
-                  <ImageAnimation image={product.image} price={product.price} productName={product.title} sales="Hot" />
+                  <ImageAnimation {...product} productName={product.title} sales="Hot" />
                   <InformationNewArrivals
                     productName={product.title} 
                     price={product.price}

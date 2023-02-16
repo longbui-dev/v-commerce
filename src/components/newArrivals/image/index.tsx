@@ -11,7 +11,6 @@ import {
 
 function ImageAnimation(props: any) {
   const dispatch = useDispatch();
-  // console.log(props)
 
   return (
     <div className="flex justify-center secondColorBg backgroundImg">

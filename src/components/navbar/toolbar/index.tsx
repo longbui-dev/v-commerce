@@ -38,7 +38,6 @@ function Toolbar(props: any) {
   );
 
   const uniqueIds: any[] = [];
-  console.log(uniqueIds);
   productsInCart.forEach((e: any) => {
     if (uniqueIds.indexOf(e.id) === -1) {
       uniqueIds.push(e.id);
