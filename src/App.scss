@@ -1,5 +1,7 @@
+$maincolor: #e99c2e;
+
 .mainColor {
-  color: #e99c2e;
+  color: $maincolor;
 } 
 .mainColorBg {
   background: #e99c2e;
@@ -15,3 +17,7 @@
   width: 100% !important;
 }
 
+// .moreInforButton {
+//   color: $maincolor;
+//   background-color: $secondColor;
+// }
