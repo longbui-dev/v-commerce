@@ -25,9 +25,11 @@ export const amountProductsInCart = createSlice({
   },
 });
 
-export const { incrementProductsInCart, decrement, addToCart } = amountProductsInCart.actions;
+export const { incrementProductsInCart, decrement, addToCart } =
+  amountProductsInCart.actions;
 export const selectCount = (state) => state.counter.amount;
 export const selectProductsInCart = (state) => state.counter.productsInCart;
 export const selectTotalPrice = (state) => state.counter.totalPrice;
-export const selectAmountChoosedProducts = (state) => state.counter.amountChoosedProducts;
+export const selectAmountChoosedProducts = (state) =>
+  state.counter.amountChoosedProducts;
 export default amountProductsInCart.reducer;

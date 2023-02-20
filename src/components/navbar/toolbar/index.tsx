@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import {
   selectProductsInCart,
   selectCount,
-  selectTotalPrice
+  selectTotalPrice,
 } from "../../../store/slices/amountProductsInCart";
 
 function Toolbar(props: any) {
@@ -42,14 +42,17 @@ function Toolbar(props: any) {
     if (uniqueIds.indexOf(e.id) === -1) {
       uniqueIds.push(e.id);
     }
-  }); 
+  });
 
   const items = uniqueIds
     .map((uniqueId: any) => {
       const product = productsInCart.find((p: any) => p.id === uniqueId);
 
       return (
-        <div key={product.id} className="flex justify-around w-52 mt-4 cursor-pointer">
+        <div
+          key={product.id}
+          className="flex justify-around w-52 mt-4 cursor-pointer"
+        >
           <div className="w-max">
             <img src={product.image} alt="chair" className="w-12 h-auto pt-2" />
           </div>

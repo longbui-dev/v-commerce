@@ -1,5 +1,5 @@
 .colorFooter {
-    color: #a5adb3;
+  color: #a5adb3;
 }
 
 .buttonBackTop {
@@ -11,26 +11,29 @@
     animation-duration: 1s;
     bottom: 0;
   }
-    @keyframes arrowButton{
-      from{
-        bottom: 0;
-      }
-      to{
-        bottom: 7px;
-      }
+  @keyframes arrowButton {
+    from {
+      bottom: 0;
     }
+    to {
+      bottom: 7px;
+    }
+  }
 
-    .ant-float-btn-body .ant-float-btn-content .ant-float-btn-icon {
-      font-size: 15px !important;
-    }
+  .ant-float-btn-body .ant-float-btn-content .ant-float-btn-icon {
+    font-size: 15px !important;
+  }
 }
 
 .buttonBackTop.ant-float-btn-default .ant-float-btn-body {
   background-color: #e99c2e !important;
 }
 
-.buttonBackTop.ant-float-btn-default .ant-float-btn-body .ant-float-btn-content .ant-float-btn-icon {
-  color: white ;
+.buttonBackTop.ant-float-btn-default
+  .ant-float-btn-body
+  .ant-float-btn-content
+  .ant-float-btn-icon {
+  color: white;
 }
 
 .buttonBackTop:hover .ant-float-btn-body {

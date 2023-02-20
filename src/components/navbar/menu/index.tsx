@@ -74,7 +74,7 @@ function NavBar() {
     window.addEventListener("scroll", listenScrollEvent);
   });
   const clickShowMenu: MenuProps["onClick"] = (e) => {
-    setShowMenu(!showMenu)
+    setShowMenu(!showMenu);
   };
   const onChange = (key: string | string[]) => {
     // console.log(key);
@@ -96,18 +96,21 @@ function NavBar() {
         ))}
       </Menu> */}
 
-      <Anchor affix={false} offsetTop={0} 
+      <Anchor
+        affix={false}
+        offsetTop={0}
         items={menuItems}
-        style={{backgroundColor: headerBgColor}} className='flex w-full bg-slate-100 text-base font-bold text-gray-500 menuDesktop'/>
+        style={{ backgroundColor: headerBgColor }}
+        className="flex w-full bg-slate-100 text-base font-bold text-gray-500 menuDesktop"
+      />
 
-      <Collapse 
-        onChange={onChange} 
-        expandIcon={({ isActive }) => (
+      <Collapse
+        onChange={onChange}
+        expandIcon={({ isActive }) =>
           isActive ? <CloseSquareOutlined /> : <MenuOutlined />
-        )}
+        }
         className="border-transparent rounded-lg dropdownMenu"
       >
-      
         <Panel header="" key="1" className="absolute panelCollapse">
           {/* <Menu
             onClick={onClick}
@@ -115,13 +118,18 @@ function NavBar() {
             items={items}  mode="horizontal"
             className="menuMobile"
           /> */}
-          <Anchor affix={false} offsetTop={0} 
-            items={menuItems} onClick={() => {
+          <Anchor
+            affix={false}
+            offsetTop={0}
+            items={menuItems}
+            onClick={() => {
               window.location.href = "javascript:void(0)";
-          }}
-            style={{backgroundColor: headerBgColor}} className='menuMobile'/>
+            }}
+            style={{ backgroundColor: headerBgColor }}
+            className="menuMobile"
+          />
         </Panel>
-      </Collapse> 
+      </Collapse>
     </div>
   );
 }

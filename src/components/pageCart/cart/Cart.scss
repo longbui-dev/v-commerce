@@ -1,33 +1,32 @@
 .pageCart {
-    width: 75%;
-    margin: 0 auto;
+  width: 75%;
+  margin: 0 auto;
 
-    .textAmountProducts {
-        margin-bottom: 16px;
+  .textAmountProducts {
+    margin-bottom: 16px;
 
-        span {
-            line-height: 40.313px;
-            font-size: 26px;
-            font-weight: 400;
-        }
+    span {
+      line-height: 40.313px;
+      font-size: 26px;
+      font-weight: 400;
     }
+  }
 
-    @media (max-width: 575px){
-        width: 95%;
-    }
+  @media (max-width: 575px) {
+    width: 95%;
+  }
 
-    @media (max-width: 392px){
-        width: 100% !important;
-    }
+  @media (max-width: 392px) {
+    width: 100% !important;
+  }
 }
-
 
 .ant-popover .ant-btn-primary {
-    background-color: #e99c2e;
+  background-color: #e99c2e;
 }
 
-@media (max-width: 575px){
-    .pageCart {
-        width: 95%;
-    }
+@media (max-width: 575px) {
+  .pageCart {
+    width: 95%;
+  }
 }

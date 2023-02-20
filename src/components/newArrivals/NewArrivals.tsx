@@ -15,7 +15,10 @@ interface Product {
   price: number;
 }
 
-async function fetchArrivalsProducts(offset: number, limit: number): Promise<Product[]> {
+async function fetchArrivalsProducts(
+  offset: number,
+  limit: number
+): Promise<Product[]> {
   const response = await fetch(
     `https://api.escuelajs.co/api/v1/products?offset=${offset}&limit=${limit}`
   );
@@ -25,37 +28,37 @@ async function fetchArrivalsProducts(offset: number, limit: number): Promise<Pro
     image: rawProduct.category.image,
     title: rawProduct.title,
     price: rawProduct.price,
-  }))
-}                               
+  }));
+}
 
-const limit = 8
+const limit = 8;
 
 function NewArrivals() {
-  const [errMsg, setErrMsg] = useState("")
-  const [isLoading, setLoading] = useState(false)
-  const [products, setProducts] = useState([] as Product[])
-  const [offset, setOffset]=  useState(0)
+  const [errMsg, setErrMsg] = useState("");
+  const [isLoading, setLoading] = useState(false);
+  const [products, setProducts] = useState([] as Product[]);
+  const [offset, setOffset] = useState(0);
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     fetchArrivalsProducts(offset, limit)
-      .then(arrivalProducts => {
-        setProducts(arrivalProducts)
+      .then((arrivalProducts) => {
+        setProducts(arrivalProducts);
       })
-      .catch(err => {
-        setErrMsg(err)
+      .catch((err) => {
+        setErrMsg(err);
       })
-      .finally(() =>{
-        setLoading(false)
-      })
-  }, [])
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
 
   const showMore = async () => {
-    const newOffset = offset + 8
-    const newArrivalProducts = await fetchArrivalsProducts(newOffset, limit)
-    setProducts([...products, ...newArrivalProducts])
-    setOffset(newOffset)
-  }
+    const newOffset = offset + 8;
+    const newArrivalProducts = await fetchArrivalsProducts(newOffset, limit);
+    setProducts([...products, ...newArrivalProducts]);
+    setOffset(newOffset);
+  };
 
   return (
     <div id="newArrival">
@@ -71,38 +74,46 @@ function NewArrivals() {
             className="flex justify-around py-10 px-24 w-full newArrivals"
             gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
           >
-            {products.map((product: any) =>
-            // newArrival.sale === true ? 
-              (
-                <Col
-                  span={6}
-                  key={product.id}
-                  className="gutter-row relative cursor-pointer textHoverChangeColor"
-                >
-                  <ImageAnimation {...product} productName={product.title} sales="Hot" />
-                  <InformationNewArrivals
-                    productName={product.title} 
-                    price={product.price}
-                  />
-                </Col>    
-                // : (
-                //   <Col
-                //     span={6}
-                //     key={newArrival.id}
-                //     className="gutter-row relative cursor-pointer textHoverChangeColor"
-                //   >
-                //     <ImageAnimation image={newArrival.image} />
-                //     <InformationNewArrivals
-                //       productName={newArrival.productName}
-                //       price={newArrival.price}
-                //     />
-                //   </Col>
-                // )
-              ) 
-            )}
+            {products.map((product: any) => (
+              // newArrival.sale === true ?
+              <Col
+                span={6}
+                key={product.id}
+                className="gutter-row relative cursor-pointer textHoverChangeColor"
+              >
+                <ImageAnimation
+                  {...product}
+                  productName={product.title}
+                  sales="Hot"
+                />
+                <InformationNewArrivals
+                  productName={product.title}
+                  price={product.price}
+                />
+              </Col>
+              // : (
+              //   <Col
+              //     span={6}
+              //     key={newArrival.id}
+              //     className="gutter-row relative cursor-pointer textHoverChangeColor"
+              //   >
+              //     <ImageAnimation image={newArrival.image} />
+              //     <InformationNewArrivals
+              //       productName={newArrival.productName}
+              //       price={newArrival.price}
+              //     />
+              //   </Col>
+              // )
+            ))}
 
-            <Button type="primary" onClick={showMore} className='flex justify-center items-center capitalize p-6 mt-8 buttonNewProducts'>
-              <div className='flex justify-center font-bold text-base '>view more</div>
+            <Button
+              type="primary"
+              onClick={showMore}
+              className="flex justify-center items-center capitalize p-6 mt-8 buttonNewProducts"
+            >
+              <div className="flex justify-center font-bold text-base ">
+                view more
+              </div>
             </Button>
           </Row>
         </div>

@@ -5,7 +5,7 @@ import {
 } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
 import {
-    addToCart,
+  addToCart,
   incrementProductsInCart,
 } from "../../../store/slices/amountProductsInCart";
 
@@ -20,7 +20,7 @@ function ImageAnimation(props: any) {
         className={
           props.sales
             ? "capitalize font-semibold mainColorBg textSale"
-            : "hidden" 
+            : "hidden"
         }
       >
         {props.sales}
