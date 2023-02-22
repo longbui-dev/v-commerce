@@ -1,12 +1,12 @@
-import { Button, Space } from "antd";
+import { Button, Space, Typography } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons";
-import "./Information.scss";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {
-  incrementProductsInCart,
-  addToCart,
-} from "../../../store/slices/amountProductsInCart";
+import { addToCart } from "../../../store/slices/amountProductsInCart";
+
+import "./Information.scss";
+
+const { Title } = Typography;
 
 function InforCarousel(props: any) {
   const navigate = useNavigate();
@@ -40,7 +40,6 @@ function InforCarousel(props: any) {
           <Button
             type="primary"
             onClick={() => {
-              dispatch(incrementProductsInCart());
               dispatch(addToCart(props));
             }}
             className="capitalize text-base font-medium mainColorBg hover:bg-transparent buttonAdd"

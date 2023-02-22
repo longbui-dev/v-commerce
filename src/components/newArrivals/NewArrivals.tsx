@@ -1,12 +1,8 @@
 import { Button, Col, Row } from "antd";
 import ImageAnimation from "./image";
-// import {useDispatch} from 'react-redux'
 import InformationNewArrivals from "./information";
 import "./NewArrivals.scss";
 import { useEffect, useState } from "react";
-// import { useSelector } from "react-redux";
-// import { fetchAllProducts, fetchProducts, inforProductsNewArrivals } from "../../store/slices/allProducts";
-// import axios from "axios";
 
 interface Product {
   id: number;

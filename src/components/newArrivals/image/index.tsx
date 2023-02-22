@@ -4,13 +4,14 @@ import {
   ExpandOutlined,
 } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
-import {
-  addToCart,
-  incrementProductsInCart,
-} from "../../../store/slices/amountProductsInCart";
+import { addToCart } from "../../../store/slices/amountProductsInCart";
 
 function ImageAnimation(props: any) {
   const dispatch = useDispatch();
+
+  const handleAmountProductsInCart = () => {
+    dispatch(addToCart(props));
+  };
 
   return (
     <div className="flex justify-center secondColorBg backgroundImg">
@@ -28,10 +29,7 @@ function ImageAnimation(props: any) {
       <div className="newArrivalCart flex justify-between">
         <div
           className="flex justify-center"
-          onClick={() => {
-            dispatch(incrementProductsInCart());
-            dispatch(addToCart(props));
-          }}
+          onClick={handleAmountProductsInCart}
         >
           <ShoppingCartOutlined className="cursor-pointer flex flex-col justify-center px-3" />
           <span className="capitalize flex items-center text-xs">

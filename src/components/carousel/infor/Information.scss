@@ -1,5 +1,13 @@
+@import "../../../App.scss";
+
 .inforCarousel {
   animation: carousel 1s alternate;
+
+  h1 {
+    font-weight: 400;
+    // color: $secondBoldColor;
+  }
+
   @media (max-width: 1024px) {
     padding-top: 2rem;
   }
