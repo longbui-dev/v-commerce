@@ -1,9 +1,15 @@
 import { Card } from "antd";
-import "./smallAdver.scss";
+import "./index.scss";
 
 const { Meta } = Card;
 
-const SmallAdver = (props: any) => (
+interface PropsSmallAdver {
+  image: string;
+  title: string;
+  description: string;
+}
+
+const SmallAdver = (props: PropsSmallAdver) => (
   <Card
     hoverable
     cover={
@@ -17,7 +23,7 @@ const SmallAdver = (props: any) => (
   >
     <Meta
       className="capitalize text-center smallAdverInfor"
-      title={props.productName}
+      title={props.title}
       description={props.description}
     />
   </Card>

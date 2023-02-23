@@ -1,7 +1,7 @@
 import { SendOutlined } from "@ant-design/icons";
 import { Col, Row, Descriptions, Input, Space } from "antd";
 import { newsLetters } from "../../mockdata/NewsLetter";
-import "./NewsLetter.scss";
+import "./index.scss";
 
 function NewsLetter() {
   return (

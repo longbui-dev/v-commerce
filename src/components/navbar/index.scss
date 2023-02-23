@@ -50,3 +50,19 @@
     margin-left: 0;
   }
 }
+
+.collapsed {
+  height: 0px;
+  opacity: 0;
+  transform: scaleY(0);
+  transform: translate(0px, -100px);
+  transition: all 0.5s ease-out;
+}
+
+.expanded {
+  opacity: 1;
+  height: auto;
+  transform: scaleY(1);
+  transition: all 0.5s ease-out;
+  max-height: 300px;
+}

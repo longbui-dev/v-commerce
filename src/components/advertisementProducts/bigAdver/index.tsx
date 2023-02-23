@@ -1,7 +1,14 @@
-import "./BigAdver.scss";
+import "./index.scss";
 import { Card, Col, Row, Button, Space } from "antd";
 
-function BigAdver(props: any) {
+interface PropsBigAdver {
+  image: string;
+  title: string;
+  description: string;
+  price: number;
+}
+
+function BigAdver(props: PropsBigAdver) {
   return (
     <Card
       hoverable
@@ -29,7 +36,7 @@ function BigAdver(props: any) {
           <div className="items-start p-8 inforAdvertisementProducts">
             <div className="flex flex-col justify-start items-start titleInforAdvertisementProducts">
               <h3 className="capitalize text-slate-500 text-xl font-semibold">
-                {props.productName}
+                {props.title}
               </h3>
             </div>
             <div className="flex flex-col justify-start">

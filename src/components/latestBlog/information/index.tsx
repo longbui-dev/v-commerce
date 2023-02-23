@@ -1,4 +1,11 @@
-function InformationLatestBlog(props: any) {
+interface PropsInformationLatestBlog {
+  productName: string;
+  author: string;
+  time: string;
+  description: string;
+}
+
+function InformationLatestBlog(props: PropsInformationLatestBlog) {
   return (
     <div className="p-5">
       <h4 className="flex justify-start text-base font-semibold text-zinc-600 textHover">

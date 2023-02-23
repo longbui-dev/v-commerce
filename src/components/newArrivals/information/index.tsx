@@ -1,8 +1,13 @@
-function InformationNewArrivals(props: any) {
+interface PropsInformationNewArrivals {
+  title: string;
+  price: number;
+}
+
+function InformationNewArrivals(props: PropsInformationNewArrivals) {
   return (
     <div className="p-4">
       <h4 className="flex justify-center text-lg font-semibold text-zinc-600 textHover">
-        {props.productName}
+        {props.title}
       </h4>
       <p className="flex justify-center mt-2 text-base text-zinc-600">
         ${props.price}

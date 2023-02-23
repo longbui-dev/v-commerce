@@ -5,11 +5,11 @@ const initialState = {
   status: "",
   error: null,
   advertisementProducts: [],
-  idAdvertisementProducts: "",
-  imageAdvertisementProducts: "",
-  titleAdvertisementProducts: "",
-  describeAdvertisementProducts: "",
-  priceAdvertisementBigProducts: 0,
+  id: "",
+  image: "",
+  title: "",
+  description: "",
+  price: 0,
 };
 
 export const fetchAllProducts = createAsyncThunk(
@@ -38,17 +38,17 @@ const allProductsSlice = createSlice({
         state.advertisementProducts = state.advertisementProducts
           .slice(0, 3)
           .map((product) => {
-            state.idAdvertisementProducts = product.id;
-            state.titleAdvertisementProducts = product.title;
-            state.imageAdvertisementProducts = product.category.image;
-            state.describeAdvertisementProducts = product.description;
-            state.priceAdvertisementBigProducts = product.price;
+            state.id = product.id;
+            state.title = product.title;
+            state.image = product.category.image;
+            state.description = product.description;
+            state.price = product.price;
             return {
-              idAdvertisementProducts: product.id,
-              titleAdvertisementProducts: product.title,
-              imageAdvertisementProducts: product.category.image,
-              describeAdvertisementProducts: product.description,
-              priceAdvertisementBigProducts: product.price,
+              id: product.id,
+              title: product.title,
+              image: product.category.image,
+              description: product.description,
+              price: product.price,
             };
           });
       })
@@ -59,9 +59,6 @@ const allProductsSlice = createSlice({
   },
 });
 
-export const { showProducts } = allProductsSlice.actions;
 export const advertisementProducts = (state) =>
   state.allProducts?.advertisementProducts;
-export const inforProductsNewArrivals = (state) =>
-  state.allProducts?.inforProductsNewArrivals;
 export default allProductsSlice.reducer;

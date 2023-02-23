@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { MenuProps } from "antd";
 import { Collapse, Menu, Anchor } from "antd";
 import { CloseSquareOutlined, MenuOutlined } from "@ant-design/icons";
-import "./Menu.scss";
+import "./index.scss";
 import SubMenu from "antd/es/menu/SubMenu";
 // import { Link } from "react-router-dom";
 
@@ -61,7 +61,6 @@ const items: MenuProps["items"] = [
 ];
 
 function NavBar() {
-  const [current, setCurrent] = useState("home");
   const [showMenu, setShowMenu] = useState(false);
   const [headerBgColor, setHeaderBgColor] = useState("#f1f5f9");
 

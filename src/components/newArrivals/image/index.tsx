@@ -6,7 +6,12 @@ import {
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../store/slices/amountProductsInCart";
 
-function ImageAnimation(props: any) {
+interface PropsImageAnimation {
+  sales: string;
+  image: string;
+}
+
+function ImageAnimation(props: PropsImageAnimation) {
   const dispatch = useDispatch();
 
   const handleAmountProductsInCart = () => {

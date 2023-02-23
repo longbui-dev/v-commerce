@@ -1,19 +1,24 @@
 import { Button, Rate, Space } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { Radio, Collapse } from "antd";
-import "./Information.scss";
+import "./index.scss";
 
 const { Panel } = Collapse;
+interface PropsInforPageDetailProduct {
+  rate: any;
+  title: string;
+  price: number;
+  reviews: number;
+  description: string;
+}
 
-function InforPageDetailProduct(props: any) {
-  const onChange = (key: string | string[]) => {
-    // console.log(key);
-  };
+function InforPageDetailProduct(props: PropsInforPageDetailProduct) {
+  const onChange = (key: string | string[]) => {};
   return (
     <div className="w-full items-start pt-8 pl-28 inforCarousel">
       <div className="flex flex-col justify-start items-start">
         <h1 className="capitalize text-gray-500 text-4xl pt-6">
-          {props.productName}
+          {props.title}
         </h1>
         <div className="flex flex-column justify-center items-center pt-4 text-gray-500">
           Starts from

@@ -1,9 +1,14 @@
 import { Space, Table, Typography } from "antd";
-import "./Cart.scss";
+import "./index.scss";
 
 const { Title } = Typography;
+interface PropsCart {
+  columns: any;
+  title: string;
+  cart: any;
+}
 
-function Cart(props: any) {
+function Cart(props: PropsCart) {
   return (
     <div>
       <Space align="center">

@@ -1,6 +1,6 @@
 import { Button, Col, Row, Space } from "antd";
 import { collection } from "../../mockdata/Collection";
-import "./CollectionDetail.scss";
+import "./index.scss";
 
 function CollectionDetail() {
   return (

@@ -35,7 +35,7 @@ function FeaturedProducts() {
                 </span>
               </div>
               <InformationNewArrivals
-                productName={featuredProduct.productName}
+                title={featuredProduct.productName}
                 price={featuredProduct.price}
               />
             </Col>

@@ -4,13 +4,22 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../store/slices/amountProductsInCart";
 
-import "./Information.scss";
+import "./index.scss";
 
 const { Title } = Typography;
 
-function InforCarousel(props: any) {
+interface InformationInCart {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  price: number;
+  oldPrice: number;
+}
+
+function InforCarousel(props: InformationInCart) {
   const navigate = useNavigate();
-  const moveToDetailProductPage = (id: any) => {
+  const moveToDetailProductPage = (id: number) => {
     navigate(`/pageDetailProduct/${id}`);
   };
 
@@ -23,7 +32,7 @@ function InforCarousel(props: any) {
           great design collection
         </h4>
         <h1 className="capitalize text-gray-500 text-4xl pt-6">
-          {props.productName}
+          {props.title}
         </h1>
         <p className="text-ellipsis overflow-hidden pt-8 text-base text-left leading-8 text-stone-400">
           {props.description}

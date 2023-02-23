@@ -1,19 +1,11 @@
-import { cart, sumMoney } from "../../mockdata/Cart";
+import { sumMoney } from "../../mockdata/Cart";
 import { DeleteOutlined } from "@ant-design/icons";
 import { Button, Popconfirm, Space } from "antd";
-import type { ColumnsType } from "antd/es/table";
+// import type { ColumnsType } from "antd/es/table";
 import Cart from "./cart";
-import "./PageCart.scss";
+import "./index.scss";
 import { useSelector } from "react-redux";
 import { selectProductsInCart } from "../../store/slices/amountProductsInCart";
-
-interface DataCart {
-  key: React.ReactNode;
-  nameProduct: string;
-  price: number;
-  amount: number;
-  pay: number;
-}
 
 function PageCart() {
   const productsInCart = useSelector(selectProductsInCart);

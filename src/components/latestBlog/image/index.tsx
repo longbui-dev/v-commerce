@@ -1,6 +1,9 @@
-import "./ImageLatestBlog.scss";
+import "./index.scss";
+interface PropsPictureInLatestBlog {
+  image: string;
+}
 
-function ImageLatestBlog(props: any) {
+function ImageLatestBlog(props: PropsPictureInLatestBlog) {
   return (
     <div className="flex justify-center backgroundImg imageLatestBlog">
       <img src={props.image} alt="Latest Blog" />

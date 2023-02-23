@@ -6,7 +6,7 @@ import {
   LinkedinOutlined,
   UpOutlined,
 } from "@ant-design/icons";
-import "./Footer.scss";
+import "./index.scss";
 import { FloatButton } from "antd";
 
 function Footer() {

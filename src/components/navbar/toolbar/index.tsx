@@ -1,4 +1,4 @@
-import "./Toolbar.scss";
+import "./index.scss";
 import {
   SearchOutlined,
   SettingOutlined,
@@ -12,8 +12,15 @@ import {
   selectCount,
   selectTotalPrice,
 } from "../../../store/slices/amountProductsInCart";
+interface PropsToolbar {
+  id: number;
+  title: string;
+  image: string;
+  price: number;
+  handleSearch: any;
+}
 
-function Toolbar(props: any) {
+function Toolbar(props: PropsToolbar) {
   const navigate = useNavigate();
   const moveToCart = () => navigate(`/PageCart`);
 
@@ -58,7 +65,7 @@ function Toolbar(props: any) {
           </div>
           <div className="block pl-4">
             <div className="text-[#6f6f6f] text-sm font-bold capitalize">
-              {product.productName}
+              {product.title}
             </div>
             <div className="text-[#a09e9c] text-xs">
               {productsInCart.filter((e: any) => e.id === product.id).length} X

@@ -1,7 +1,7 @@
 import { Col, Row, Skeleton } from "antd";
 import BigAdver from "./bigAdver";
 import SmallAdver from "./smallAdver";
-import "./AdvertisementProducts.scss";
+import "./index.scss";
 import { useDispatch, useSelector } from "react-redux";
 import {
   advertisementProducts,
@@ -19,7 +19,7 @@ function AdvertisementProducts() {
 
   return (
     <div className="flex justify-center">
-      {advertisementProductShow == 0 ? (
+      {advertisementProductShow.length === 0 ? (
         <Skeleton />
       ) : (
         <Row
@@ -31,13 +31,9 @@ function AdvertisementProducts() {
             className="flex justify-center gutter-row AdvertisementProductsIpad"
           >
             <SmallAdver
-              image={advertisementProductShow[0].imageAdvertisementProducts}
-              productName={
-                advertisementProductShow[0].titleAdvertisementProducts
-              }
-              description={
-                advertisementProductShow[0].describeAdvertisementProducts
-              }
+              image={advertisementProductShow[0].image}
+              title={advertisementProductShow[0].title}
+              description={advertisementProductShow[0].description}
             />
           </Col>
           <Col
@@ -45,14 +41,10 @@ function AdvertisementProducts() {
             className="flex justify-center gutter-row AdvertisementProductsIpad"
           >
             <BigAdver
-              productName={
-                advertisementProductShow[1].titleAdvertisementProducts
-              }
-              description={
-                advertisementProductShow[1].describeAdvertisementProducts
-              }
-              price={advertisementProductShow[1].priceAdvertisementBigProducts}
-              image={advertisementProductShow[1].imageAdvertisementProducts}
+              title={advertisementProductShow[1].title}
+              description={advertisementProductShow[1].description}
+              price={advertisementProductShow[1].price}
+              image={advertisementProductShow[1].image}
             />
           </Col>
           <Col
@@ -60,13 +52,9 @@ function AdvertisementProducts() {
             className="flex justify-center gutter-row AdvertisementProductsIpad"
           >
             <SmallAdver
-              image={advertisementProductShow[2].imageAdvertisementProducts}
-              productName={
-                advertisementProductShow[2].titleAdvertisementProducts
-              }
-              description={
-                advertisementProductShow[2].describeAdvertisementProducts
-              }
+              image={advertisementProductShow[2].image}
+              title={advertisementProductShow[2].title}
+              description={advertisementProductShow[2].description}
             />
           </Col>
         </Row>

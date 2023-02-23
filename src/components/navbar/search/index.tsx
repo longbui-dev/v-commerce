@@ -1,6 +1,6 @@
 import { SearchOutlined } from "@ant-design/icons";
 import { Input } from "antd";
-import "./Search.scss";
+import "./index.scss";
 
 function Search() {
   return (

@@ -1,7 +1,7 @@
 import { Button, Col, Row } from "antd";
 import ImageAnimation from "./image";
 import InformationNewArrivals from "./information";
-import "./NewArrivals.scss";
+import "./index.scss";
 import { useEffect, useState } from "react";
 
 interface Product {
@@ -47,7 +47,7 @@ function NewArrivals() {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [offset]);
 
   const showMore = async () => {
     const newOffset = offset + 8;
@@ -82,10 +82,7 @@ function NewArrivals() {
                   productName={product.title}
                   sales="Hot"
                 />
-                <InformationNewArrivals
-                  productName={product.title}
-                  price={product.price}
-                />
+                <InformationNewArrivals {...product} />
               </Col>
               // : (
               //   <Col

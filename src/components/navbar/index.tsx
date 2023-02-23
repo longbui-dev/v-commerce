@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Logo from "./logo";
 import NavBar from "./menu";
 import Toolbar from "./toolbar";
-import "./Header.scss";
+import "./index.scss";
 import Search from "./search";
 import { useLocation } from "react-router-dom";
 
@@ -30,7 +30,7 @@ function Header() {
 
   return (
     <div className={show ? "sticked" : "sticky"}>
-      <div className={showSearch ? "block" : "hidden"}>
+      <div className={showSearch ? "expanded" : "collapsed"}>
         <Search />
       </div>
       <div className="flex justify-around py-6 header container w-full">
@@ -48,7 +48,13 @@ function Header() {
         </div>
 
         <div className="flex justify-center w-1/4">
-          <Toolbar handleSearch={() => handleShowSearch()} />
+          <Toolbar
+            handleSearch={() => handleShowSearch()}
+            id={0}
+            title={""}
+            image={""}
+            price={0}
+          />
         </div>
       </div>
     </div>
