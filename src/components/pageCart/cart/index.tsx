@@ -1,17 +1,24 @@
-import {  Space, Table } from 'antd';
-import './Cart.scss';
+import { Space, Table, Typography } from "antd";
+import "./index.scss";
 
-function Cart(props: any) {
+const { Title } = Typography;
+interface PropsCart {
+  columns: any;
+  title: string;
+  cart: any;
+}
+
+function Cart(props: PropsCart) {
   return (
     <div>
-        <Space align="center" className="textAmountProducts">
-          <span>{props.title}</span>
-        </Space>
-        <Table
-          columns={props.columns}
-          dataSource={props.cart} 
-          pagination={false}
-        />
+      <Space align="center">
+        <Title level={4}>{props.title}</Title>
+      </Space>
+      <Table
+        columns={props.columns}
+        dataSource={props.cart}
+        pagination={false}
+      />
     </div>
   );
 }
