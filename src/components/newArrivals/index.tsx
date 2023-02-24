@@ -44,9 +44,9 @@ function NewArrivals() {
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      setOffset(offset + 8);
       const listProduct = await fetchArrivalsProducts(offset, limit);
       setProducts([...products, ...listProduct]);
+      setOffset(offset + 8);
     } catch (err: any) {
       setErrMsg(err?.message);
     }

@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .newsLettersStyle {
   .ant-descriptions-title {
     font-size: 18px;
@@ -11,7 +13,7 @@
   }
 
   .ant-descriptions-item-content:hover {
-    color: #e99c2e;
+    color: $mainColor;
     transform: translateX(10px);
     transition: 0.3s;
   }
@@ -48,7 +50,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .newsLetters {
     .ant-col-6 {
       max-width: 100% !important;
