@@ -1,3 +1,5 @@
+@import "../../../App.scss";
+
 .inforCarousel {
   animation: carousel 1s alternate;
   @media (max-width: 1024px) {
@@ -9,7 +11,7 @@
   content: "";
   width: 25px;
   height: 1px;
-  background: #616060;
+  background: $secondBoldColor;
   margin-top: 10px;
   margin-right: 15px;
 }
@@ -31,14 +33,14 @@
 }
 
 .buttonAdd:hover {
-  color: #e99c2e !important;
+  color: $mainColor !important;
   background: transparent !important;
-  border-color: #e99c2e !important;
+  border-color: $mainColor !important;
 }
 
 .buttonMore:hover {
-  background-color: #f1f5f9 !important;
-  color: #e99c2e !important;
+  background-color: $secondColor !important;
+  color: $mainColor !important;
 }
 
 @keyframes carousel {

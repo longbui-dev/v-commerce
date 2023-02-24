@@ -24,27 +24,21 @@ function PageDetailProduct() {
 
   return (
     <div id="pageDetailProduct">
-      <div className="secondColorBg flex justify-center max-w-full container">
+      <div className="secondColorBg max-w-full container">
         <div className="headerStyle pageDetailProduct">
           {carouselProductShow.map((detailProduct: DetailProduct) => {
             if (numTabId === detailProduct.id) {
               return (
                 <Row
-                  className="flex justify-center pb-10 z-10 w-full container slideDisplayMobile"
+                  className="pb-10 z-10 container slideDisplayMobile"
                   gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
                   key={detailProduct.id}
                 >
-                  <Col
-                    span={10}
-                    className="flex justify-center gutter-row colPicture"
-                  >
+                  <Col span={10} className="colPicture">
                     {" "}
                     <Picture image={detailProduct.image} />
                   </Col>
-                  <Col
-                    span={14}
-                    className="flex justify-center gutter-row colInfor"
-                  >
+                  <Col span={14} className="colInfor">
                     <InforPageDetailProduct
                       title={detailProduct.title}
                       price={detailProduct.price}

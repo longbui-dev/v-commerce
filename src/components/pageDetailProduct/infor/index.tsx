@@ -1,9 +1,10 @@
-import { Button, Rate, Space } from "antd";
+import { Button, Rate, Space, Typography } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { Radio, Collapse } from "antd";
 import "./index.scss";
 
 const { Panel } = Collapse;
+const { Title } = Typography;
 interface PropsInforPageDetailProduct {
   rate: any;
   title: string;
@@ -15,33 +16,27 @@ interface PropsInforPageDetailProduct {
 function InforPageDetailProduct(props: PropsInforPageDetailProduct) {
   const onChange = (key: string | string[]) => {};
   return (
-    <div className="w-full items-start pt-8 pl-28 inforCarousel">
-      <div className="flex flex-col justify-start items-start">
-        <h1 className="capitalize text-gray-500 text-4xl pt-6">
+    <div className="w-full pt-8 pl-28 inforCarousel">
+      <div className="flex flex-col items-start">
+        <Title level={2} className="capitalize titleColor pt-6">
           {props.title}
-        </h1>
-        <div className="flex flex-column justify-center items-center pt-4 text-gray-500">
+        </Title>
+        <div className="flex items-center pt-4 titleColor">
           Starts from
-          <div className="flex flex-row justify-start items-start font-medium text-lg pl-4">
-            ${props.price}
-          </div>
+          <div className="font-medium text-lg pl-4">${props.price}</div>
         </div>
-        <div className="flex justify-center pt-4 ">
+        <div className="pt-4 ">
           <Rate
             allowHalf
             disabled
             defaultValue={props.rate}
             className="text-sm pr-4"
           />
-          <span className="text-zinc-400 flex justify-center">
-            ({props.reviews} Review)
-          </span>
+          <span className="titleColor">({props.reviews} Review)</span>
         </div>
-        <div className="flex flex-column justify-center items-center pt-4 text-gray-500">
-          Số lượng:
-          <div className="flex flex-row justify-start items-start font-medium text-lg pl-4">
-            1
-          </div>
+        <div className="flex items-center pt-4 titleColor">
+          Amount:
+          <div className="font-medium text-lg pl-4">1</div>
         </div>
         <Radio.Group className="py-5">
           <Radio.Button value={"discrease"}>-</Radio.Button>
@@ -50,17 +45,17 @@ function InforPageDetailProduct(props: PropsInforPageDetailProduct) {
         </Radio.Group>
 
         <Collapse onChange={onChange} ghost className="text-start">
-          <Panel header="Mô tả" key="1">
+          <Panel header="Description" key="1">
             <p>{props.description}</p>
           </Panel>
         </Collapse>
         <Space className="my-8 styleMobile">
           <Button
             type="primary"
-            className=" capitalize text-base font-medium mainColorBg hover:bg-transparent buttonAdd"
+            className="text-base font-medium mainColorBg hover:bg-transparent buttonAdd"
           >
-            <PlusCircleOutlined className="hover:text-orange-500 align-[0.1em]" />
-            add to cart
+            <PlusCircleOutlined className="hover:mainColor align-[0.1em]" />
+            Add To Cart
           </Button>
         </Space>
       </div>

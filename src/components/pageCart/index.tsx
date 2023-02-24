@@ -82,7 +82,7 @@ function PageCart() {
         />
         <div className="flex justify-between py-14">
           <textarea
-            placeholder="Ghi chú"
+            placeholder="Note..."
             className="secondColorBg p-5 w-6/12"
           />
           <div className="border-slate-500 w-5/12 text-center tablePay">
@@ -93,9 +93,9 @@ function PageCart() {
             />
             <Button
               type="primary"
-              className=" capitalize my-8 text-base font-medium mainColorBg hover:bg-transparent buttonAdd"
+              className="my-8 text-base font-medium mainColorBg hover:bg-transparent buttonAdd"
             >
-              thanh toán
+              Thanh Toán
             </Button>
           </div>
         </div>
