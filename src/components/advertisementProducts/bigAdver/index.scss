@@ -1,3 +1,5 @@
+@import "../../../App.scss";
+
 .advertisementProducts {
   .ant-card-body {
     display: flex;
@@ -10,11 +12,11 @@
 
 .advertisementProducts:hover {
   .inforAdvertisementProducts {
-    .titleInforAdvertisementProducts h3 {
-      color: #e99c2e;
+    .titleInforAdvertisementProducts .titleColor {
+      color: $mainColor !important;
     }
     .ant-space-item button {
-      background: #64748b;
+      background: $titleColor;
       .discoverMoreHover {
         color: white !important;
       }

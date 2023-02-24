@@ -23,12 +23,12 @@ function AdvertisementProducts() {
         <Skeleton />
       ) : (
         <Row
-          className="flex justify-around py-24 px-12 container AdvertisementProducts"
+          className="py-24 px-12 container AdvertisementProducts"
           gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
         >
           <Col
             span={6}
-            className="flex justify-center gutter-row AdvertisementProductsIpad"
+            className="flex justify-center AdvertisementProductsIpad"
           >
             <SmallAdver
               image={advertisementProductShow[0].image}
@@ -36,10 +36,7 @@ function AdvertisementProducts() {
               description={advertisementProductShow[0].description}
             />
           </Col>
-          <Col
-            span={12}
-            className="flex justify-center gutter-row AdvertisementProductsIpad"
-          >
+          <Col span={12} className="AdvertisementProductsIpad">
             <BigAdver
               title={advertisementProductShow[1].title}
               description={advertisementProductShow[1].description}
@@ -49,7 +46,7 @@ function AdvertisementProducts() {
           </Col>
           <Col
             span={6}
-            className="flex justify-center gutter-row AdvertisementProductsIpad"
+            className="flex justify-center AdvertisementProductsIpad"
           >
             <SmallAdver
               image={advertisementProductShow[2].image}

@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .banner {
   background-image: url("..//..//assets/img/imageDetail/table-banner-collection.jpg");
   position: relative;
@@ -62,5 +64,5 @@
 }
 
 .buttonCollectionDetail:hover {
-  background: #e99c2e !important;
+  background: $mainColor !important;
 }

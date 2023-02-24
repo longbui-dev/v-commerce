@@ -6,7 +6,7 @@ import { addToCart } from "../../../store/slices/amountProductsInCart";
 
 import "./index.scss";
 
-const { Title } = Typography;
+const { Title, Paragraph } = Typography;
 
 interface InformationInCart {
   id: number;
@@ -28,20 +28,18 @@ function InforCarousel(props: InformationInCart) {
   return (
     <div className="w-full items-start pt-20 pl-28 inforCarousel">
       <div className="flex flex-col justify-start items-start">
-        <h4 className="capitalize text-gray-400 text-2xl">
+        <Title level={4} className="capitalize secondLightColor">
           great design collection
-        </h4>
-        <h1 className="capitalize text-gray-500 text-4xl pt-6">
+        </Title>
+        <Title level={1} className="capitalize secondBoldColor nameProduct">
           {props.title}
-        </h1>
-        <p className="text-ellipsis overflow-hidden pt-8 text-base text-left leading-8 text-stone-400">
+        </Title>
+        <Paragraph className="text-ellipsis text-base text-left leading-8 secondLightColor">
           {props.description}
-        </p>
-        <div className="flex flex-row justify-start items-start pt-4">
-          <div className="flex flex-row justify-start items-start font-medium price">
-            $ {props.price}
-          </div>
-          <del className="text-stone-400 pl-4 font-medium">
+        </Paragraph>
+        <div className="flex items-start pt-4">
+          <div className="flex font-medium price">$ {props.price}</div>
+          <del className="secondLightColor pl-4 font-medium">
             $ {props.oldPrice}
           </del>
         </div>
@@ -51,18 +49,18 @@ function InforCarousel(props: InformationInCart) {
             onClick={() => {
               dispatch(addToCart(props));
             }}
-            className="capitalize text-base font-medium mainColorBg hover:bg-transparent buttonAdd"
+            className="text-base font-medium mainColorBg hover:bg-transparent buttonAdd"
           >
-            <PlusCircleOutlined className="hover:text-orange-500 align-[0.1em]" />
-            add to cart
+            <PlusCircleOutlined className="hover:mainColor align-[0.1em]" />
+            Add To Cart
           </Button>
 
           <Button
             type="primary"
             onClick={() => moveToDetailProductPage(props.id)}
-            className="capitalize text-base font-medium secondColorBg mainColor border-slate-100 hover:border-[#e99c2e] buttonMore"
+            className="text-base font-medium secondColorBg mainColor border-slate-100 buttonMore"
           >
-            more info
+            More Info
           </Button>
         </Space>
       </div>

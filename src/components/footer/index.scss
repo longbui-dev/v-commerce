@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .colorFooter {
   color: #a5adb3;
 }
@@ -26,7 +28,7 @@
 }
 
 .buttonBackTop.ant-float-btn-default .ant-float-btn-body {
-  background-color: #e99c2e !important;
+  background-color: $mainColor !important;
 }
 
 .buttonBackTop.ant-float-btn-default
@@ -38,10 +40,10 @@
 
 .buttonBackTop:hover .ant-float-btn-body {
   background-color: white !important;
-  color: #e99c2e;
-  border: 1px solid #e99c2e;
+  color: $mainColor;
+  border: 1px solid $mainColor;
 }
 
 .buttonBackTop:hover .ant-float-btn-icon {
-  color: #e99c2e !important;
+  color: $mainColor !important;
 }

@@ -15,9 +15,9 @@ function Footer() {
       id="contact"
       className="secondColorBg h-40 flex justify-center items-center"
     >
-      <div className="container block justify-center">
+      <div className="container">
         <div className="block align-[4px]">
-          <div className="flex items-center justify-center gap-x-4 py-3 cursor-pointer colorFooter">
+          <div className="flex justify-center gap-x-4 py-3 cursor-pointer colorFooter">
             <FacebookOutlined className="hover:text-[#e99c2e]" />
             <InstagramOutlined className="hover:text-[#e99c2e]" />
             <LinkedinOutlined className="hover:text-[#e99c2e]" />
@@ -25,8 +25,8 @@ function Footer() {
             <BehanceOutlined className="hover:text-[#e99c2e]" />
           </div>
 
-          <span className="flex items-center justify-center colorFooter">
-            © 2045 All Rights Reserved | Design by: <a href="/"> ThemeSINE</a>{" "}
+          <span className="flex justify-center colorFooter">
+            © 2045 All Rights Reserved | Design by: <a href="/"> ThemeSINE</a>
           </span>
         </div>
       </div>

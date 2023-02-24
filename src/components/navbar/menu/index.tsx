@@ -80,7 +80,7 @@ function NavBar() {
   };
 
   return (
-    <div className="flex flex-row border-0 border-white">
+    <div>
       {/* <Menu
         onClick={onClick}
         selectedKeys={[current]}
@@ -100,7 +100,7 @@ function NavBar() {
         offsetTop={0}
         items={menuItems}
         style={{ backgroundColor: headerBgColor }}
-        className="flex w-full bg-slate-100 text-base font-bold text-gray-500 menuDesktop"
+        className="secondBoldColor menuDesktop"
       />
 
       <Collapse

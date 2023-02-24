@@ -1,3 +1,8 @@
+import { Typography } from "antd";
+import "./index.scss";
+
+const { Title, Paragraph } = Typography;
+
 interface PropsInformationLatestBlog {
   productName: string;
   author: string;
@@ -7,16 +12,16 @@ interface PropsInformationLatestBlog {
 
 function InformationLatestBlog(props: PropsInformationLatestBlog) {
   return (
-    <div className="p-5">
-      <h4 className="flex justify-start text-base font-semibold text-zinc-600 textHover">
+    <div className="pt-5 textHover">
+      <Title level={5} className="secondBoldColor titleLatestBlog">
         {props.productName}
-      </h4>
-      <span className="text-zinc-400 flex justify-start my-3">
+      </Title>
+      <span className="secondLightColor flex my-3">
         By {props.author} / {props.time}
       </span>
-      <p className="flex justify-center text-sm text-zinc-600">
+      <Paragraph className="secondBoldColor whitespace-normal">
         {props.description}
-      </p>
+      </Paragraph>
     </div>
   );
 }

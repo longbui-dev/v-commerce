@@ -1,6 +1,8 @@
-import { Button, Col, Row, Space } from "antd";
+import { Button, Col, Row, Space, Typography } from "antd";
 import { collection } from "../../mockdata/Collection";
 import "./index.scss";
+
+const { Title, Paragraph } = Typography;
 
 function CollectionDetail() {
   return (
@@ -8,32 +10,31 @@ function CollectionDetail() {
       <div className="banner">
         <div className="container collection">
           <Row className="px-32 inforCollection">
-            <Col
-              span={12}
-              className="block justify-start gutter-row inforCollectionCol"
-            >
-              <h2 className="capitalize">{collection.data[0].productName}</h2>
-              <p className="font-bold">{collection.data[0].description}</p>
-              <div className="collectionPrice font-bold mb-8 text-sm">
-                <h4 className="capitalize text-white">
-                  string from{" "}
+            <Col span={12} className="inforCollectionCol">
+              <Title level={2} className="capitalize">
+                {collection.data[0].productName}
+              </Title>
+              <Paragraph className="font-bold text-white">
+                {collection.data[0].description}
+              </Paragraph>
+              <div className="collectionPrice font-bold mb-8">
+                <div className="text-white">
+                  String From{" "}
                   <span className="mainColor">
                     $ {collection.data[0].price}
                   </span>
-                </h4>
+                </div>
               </div>
               <Space className="h-12 leading-10 mainColorBg rounded-lg p-6 cursor-pointer">
                 <Button
                   type="primary"
-                  className="capitalize shadow-none buttonCollectionDetail"
+                  className="shadow-none buttonCollectionDetail"
                 >
-                  <div className="flex self-center font-bold text-base">
-                    view more
-                  </div>
+                  <div className="font-bold text-base">View More</div>
                 </Button>
               </Space>
             </Col>
-            <Col span={12} className="flex justify-center gutter-row"></Col>
+            <Col span={12}></Col>
           </Row>
         </div>
       </div>

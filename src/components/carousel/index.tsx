@@ -16,7 +16,7 @@ function Slide() {
   const carouselProductShow = useSelector(advertisementProducts);
 
   return (
-    <div id="home" className="bg-slate-100">
+    <div id="home" className="secondColorBg">
       <Carousel
         autoplay
         dots={{ className: "dots" }}
@@ -27,23 +27,16 @@ function Slide() {
             <div key={productShow.id}>
               <div className="headerStyle">
                 <Row
-                  className="flex justify-center pb-10 z-10 w-full container slideDisplayMobile"
+                  className="pb-10 z-10 w-full container slideDisplayMobile"
                   gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
                 >
-                  <Col
-                    span={14}
-                    className="flex justify-center gutter-row colInfor"
-                  >
+                  <Col span={14} className="colInfor">
                     <InforCarousel
                       {...productShow}
                       oldPrice={productShow.price * 1.5}
                     />
                   </Col>
-                  <Col
-                    span={10}
-                    className="flex justify-center gutter-row colPicture"
-                  >
-                    {" "}
+                  <Col span={10} className="colPicture">
                     <Picture image={productShow.image} />
                   </Col>
                 </Row>

@@ -1,8 +1,10 @@
+@import "../../App.scss";
+
 .sticky {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: #f1f5f9;
+  background: $secondColor;
 }
 
 .header {

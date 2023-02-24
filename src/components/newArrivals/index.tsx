@@ -1,8 +1,10 @@
-import { Button, Col, Row } from "antd";
+import { Button, Col, Row, Typography } from "antd";
 import ImageAnimation from "./image";
 import InformationNewArrivals from "./information";
 import "./index.scss";
 import { useEffect, useState } from "react";
+
+const { Title } = Typography;
 
 interface Product {
   id: number;
@@ -30,44 +32,42 @@ async function fetchArrivalsProducts(
 const limit = 8;
 
 function NewArrivals() {
-  const [errMsg, setErrMsg] = useState("");
+  const [errMsg, setErrMsg] = useState<String>("");
   const [isLoading, setLoading] = useState(false);
   const [products, setProducts] = useState([] as Product[]);
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
-    setLoading(true);
-    fetchArrivalsProducts(offset, limit)
-      .then((arrivalProducts) => {
-        setProducts(arrivalProducts);
-      })
-      .catch((err) => {
-        setErrMsg(err);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [offset]);
+    fetchProducts();
+  }, []);
 
-  const showMore = async () => {
-    const newOffset = offset + 8;
-    const newArrivalProducts = await fetchArrivalsProducts(newOffset, limit);
-    setProducts([...products, ...newArrivalProducts]);
-    setOffset(newOffset);
+  const fetchProducts = async () => {
+    try {
+      setLoading(true);
+      setOffset(offset + 8);
+      const listProduct = await fetchArrivalsProducts(offset, limit);
+      setProducts([...products, ...listProduct]);
+    } catch (err: any) {
+      setErrMsg(err?.message);
+    }
+  };
+
+  const showMore = () => {
+    fetchProducts();
   };
 
   return (
     <div id="newArrival">
       <div className="container m-auto">
         <div className="flex justify-center">
-          <h1 className="capitalize text-4xl font-semibold text-gray-500">
-            new arrivals
-          </h1>
+          <Title level={2} className="titleColor">
+            New Arrivals
+          </Title>
         </div>
 
         <div>
           <Row
-            className="flex justify-around py-10 px-24 w-full newArrivals"
+            className="py-10 px-24 newArrivals"
             gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
           >
             {products.map((product: any) => (
@@ -75,7 +75,7 @@ function NewArrivals() {
               <Col
                 span={6}
                 key={product.id}
-                className="gutter-row relative cursor-pointer textHoverChangeColor"
+                className="relative cursor-pointer textHoverChangeColor"
               >
                 <ImageAnimation
                   {...product}
@@ -102,11 +102,9 @@ function NewArrivals() {
             <Button
               type="primary"
               onClick={showMore}
-              className="flex justify-center items-center capitalize p-6 mt-8 buttonNewProducts"
+              className="flex items-center p-6 mt-8 buttonNewProducts"
             >
-              <div className="flex justify-center font-bold text-base ">
-                view more
-              </div>
+              <div className="font-bold text-base ">View More</div>
             </Button>
           </Row>
         </div>

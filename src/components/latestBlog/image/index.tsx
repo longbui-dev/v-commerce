@@ -5,7 +5,7 @@ interface PropsPictureInLatestBlog {
 
 function ImageLatestBlog(props: PropsPictureInLatestBlog) {
   return (
-    <div className="flex justify-center backgroundImg imageLatestBlog">
+    <div className="backgroundImg imageLatestBlog">
       <img src={props.image} alt="Latest Blog" />
       <div className="backgroundImgHover"></div>
     </div>

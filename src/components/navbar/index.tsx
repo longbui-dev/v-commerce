@@ -33,9 +33,9 @@ function Header() {
       <div className={showSearch ? "expanded" : "collapsed"}>
         <Search />
       </div>
-      <div className="flex justify-around py-6 header container w-full">
+      <div className="flex py-6 header container">
         <div className="flex justify-around w-full items-center headerLogoNavBar">
-          <div className="flex justify-center headerLogo">
+          <div className="headerLogo">
             <Logo />
           </div>
           <div

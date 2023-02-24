@@ -19,7 +19,7 @@ const SmallAdver = (props: PropsSmallAdver) => (
         className="px-14 py-6 smallAdverImg"
       />
     }
-    className="w-60 bg-slate-100 productHover"
+    className="w-60 secondColorBg productHover"
   >
     <Meta
       className="capitalize text-center smallAdverInfor"

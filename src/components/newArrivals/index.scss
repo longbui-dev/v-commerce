@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .newArrivals {
   margin: -16px 0px !important;
   .backgroundImg {
@@ -7,6 +9,9 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    @media (max-width: 1024px) {
+      min-height: 370px;
+    }
 
     img {
       width: auto;
@@ -103,17 +108,19 @@
   bottom: 0px;
 }
 
-.textHoverChangeColor:hover .textHover {
-  color: #e99c2e;
+.textHoverChangeColor:hover {
+  .textHover {
+    color: $mainColor !important;
+  }
 }
 
 .buttonNewProducts {
-  background: #e99c2e;
+  background: $mainColor;
   margin: 0 auto;
 }
 
 .buttonNewProducts:hover {
   background: white !important;
-  color: #e99c2e !important;
-  border-color: #e99c2e !important;
+  color: $mainColor !important;
+  border-color: $mainColor !important;
 }

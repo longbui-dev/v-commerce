@@ -1,3 +1,7 @@
+import { Typography } from "antd";
+import "../../../App.scss";
+
+const { Title } = Typography;
 interface PropsInformationNewArrivals {
   title: string;
   price: number;
@@ -6,10 +10,10 @@ interface PropsInformationNewArrivals {
 function InformationNewArrivals(props: PropsInformationNewArrivals) {
   return (
     <div className="p-4">
-      <h4 className="flex justify-center text-lg font-semibold text-zinc-600 textHover">
+      <Title level={5} className="flex justify-center titleColor textHover">
         {props.title}
-      </h4>
-      <p className="flex justify-center mt-2 text-base text-zinc-600">
+      </Title>
+      <p className="flex justify-center mt-2 text-base titleColor">
         ${props.price}
       </p>
     </div>

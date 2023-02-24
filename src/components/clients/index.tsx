@@ -29,7 +29,7 @@ const responsive = {
 const clients = [clients1, clients2, clients3, clients4, clients5];
 function Clients() {
   return (
-    <div className="flex h-52 items-center clients cursor-pointer">
+    <div className="flex h-52 clients cursor-pointer">
       <div className="container m-auto">
         <Carousel
           responsive={responsive}

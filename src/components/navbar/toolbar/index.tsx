@@ -35,11 +35,11 @@ function Toolbar(props: PropsToolbar) {
       </div>
       <Button
         type="primary"
-        className=" capitalize text-base font-medium mainColorBg hover:bg-transparent buttonAdd"
+        className="text-base font-medium mainColorBg hover:bg-transparent buttonAdd"
         onClick={moveToCart}
       >
         <Link to="/PageCart"></Link>
-        view cart
+        View Cart
       </Button>
     </div>
   );
@@ -79,7 +79,7 @@ function Toolbar(props: PropsToolbar) {
     .concat(buttonObject);
 
   return (
-    <div className="flex flex-row justify-around text-lg">
+    <div className="flex text-lg">
       <SearchOutlined
         className="cursor-pointer flex flex-col justify-center px-2 text-[#a9a6a6] hover:text-[#e99c2e]"
         onClick={() => props.handleSearch()}
@@ -88,7 +88,7 @@ function Toolbar(props: PropsToolbar) {
       <Space size="middle" className="mt-2 iconCart">
         <Badge size="default" count={showAmoutProduct}>
           <Popover placement="bottomLeft" content={items}>
-            <ShoppingCartOutlined className="cursor-pointer flex flex-col justify-center px-2 text-[#a9a6a6] hover:text-[#e99c2e] text-xl" />
+            <ShoppingCartOutlined className="cursor-pointer flex flex-col px-2 text-[#a9a6a6] hover:text-[#e99c2e] text-xl" />
           </Popover>
         </Badge>
       </Space>

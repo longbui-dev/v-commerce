@@ -1,16 +1,18 @@
-import { Col, Row } from "antd";
+import { Col, Row, Typography } from "antd";
 import { latestBlogs } from "../../mockdata/LatestBlog";
 import ImageLatestBlog from "./image";
 import InformationLatestBlog from "./information";
+
+const { Title } = Typography;
 
 function LatestBlog() {
   return (
     <div id="blog">
       <div className="container m-auto">
         <div className="flex justify-center">
-          <h1 className="capitalize text-3xl p-14 font-semibold text-gray-500">
-            latest blog
-          </h1>
+          <Title level={2} className="p-14 titleColor">
+            Latest Blog
+          </Title>
         </div>
 
         <div>

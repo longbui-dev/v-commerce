@@ -19,7 +19,7 @@ function ImageAnimation(props: PropsImageAnimation) {
   };
 
   return (
-    <div className="flex justify-center secondColorBg backgroundImg">
+    <div className="secondColorBg backgroundImg">
       <img src={props.image} alt="new arrivals" />
       <div className="backgroundImgHover"></div>
       <div
@@ -37,9 +37,7 @@ function ImageAnimation(props: PropsImageAnimation) {
           onClick={handleAmountProductsInCart}
         >
           <ShoppingCartOutlined className="cursor-pointer flex flex-col justify-center px-3" />
-          <span className="capitalize flex items-center text-xs">
-            add to cart
-          </span>
+          <span className="flex items-center text-xs">Add To Cart</span>
         </div>
         <div className="flex items-center">
           <HeartOutlined className="mr-4" />

@@ -24,7 +24,7 @@ function PageDetailProduct() {
 
   return (
     <div id="pageDetailProduct">
-      <div className="bg-slate-100 flex justify-center max-w-full container">
+      <div className="secondColorBg flex justify-center max-w-full container">
         <div className="headerStyle pageDetailProduct">
           {carouselProductShow.map((detailProduct: DetailProduct) => {
             if (numTabId === detailProduct.id) {

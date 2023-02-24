@@ -1,22 +1,32 @@
 $mainColor: #e99c2e;
 $secondColor: #f1f5f9;
 $secondBoldColor: #616060;
+$secondLightColor: #998d80;
+$titleColor: #64748b;
 
 .mainColor {
-  color: $mainColor;
+  color: $mainColor !important;
 }
 .mainColorBg {
-  background: $mainColor;
+  background: $mainColor !important;
 }
 .secondColor {
-  color: $secondColor;
+  color: $secondColor !important;
 }
 .secondColorBg {
-  background: $secondColor;
+  background: $secondColor !important;
 }
 
 .secondBoldColor {
-  color: $secondBoldColor;
+  color: $secondBoldColor !important;
+}
+
+.secondLightColor {
+  color: $secondLightColor !important;
+}
+
+.titleColor {
+  color: $titleColor !important;
 }
 
 .App {
