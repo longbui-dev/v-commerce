@@ -10,7 +10,7 @@ function LatestBlog() {
     <div id="blog">
       <div className="container m-auto">
         <div className="flex justify-center">
-          <Title level={2} className="p-14 titleColor">
+          <Title level={2} className="p-6 titleColor">
             Latest Blog
           </Title>
         </div>

@@ -1,98 +1,128 @@
-import { sumMoney } from "../../mockdata/Cart";
-import { DeleteOutlined } from "@ant-design/icons";
-import { Button, Popconfirm, Space } from "antd";
-// import type { ColumnsType } from "antd/es/table";
-import Cart from "./cart";
-import "./index.scss";
-import { useSelector } from "react-redux";
-import { selectProductsInCart } from "../../store/slices/amountProductsInCart";
+import React, { useState } from 'react'
+import { DeleteOutlined } from '@ant-design/icons'
+import { Button, Popconfirm, Space, Table } from 'antd'
+import type { ColumnsType } from 'antd/es/table'
+import './index.scss'
+import { useSelector } from 'react-redux'
+import {
+  selectProductsInCart,
+  selectTotalPrice,
+} from '../../store/slices/amountProductsInCart'
+
+interface CartType {
+  Key: React.Key
+  title: string
+  price: number
+  amount: number
+}
 
 function PageCart() {
-  const productsInCart = useSelector(selectProductsInCart);
-  const uniqueIds: any[] = [];
+  const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([])
+
+  const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
+    setSelectedRowKeys(newSelectedRowKeys)
+  }
+  const rowSelection = {
+    selectedRowKeys,
+    onChange: onSelectChange,
+  }
+  const hasSelected = selectedRowKeys.length > 0
+
+  const productsInCart = useSelector(selectProductsInCart)
+  let totalPrice = useSelector(selectTotalPrice)
+
+  const uniqueIds: CartType[] = []
   productsInCart.forEach((e: any) => {
     if (uniqueIds.indexOf(e.id) === -1) {
-      uniqueIds.push(e.id);
+      uniqueIds.push(e.id)
     }
-  });
+  })
 
   const cart = uniqueIds.map((uq) => {
-    const products = productsInCart.filter((e: any) => e.id === uq);
-    console.log(products[0]);
+    const products = productsInCart.filter((e: any) => e.id === uq)
     return {
       ...products[0],
       amount: products.length,
-    };
-  });
+      key: products[0].id,
+    }
+  })
 
-  const columnsCart = [
+  const columnsCart: ColumnsType<CartType> = [
     {
-      title: "Sản phẩm",
-      dataIndex: "productName",
-      key: "productName",
+      title: 'Product',
+      dataIndex: 'title',
+      key: 'productName',
+      sortDirections: ['descend', 'ascend'],
+      sorter: (a, b) => a.title.localeCompare(b.title),
     },
     {
-      title: "Giá",
-      dataIndex: "price",
-      key: "price",
-      width: "12%",
+      title: 'Price',
+      dataIndex: 'price',
+      key: 'price',
+      width: '12%',
+      sorter: (a, b) => a.price - b.price,
     },
     {
-      title: "Số lượng",
-      dataIndex: "amount",
-      width: "10%",
-      key: "amount",
+      title: 'Amount',
+      dataIndex: 'amount',
+      width: '10%',
+      key: 'amount',
+      sorter: (a, b) => a.amount - b.amount,
     },
     {
-      title: "Thành tiền",
-      width: "20%",
-      key: "price",
+      title: 'Pay',
+      width: '20%',
+      key: 'totalPay',
       render: (row: any) => row.price * row.amount,
+      // sorter: (a, b) => a.price * b.amount,
     },
     {
-      title: "Action",
-      dataIndex: "action",
-      render: () => (
+      title: 'Action',
+      dataIndex: 'action',
+      render: (_, row) => (
         <Space size="middle" className="cursor-pointer">
           <Popconfirm title="Sure to delete?" className="popconfirm">
             <DeleteOutlined />
           </Popconfirm>
         </Space>
       ),
-      width: "10%",
+      width: '10%',
     },
-  ];
-
-  const columnsPay = [
-    {
-      title: "Tổng cộng",
-      dataIndex: "sumPay",
-      key: "sumPay",
-      render: (row: any) => row.price * row.amount,
-    },
-  ];
+  ]
 
   return (
     <div id="pageCart">
-      <div className="container py-8 pageCart">
-        <Cart
-          cart={cart}
-          title={`Bạn có ${uniqueIds.length} sản phẩm trong giỏ hàng`}
+      <div className="block m-auto container py-8 pageCart">
+        <div className="py-6">
+          {hasSelected ? `Selected ${selectedRowKeys.length} products` : ''}
+        </div>
+        <Table
+          rowSelection={rowSelection}
           columns={columnsCart}
+          dataSource={cart}
+          scroll={{ x: 1000, y: 300 }}
+          summary={() => (
+            <Table.Summary fixed>
+              <Table.Summary.Row className="font-bold">
+                <Table.Summary.Cell colSpan={4} index={0}>
+                  Total Pay
+                </Table.Summary.Cell>
+                <Table.Summary.Cell colSpan={2} index={1}>
+                  1000$
+                </Table.Summary.Cell>
+              </Table.Summary.Row>
+            </Table.Summary>
+          )}
         />
-        <div className="flex justify-between py-14">
+        <div className="py-14">
           <textarea
             placeholder="Note..."
-            className="secondColorBg p-5 w-6/12"
+            className="secondColorBg p-5 w-full h-52"
           />
-          <div className="border-slate-500 w-5/12 text-center tablePay">
-            <Cart
-              cart={sumMoney}
-              title="Tổng chi phí giỏ hàng"
-              columns={columnsPay}
-            />
+          <div className="flex justify-center">
             <Button
               type="primary"
+              size="large"
               className="my-8 text-base font-medium mainColorBg hover:bg-transparent buttonAdd"
             >
               Thanh Toán
@@ -101,7 +131,7 @@ function PageCart() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default PageCart;
+export default PageCart
