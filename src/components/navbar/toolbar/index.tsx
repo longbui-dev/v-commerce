@@ -1,32 +1,32 @@
-import "./index.scss";
+import './index.scss'
 import {
   SearchOutlined,
   SettingOutlined,
   ShoppingCartOutlined,
-} from "@ant-design/icons";
-import { Button, MenuProps, Badge, Space, Popover } from "antd";
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+} from '@ant-design/icons'
+import { Button, MenuProps, Badge, Space, Popover } from 'antd'
+import { Link, useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import {
   selectProductsInCart,
-  selectCount,
   selectTotalPrice,
-} from "../../../store/slices/amountProductsInCart";
+  selectAmountProductsInCart,
+} from '../../../store/slices/amountProductsInCart'
 interface PropsToolbar {
-  id: number;
-  title: string;
-  image: string;
-  price: number;
-  handleSearch: any;
+  id: number
+  title: string
+  image: string
+  price: number
+  handleSearch: any
 }
 
 function Toolbar(props: PropsToolbar) {
-  const navigate = useNavigate();
-  const moveToCart = () => navigate(`/PageCart`);
+  const navigate = useNavigate()
+  const moveToCart = () => navigate(`/PageCart`)
 
-  const showAmoutProduct = useSelector(selectCount);
-  const productsInCart = useSelector(selectProductsInCart);
-  const totalPrice = useSelector(selectTotalPrice);
+  const showAmoutProduct = useSelector(selectAmountProductsInCart)
+  const productsInCart = useSelector(selectProductsInCart)
+  const totalPrice = useSelector(selectTotalPrice)
 
   const buttonObject = (
     <div key={99999999} className="flex justify-between text-start w-52 mt-6">
@@ -42,18 +42,19 @@ function Toolbar(props: PropsToolbar) {
         View Cart
       </Button>
     </div>
-  );
+  )
 
-  const uniqueIds: any[] = [];
+  const uniqueIds: any[] = []
   productsInCart.forEach((e: any) => {
     if (uniqueIds.indexOf(e.id) === -1) {
-      uniqueIds.push(e.id);
+      uniqueIds.push(e.id)
     }
-  });
+  })
 
-  const items = uniqueIds.slice(0, 3)
+  const items = uniqueIds
+    .slice(0, 3)
     .map((uniqueId: any) => {
-      const product = productsInCart.find((p: any) => p.id === uniqueId);
+      const product = productsInCart.find((p: any) => p.id === uniqueId)
 
       return (
         <div
@@ -74,9 +75,9 @@ function Toolbar(props: PropsToolbar) {
           </div>
           <div className="top-0">x</div>
         </div>
-      );
+      )
     })
-    .concat(buttonObject);
+    .concat(buttonObject)
 
   return (
     <div className="flex text-lg">
@@ -93,7 +94,7 @@ function Toolbar(props: PropsToolbar) {
         </Badge>
       </Space>
     </div>
-  );
+  )
 }
 
-export default Toolbar;
+export default Toolbar

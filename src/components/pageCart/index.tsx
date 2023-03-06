@@ -3,8 +3,11 @@ import { DeleteOutlined } from '@ant-design/icons'
 import { Button, message, Popconfirm, Space, Table } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
 import './index.scss'
-import { useSelector } from 'react-redux'
-import { selectProductsInCart } from '../../store/slices/amountProductsInCart'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  removeInCarts,
+  selectProductsInCart,
+} from '../../store/slices/amountProductsInCart'
 
 interface CartType {
   Key: React.Key
@@ -29,6 +32,8 @@ function PageCart() {
 
   const productsInCart = useSelector(selectProductsInCart)
 
+  const dispatch = useDispatch()
+
   const uniqueIds: CartType[] = []
   productsInCart.forEach((e: any) => {
     if (uniqueIds.indexOf(e.id) === -1) {
@@ -45,20 +50,18 @@ function PageCart() {
     }
   })
 
-  const selectedCarts = carts.filter((c) => {
-    return selectedRowKeys.find((k) => c.id === k)
+  const selectedCarts = carts.filter((item) => {
+    return selectedRowKeys.find((index) => item.id === index)
   })
   const totalPriceSelected = selectedCarts.reduce(
-    (a, c) => a + c.price * c.amount,
+    (accumulator, currentValue) =>
+      accumulator + currentValue.price * currentValue.amount,
     0,
   )
 
-  const deleteProduct = (e: any) => {
-    console.log('delete not yet')
-    const removeItems = carts.filter((item) => e.id !== item.id)
-    console.log(removeItems, 'removeItems')
-    console.log('delete success')
-    message.info('Clicked on Yes.')
+  const deleteProduct = (removeItem: any) => {
+    dispatch(removeInCarts({ id: removeItem.id, amount: removeItem.amount }))
+    message.info('Deleted')
   }
 
   const columnsCart: ColumnsType<CartType> = [
