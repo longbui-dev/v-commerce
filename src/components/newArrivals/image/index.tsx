@@ -2,21 +2,21 @@ import {
   ShoppingCartOutlined,
   HeartOutlined,
   ExpandOutlined,
-} from "@ant-design/icons";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../../store/slices/amountProductsInCart";
+} from '@ant-design/icons'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../../../store/slices/cart'
 
 interface PropsImageAnimation {
-  sales: string;
-  image: string;
+  sales: string
+  image: string
 }
 
 function ImageAnimation(props: PropsImageAnimation) {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const handleAmountProductsInCart = () => {
-    dispatch(addToCart(props));
-  };
+    dispatch(addToCart(props))
+  }
 
   return (
     <div className="secondColorBg backgroundImg">
@@ -25,8 +25,8 @@ function ImageAnimation(props: PropsImageAnimation) {
       <div
         className={
           props.sales
-            ? "capitalize font-semibold mainColorBg textSale"
-            : "hidden"
+            ? 'capitalize font-semibold mainColorBg textSale'
+            : 'hidden'
         }
       >
         {props.sales}
@@ -45,7 +45,7 @@ function ImageAnimation(props: PropsImageAnimation) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default ImageAnimation;
+export default ImageAnimation

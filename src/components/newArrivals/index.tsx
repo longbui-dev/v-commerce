@@ -1,60 +1,60 @@
-import { Button, Col, Row, Typography } from "antd";
-import ImageAnimation from "./image";
-import InformationNewArrivals from "./information";
-import "./index.scss";
-import { useEffect, useState } from "react";
+import { Button, Col, Row, Typography } from 'antd'
+import ImageAnimation from './image'
+import InformationNewArrivals from './information'
+import './index.scss'
+import { useEffect, useState } from 'react'
 
-const { Title } = Typography;
+const { Title } = Typography
 
 interface Product {
-  id: number;
-  image: string;
-  title: string;
-  price: number;
+  id: number
+  image: string
+  title: string
+  price: number
 }
 
 async function fetchArrivalsProducts(
   offset: number,
-  limit: number
+  limit: number,
 ): Promise<Product[]> {
   const response = await fetch(
-    `https://api.escuelajs.co/api/v1/products?offset=${offset}&limit=${limit}`
-  );
-  const rawProducts = await response.json();
+    `https://api.escuelajs.co/api/v1/products?offset=${offset}&limit=${limit}`,
+  )
+  const rawProducts = await response.json()
   return rawProducts.map((rawProduct: any) => ({
     id: rawProduct.id,
     image: rawProduct.category.image,
     title: rawProduct.title,
     price: rawProduct.price,
-  }));
+  }))
 }
 
-const limit = 8;
+const limit = 8
 
 function NewArrivals() {
-  const [errMsg, setErrMsg] = useState<String>("");
-  const [isLoading, setLoading] = useState(false);
-  const [products, setProducts] = useState([] as Product[]);
-  const [offset, setOffset] = useState(0);
+  const [errMsg, setErrMsg] = useState<String>('')
+  const [isLoading, setLoading] = useState(false)
+  const [products, setProducts] = useState([] as Product[])
+  const [offset, setOffset] = useState(0)
 
   useEffect(() => {
-    fetchProducts();
-  }, []);
+    fetchProducts()
+  }, [])
 
   const fetchProducts = async () => {
     try {
-      setLoading(true);
-      const listProduct = await fetchArrivalsProducts(offset, limit);
-      setProducts([...products, ...listProduct]);
-      setOffset(offset + 8);
-    } catch (err: any) {
-      setErrMsg(err?.message);
+      setLoading(true)
+      const listProduct = await fetchArrivalsProducts(offset, limit)
+      setProducts([...products, ...listProduct])
+      setOffset(offset + 8)
+    } catch (err) {
+      setErrMsg(errMsg)
     }
-  };
+  }
 
   const showMore = () => {
-    fetchProducts();
-  };
+    fetchProducts()
+  }
 
   return (
     <div id="newArrival">
@@ -110,7 +110,7 @@ function NewArrivals() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default NewArrivals;
+export default NewArrivals

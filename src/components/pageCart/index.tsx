@@ -7,7 +7,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import {
   removeInCarts,
   selectProductsInCart,
-} from '../../store/slices/amountProductsInCart'
+  removeSelectedItems,
+} from '../../store/slices/cart'
 
 interface CartType {
   Key: React.Key
@@ -18,21 +19,19 @@ interface CartType {
 
 function PageCart() {
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([])
-  const [removeItemsInCarts, setRemoveItemsInCarts] = useState()
+
+  const productsInCart = useSelector(selectProductsInCart)
+
+  const dispatch = useDispatch()
 
   const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
     setSelectedRowKeys(newSelectedRowKeys)
   }
-
   const rowSelection = {
     selectedRowKeys,
     onChange: onSelectChange,
   }
   const hasSelected = selectedRowKeys.length > 0
-
-  const productsInCart = useSelector(selectProductsInCart)
-
-  const dispatch = useDispatch()
 
   const uniqueIds: CartType[] = []
   productsInCart.forEach((e: any) => {
@@ -40,7 +39,6 @@ function PageCart() {
       uniqueIds.push(e.id)
     }
   })
-
   const carts = uniqueIds.map((uq) => {
     const products = productsInCart.filter((e: any) => e.id === uq)
     return {
@@ -59,16 +57,41 @@ function PageCart() {
     0,
   )
 
+  const idItemsCart = carts.map((id) => id.id)
+
   const deleteProduct = (removeItem: any) => {
     dispatch(removeInCarts({ id: removeItem.id, amount: removeItem.amount }))
-    message.info('Deleted')
+    message.open({
+      type: 'success',
+      content: 'Deleted',
+    })
+  }
+
+  const chooseAllProduct = () => {
+    return hasSelected ? selectedRowKeys : setSelectedRowKeys(idItemsCart)
+  }
+
+  const deletProductChoosed = (removeAllItem: any) => {
+    return (
+      dispatch(
+        removeSelectedItems({
+          removedItems: selectedRowKeys,
+          amount: removeAllItem.filter((item: any) => item.amount),
+        }),
+      ),
+      setSelectedRowKeys([]),
+      message.open({
+        type: 'success',
+        content: `Deleted ${selectedRowKeys.length} Products`,
+      })
+    )
   }
 
   const columnsCart: ColumnsType<CartType> = [
     {
       title: 'Product',
       dataIndex: 'title',
-      key: 'productName',
+      key: 'title',
       sortDirections: ['descend', 'ascend'],
       sorter: (a, b) => a.title.localeCompare(b.title),
     },
@@ -78,6 +101,9 @@ function PageCart() {
       key: 'price',
       width: '12%',
       sorter: (a, b) => a.price - b.price,
+      render: (value) => {
+        return <span>$ {value.toLocaleString('en-US')}</span>
+      },
     },
     {
       title: 'Amount',
@@ -90,7 +116,9 @@ function PageCart() {
       title: 'Pay',
       width: '20%',
       key: 'totalPrice',
-      render: (row: any) => row.price * row.amount,
+      render: (row: any) => {
+        return <span>$ {row.price * row.amount.toLocaleString('en-US')}</span>
+      },
     },
     {
       title: 'Action',
@@ -116,8 +144,25 @@ function PageCart() {
   return (
     <div id="pageCart">
       <div className="block m-auto container py-8 pageCart">
-        <div className="py-6">
-          {hasSelected ? `Selected ${selectedRowKeys.length} products` : ''}
+        <div className="py-6 flex">
+          <div
+            className="font-semibold mr-8 cursor-pointer underline"
+            onClick={chooseAllProduct}
+          >
+            {hasSelected
+              ? `Choosed ${selectedRowKeys.length} products`
+              : 'Choose all products'}
+          </div>
+          <span
+            className={
+              hasSelected
+                ? `font-semibold cursor-pointer underline`
+                : 'font-semibold ml-8 cursor-pointer underline'
+            }
+            onClick={() => deletProductChoosed(carts)}
+          >
+            {hasSelected ? `Delete ${selectedRowKeys.length} products` : ''}
+          </span>
         </div>
         <Table
           rowSelection={rowSelection}

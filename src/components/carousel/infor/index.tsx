@@ -1,29 +1,29 @@
-import { Button, Space, Typography } from "antd";
-import { PlusCircleOutlined } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../../store/slices/amountProductsInCart";
+import { Button, Space, Typography } from 'antd'
+import { PlusCircleOutlined } from '@ant-design/icons'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../../../store/slices/cart'
 
-import "./index.scss";
+import './index.scss'
 
-const { Title, Paragraph } = Typography;
+const { Title, Paragraph } = Typography
 
 interface InformationInCart {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  price: number;
-  oldPrice: number;
+  id: number
+  title: string
+  description: string
+  image: string
+  price: number
+  oldPrice: number
 }
 
 function InforCarousel(props: InformationInCart) {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const moveToDetailProductPage = (id: number) => {
-    navigate(`/pageDetailProduct/${id}`);
-  };
+    navigate(`/pageDetailProduct/${id}`)
+  }
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   return (
     <div className="w-full items-start pt-20 pl-28 inforCarousel">
@@ -47,7 +47,7 @@ function InforCarousel(props: InformationInCart) {
           <Button
             type="primary"
             onClick={() => {
-              dispatch(addToCart(props));
+              dispatch(addToCart(props))
             }}
             className="text-base font-medium mainColorBg hover:bg-transparent buttonAdd"
           >
@@ -65,7 +65,7 @@ function InforCarousel(props: InformationInCart) {
         </Space>
       </div>
     </div>
-  );
+  )
 }
 
-export default InforCarousel;
+export default InforCarousel

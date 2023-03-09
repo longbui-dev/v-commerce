@@ -4,14 +4,13 @@ import {
   SettingOutlined,
   ShoppingCartOutlined,
 } from '@ant-design/icons'
-import { Button, MenuProps, Badge, Space, Popover } from 'antd'
+import { Button, Badge, Space, Popover } from 'antd'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import {
   selectProductsInCart,
-  selectTotalPrice,
   selectAmountProductsInCart,
-} from '../../../store/slices/amountProductsInCart'
+} from '../../../store/slices/cart'
 interface PropsToolbar {
   id: number
   title: string
@@ -26,13 +25,12 @@ function Toolbar(props: PropsToolbar) {
 
   const showAmoutProduct = useSelector(selectAmountProductsInCart)
   const productsInCart = useSelector(selectProductsInCart)
-  const totalPrice = useSelector(selectTotalPrice)
 
   const buttonObject = (
-    <div key={99999999} className="flex justify-between text-start w-52 mt-6">
-      <div className="text-[#6f6f6f] text-xs font-bold flex justify-center items-center">
+    <div key={99999999} className="flex justify-end text-start w-52 mt-6">
+      {/* <div className="text-[#6f6f6f] text-xs font-bold flex justify-center items-center">
         Total: $ {totalPrice}
-      </div>
+      </div> */}
       <Button
         type="primary"
         className="text-base font-medium mainColorBg hover:bg-transparent buttonAdd"
@@ -70,7 +68,7 @@ function Toolbar(props: PropsToolbar) {
             </div>
             <div className="text-[#a09e9c] text-xs">
               {productsInCart.filter((e: any) => e.id === product.id).length} X
-              - $ {product.price}
+              - $ {product.price.toLocaleString('en-US')}
             </div>
           </div>
           <div className="top-0">x</div>
