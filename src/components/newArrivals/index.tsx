@@ -12,13 +12,14 @@ interface Product {
   title: string
   price: number
 }
+const BASE_URL = process.env.REACT_APP_V_COMMERCE_URL
 
 async function fetchArrivalsProducts(
   offset: number,
   limit: number,
 ): Promise<Product[]> {
   const response = await fetch(
-    `https://api.escuelajs.co/api/v1/products?offset=${offset}&limit=${limit}`,
+    `${BASE_URL}/products?offset=${offset}&limit=${limit}`,
   )
   const rawProducts = await response.json()
   return rawProducts.map((rawProduct: any) => ({
