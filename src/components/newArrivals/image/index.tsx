@@ -1,23 +1,51 @@
-import {ShoppingCartOutlined, HeartOutlined,ExpandOutlined} from '@ant-design/icons';
+import {
+  ShoppingCartOutlined,
+  HeartOutlined,
+  ExpandOutlined,
+} from '@ant-design/icons'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../../../store/slices/cart'
 
-function ImageAnimation(props: any) {
-    return (
-        <div className='flex justify-center secondColorBg backgroundImg'>
-            <img src={props.image} alt="new arrivals" />
-            <div className='backgroundImgHover'></div>
-            <div className={props.sales ? 'capitalize font-semibold mainColorBg textSale' : 'hidden'}>{props.sales}</div>
-            <div className='newArrivalCart flex justify-between'>
-                <div className='flex justify-center'>
-                    <ShoppingCartOutlined className='cursor-pointer flex flex-col justify-center px-3' />
-                    <span className='capitalize flex items-center text-xs'>add to cart</span>
-                </div>
-                <div className='flex items-center'>
-                    <HeartOutlined className='mr-4'/>
-                    <ExpandOutlined className='mr-4'/>
-                </div>
-            </div>
-        </div>
-    );
+interface PropsImageAnimation {
+  sales: string
+  image: string
 }
 
-export default ImageAnimation;
+function ImageAnimation(props: PropsImageAnimation) {
+  const dispatch = useDispatch()
+
+  const handleAmountProductsInCart = () => {
+    dispatch(addToCart(props))
+  }
+
+  return (
+    <div className="secondColorBg backgroundImg">
+      <img src={props.image} alt="new arrivals" />
+      <div className="backgroundImgHover"></div>
+      <div
+        className={
+          props.sales
+            ? 'capitalize font-semibold mainColorBg textSale'
+            : 'hidden'
+        }
+      >
+        {props.sales}
+      </div>
+      <div className="newArrivalCart flex justify-between">
+        <div
+          className="flex justify-center"
+          onClick={handleAmountProductsInCart}
+        >
+          <ShoppingCartOutlined className="cursor-pointer flex flex-col justify-center px-3" />
+          <span className="flex items-center text-xs">Add To Cart</span>
+        </div>
+        <div className="flex items-center">
+          <HeartOutlined className="mr-4" />
+          <ExpandOutlined className="mr-4" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default ImageAnimation

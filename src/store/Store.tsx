@@ -1,11 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from './slices/countAmountProductsInCart'
+import amountProductsInCart from './slices/cart'
 import allProductsSlice from './slices/allProducts'
 
 export default configureStore({
   devTools: true,
   reducer: {
-    counter: counterReducer,
-    allProducts: allProductsSlice
-  }
+    carts: amountProductsInCart,
+    allProducts: allProductsSlice,
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(),
 })

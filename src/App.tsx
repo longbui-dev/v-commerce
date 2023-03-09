@@ -1,11 +1,13 @@
-import './App.scss';
-import Header from './components/navbar/Header';
-import PageDetailProduct from './components/pageDetailProduct';
-import { Route, Routes } from 'react-router-dom';
-import Footer from './components/footer/Footer';
-import HomePage from './components/pageHome';
-import NewsLetter from './components/newsLetter/NewsLetter';
-import PageCart from './components/pageCart';
+import { Route, Routes } from "react-router-dom";
+
+import Header from "./components/navbar";
+import PageDetailProduct from "./components/pageDetailProduct";
+import Footer from "./components/footer";
+import HomePage from "./components/pageHome";
+import NewsLetter from "./components/newsLetter";
+import PageCart from "./components/pageCart";
+
+import "./App.scss";
 
 function App() {
   return (
