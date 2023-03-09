@@ -3,6 +3,9 @@
 .advertisementProducts {
   .ant-card-body {
     display: flex;
+    @media (max-width: 638px) {
+      padding: 12px;
+    }
   }
 }
 
@@ -32,6 +35,6 @@
 
 @media (max-width: 638px) {
   .bigAdverMobile {
-    padding: 0 10px !important;
+    padding: 0 8px !important;
   }
 }

@@ -1,13 +1,13 @@
-import "./index.scss";
-import { Card, Col, Row, Button, Space, Typography } from "antd";
+import './index.scss'
+import { Card, Col, Row, Button, Space, Typography } from 'antd'
 
-const { Title, Paragraph } = Typography;
+const { Title, Paragraph } = Typography
 
 interface PropsBigAdver {
-  image: string;
-  title: string;
-  description: string;
-  price: number;
+  image: string
+  title: string
+  description: string
+  price: number
 }
 
 function BigAdver(props: PropsBigAdver) {
@@ -20,13 +20,13 @@ function BigAdver(props: PropsBigAdver) {
         className="z-10 container"
         gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
       >
-        <Col span={8} className="flex">
-          <div className="flex flex-col justify-center">
-            <img src={props.image} alt="product" className="w-auto h-auto" />
+        <Col span={12} className="flex">
+          <div className="m-auto">
+            <img src={props.image} alt="product" className="w-56 h-44" />
           </div>
         </Col>
-        <Col span={16} className="bigAdverMobile">
-          <div className="p-8 inforAdvertisementProducts">
+        <Col span={12} className="bigAdverMobile">
+          <div className="p-4 inforAdvertisementProducts">
             <div className="titleInforAdvertisementProducts">
               <Title level={4} className="capitalize titleColor">
                 {props.title}
@@ -53,7 +53,7 @@ function BigAdver(props: PropsBigAdver) {
         </Col>
       </Row>
     </Card>
-  );
+  )
 }
 
-export default BigAdver;
+export default BigAdver
