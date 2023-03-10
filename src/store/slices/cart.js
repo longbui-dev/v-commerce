@@ -73,7 +73,7 @@ export const cart = createSlice({
 
 export const {
   incrementProductsInCart,
-  decrement,
+  decrementProductsInCart,
   addToCart,
   removeInCarts,
   removeSelectedItems,

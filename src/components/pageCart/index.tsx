@@ -33,13 +33,13 @@ function PageCart() {
   }
   const hasSelected = selectedRowKeys.length > 0
 
-  const uniqueIds: CartType[] = []
+  const uniqueItems: CartType[] = []
   productsInCart.forEach((e: any) => {
-    if (uniqueIds.indexOf(e.id) === -1) {
-      uniqueIds.push(e.id)
+    if (uniqueItems.indexOf(e.id) === -1) {
+      uniqueItems.push(e.id)
     }
   })
-  const carts = uniqueIds.map((uq) => {
+  const carts = uniqueItems.map((uq) => {
     const products = productsInCart.filter((e: any) => e.id === uq)
     return {
       ...products[0],

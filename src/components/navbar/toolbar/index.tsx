@@ -50,10 +50,9 @@ function Toolbar(props: PropsToolbar) {
   })
 
   const items = uniqueIds
-    .slice(0, 3)
+    ?.slice(0, 3)
     .map((uniqueId: any) => {
       const product = productsInCart.find((p: any) => p.id === uniqueId)
-
       return (
         <div
           key={product.id}

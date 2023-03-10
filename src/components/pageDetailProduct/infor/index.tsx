@@ -1,20 +1,43 @@
-import { Button, Rate, Space, Typography } from "antd";
-import { PlusCircleOutlined } from "@ant-design/icons";
-import { Radio, Collapse } from "antd";
-import "./index.scss";
+import { Button, Rate, Space, Typography } from 'antd'
+import { PlusCircleOutlined } from '@ant-design/icons'
+import { Radio, Collapse } from 'antd'
+import './index.scss'
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  addToCart,
+  selectAmountProductsInCart,
+  selectProductsInCart,
+} from '../../../store/slices/cart'
 
-const { Panel } = Collapse;
-const { Title } = Typography;
+const { Panel } = Collapse
+const { Title } = Typography
 interface PropsInforPageDetailProduct {
-  rate: any;
-  title: string;
-  price: number;
-  reviews: number;
-  description: string;
+  rate: any
+  title: string
+  price: number
+  reviews: number
+  description: string
+  image: string
+  id?: string
+  amount?: number
 }
 
 function InforPageDetailProduct(props: PropsInforPageDetailProduct) {
-  const onChange = (key: string | string[]) => {};
+  const [amount, setAmount] = useState<number>(1)
+
+  const dispatch = useDispatch()
+  const amountProductsInCart = useSelector(selectAmountProductsInCart)
+  const productsInCart = useSelector(selectProductsInCart)
+
+  const handleDecrement = () => {
+    setAmount(amount - 1)
+  }
+  const handleIncrement = () => {
+    setAmount(amount + 1)
+  }
+
+  const onChange = (key: string | string[]) => {}
   return (
     <div className="w-full pt-8 pl-28 inforCarousel">
       <div className="flex flex-col items-start">
@@ -36,12 +59,20 @@ function InforPageDetailProduct(props: PropsInforPageDetailProduct) {
         </div>
         <div className="flex items-center pt-4 titleColor">
           Amount:
-          <div className="font-medium text-lg pl-4">1</div>
+          <div className="font-medium text-lg pl-4">{amount}</div>
         </div>
         <Radio.Group className="py-5">
-          <Radio.Button value={"discrease"}>-</Radio.Button>
-          <Radio.Button value="1">1</Radio.Button>
-          <Radio.Button value={"increase"}>+</Radio.Button>
+          <Radio.Button
+            onClick={handleDecrement}
+            disabled={amount === 1}
+            value="decrement"
+          >
+            -
+          </Radio.Button>
+          <Radio.Button value={amount}>{amount}</Radio.Button>
+          <Radio.Button onClick={handleIncrement} autoFocus value="increment">
+            +
+          </Radio.Button>
         </Radio.Group>
 
         <Collapse onChange={onChange} ghost className="text-start">
@@ -52,6 +83,12 @@ function InforPageDetailProduct(props: PropsInforPageDetailProduct) {
         <Space className="my-8 styleMobile">
           <Button
             type="primary"
+            onClick={() => {
+              console.log('props', props)
+
+              dispatch(addToCart(props))
+              console.log('productsInCart', productsInCart)
+            }}
             className="text-base font-medium mainColorBg hover:bg-transparent buttonAdd"
           >
             <PlusCircleOutlined className="hover:mainColor align-[0.1em]" />
@@ -60,7 +97,7 @@ function InforPageDetailProduct(props: PropsInforPageDetailProduct) {
         </Space>
       </div>
     </div>
-  );
+  )
 }
 
-export default InforPageDetailProduct;
+export default InforPageDetailProduct

@@ -1,33 +1,32 @@
-import { Col, Row } from "antd";
-import Picture from "../carousel/picture";
-import { slideDatas } from "../../mockdata/Slide";
-import "../carousel/index.scss";
-import "./index.scss";
-import InforPageDetailProduct from "./infor";
-import { advertisementProducts } from "../../store/slices/allProducts";
-import { useSelector } from "react-redux";
-import { useLocation } from "react-router";
+import { Col, Row } from 'antd'
+import Picture from '../carousel/picture'
+import { slideDatas } from '../../mockdata/Slide'
+import '../carousel/index.scss'
+import './index.scss'
+import InforPageDetailProduct from './infor'
+import { advertisementProducts } from '../../store/slices/allProducts'
+import { useSelector } from 'react-redux'
+import { useLocation } from 'react-router'
 
 interface DetailProduct {
-  id: number;
-  title: string;
-  image: string;
-  description: string;
-  price: number;
+  id: string
+  title: string
+  image: string
+  description: string
+  price: number
 }
 
 function PageDetailProduct() {
-  const carouselProductShow = useSelector(advertisementProducts);
-  const location = useLocation();
-  const tabId = location.pathname.split("t/").pop();
-  const numTabId = Number(tabId);
+  const carouselProductShow = useSelector(advertisementProducts)
+  const location = useLocation()
+  const tabId = location.pathname.split('t/').pop()
 
   return (
     <div id="pageDetailProduct">
       <div className="secondColorBg max-w-full container">
         <div className="headerStyle pageDetailProduct">
           {carouselProductShow.map((detailProduct: DetailProduct) => {
-            if (numTabId === detailProduct.id) {
+            if (tabId === String(detailProduct.id)) {
               return (
                 <Row
                   className="pb-10 z-10 container slideDisplayMobile"
@@ -35,12 +34,13 @@ function PageDetailProduct() {
                   key={detailProduct.id}
                 >
                   <Col span={10} className="colPicture">
-                    {" "}
                     <Picture image={detailProduct.image} />
                   </Col>
                   <Col span={14} className="colInfor">
                     <InforPageDetailProduct
+                      id={detailProduct.id}
                       title={detailProduct.title}
+                      image={detailProduct.image}
                       price={detailProduct.price}
                       rate={slideDatas.data[0].rate}
                       reviews={slideDatas.data[0].reviews}
@@ -48,14 +48,14 @@ function PageDetailProduct() {
                     />
                   </Col>
                 </Row>
-              );
+              )
             }
-            return undefined;
+            return undefined
           })}
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default PageDetailProduct;
+export default PageDetailProduct
