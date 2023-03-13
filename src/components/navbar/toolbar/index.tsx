@@ -4,12 +4,13 @@ import {
   SettingOutlined,
   ShoppingCartOutlined,
 } from '@ant-design/icons'
-import { Button, Badge, Space, Popover } from 'antd'
+import { Button, Badge, Space, Popover, message } from 'antd'
 import { Link, useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import {
+  removeInCarts,
+  removeInToolbar,
   selectProductsInCart,
-  selectAmountProductsInCart,
 } from '../../../store/slices/cart'
 interface PropsToolbar {
   id: number
@@ -22,8 +23,7 @@ interface PropsToolbar {
 function Toolbar(props: PropsToolbar) {
   const navigate = useNavigate()
   const moveToCart = () => navigate(`/PageCart`)
-
-  const showAmoutProduct = useSelector(selectAmountProductsInCart)
+  const dispatch = useDispatch()
   const productsInCart = useSelector(selectProductsInCart)
 
   const buttonObject = (
@@ -70,7 +70,12 @@ function Toolbar(props: PropsToolbar) {
               - $ {product.price.toLocaleString('en-US')}
             </div>
           </div>
-          <div className="top-0">x</div>
+          <div
+            className="top-0"
+            onClick={() => dispatch(removeInToolbar(product))}
+          >
+            x
+          </div>
         </div>
       )
     })
@@ -84,7 +89,7 @@ function Toolbar(props: PropsToolbar) {
       />
       <SettingOutlined className="cursor-pointer flex flex-col justify-center px-2 text-[#a9a6a6] hover:text-[#e99c2e]" />
       <Space size="middle" className="mt-2 iconCart">
-        <Badge size="default" count={showAmoutProduct}>
+        <Badge size="default" count={uniqueIds.length}>
           <Popover placement="bottomLeft" content={items}>
             <ShoppingCartOutlined className="cursor-pointer flex flex-col px-2 text-[#a9a6a6] hover:text-[#e99c2e] text-xl" />
           </Popover>

@@ -23,6 +23,7 @@ export const cart = createSlice({
     amountProductsInCart,
     productsInCart,
     amountDeleteMultiProducts: 0,
+    increaseQuantityPageDetail: 0,
   },
   reducers: {
     decrementProductsInCart: (state) => {
@@ -44,6 +45,17 @@ export const cart = createSlice({
         (item) => item.id !== action.payload.id,
       )
       state.amountProductsInCart -= action.payload.amount
+
+      setItem(
+        state.productsInCart.map((item) => item),
+        state.amountProductsInCart,
+      )
+    },
+
+    removeInToolbar: (state, action) => {
+      state.productsInCart = state.productsInCart.filter(
+        (item) => item.id !== action.payload.id,
+      )
 
       setItem(
         state.productsInCart.map((item) => item),
@@ -76,10 +88,13 @@ export const {
   decrementProductsInCart,
   addToCart,
   removeInCarts,
+  removeInToolbar,
   removeSelectedItems,
   resetCart,
 } = cart.actions
 export const selectAmountProductsInCart = (state) =>
   state.carts?.amountProductsInCart
+export const selectIncreaseQuantityPageDetail = (state) =>
+  state.carts?.increaseQuantityPageDetail
 export const selectProductsInCart = (state) => state.carts?.productsInCart
 export default cart.reducer

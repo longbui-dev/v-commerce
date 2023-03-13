@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import {
   addToCart,
   selectAmountProductsInCart,
+  selectIncreaseQuantityPageDetail,
   selectProductsInCart,
 } from '../../../store/slices/cart'
 
@@ -27,8 +28,11 @@ function InforPageDetailProduct(props: PropsInforPageDetailProduct) {
   const [amount, setAmount] = useState<number>(1)
 
   const dispatch = useDispatch()
-  const amountProductsInCart = useSelector(selectAmountProductsInCart)
+  // const amount = useSelector(selectAmountProductsInCart)
   const productsInCart = useSelector(selectProductsInCart)
+  const increaseQuantityPageDetail = useSelector(
+    selectIncreaseQuantityPageDetail,
+  )
 
   const handleDecrement = () => {
     setAmount(amount - 1)
