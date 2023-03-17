@@ -4,63 +4,31 @@ const productsInCart =
   localStorage.getItem('productsInCart') !== null
     ? JSON.parse(localStorage.getItem('productsInCart'))
     : []
-const amountProductsInCart =
-  localStorage.getItem('amountProductsInCart') !== null
-    ? JSON.parse(localStorage.getItem('amountProductsInCart'))
-    : 0
 
-const setItem = (item, amountProductsInCart) => {
+const setItem = (item) => {
   localStorage.setItem('productsInCart', JSON.stringify(item))
-  localStorage.setItem(
-    'amountProductsInCart',
-    JSON.stringify(amountProductsInCart),
-  )
 }
 
 export const cart = createSlice({
   name: 'cart',
   initialState: {
-    amountProductsInCart,
     productsInCart,
     amountDeleteMultiProducts: 0,
     increaseQuantityPageDetail: 0,
   },
   reducers: {
-    decrementProductsInCart: (state) => {
-      state.amountProductsInCart -= 1
-    },
-
     addToCart: (state, action) => {
       state.productsInCart.push(action.payload)
-      state.amountProductsInCart += 1
-
-      setItem(
-        state.productsInCart.map((item) => item),
-        state.amountProductsInCart,
-      )
+      console.log('state.productsInCart', action.payload)
+      setItem(state.productsInCart.map((item) => item))
     },
 
     removeInCarts: (state, action) => {
       state.productsInCart = state.productsInCart.filter(
         (item) => item.id !== action.payload.id,
       )
-      state.amountProductsInCart -= action.payload.amount
 
-      setItem(
-        state.productsInCart.map((item) => item),
-        state.amountProductsInCart,
-      )
-    },
-
-    removeInToolbar: (state, action) => {
-      state.productsInCart = state.productsInCart.filter(
-        (item) => item.id !== action.payload.id,
-      )
-
-      setItem(
-        state.productsInCart.map((item) => item),
-        state.amountProductsInCart,
-      )
+      setItem(state.productsInCart.map((item) => item))
     },
 
     removeSelectedItems: (state, action) => {
@@ -73,27 +41,17 @@ export const cart = createSlice({
         })
         .reduce((acc, item) => acc + item.amount, 0)
 
-      state.amountProductsInCart -= state.amountDeleteMultiProducts
-
-      setItem(
-        state.productsInCart.map((item) => item),
-        state.amountProductsInCart,
-      )
+      setItem(state.productsInCart.map((item) => item))
     },
   },
 })
 
 export const {
-  incrementProductsInCart,
   decrementProductsInCart,
   addToCart,
   removeInCarts,
-  removeInToolbar,
   removeSelectedItems,
-  resetCart,
 } = cart.actions
-export const selectAmountProductsInCart = (state) =>
-  state.carts?.amountProductsInCart
 export const selectIncreaseQuantityPageDetail = (state) =>
   state.carts?.increaseQuantityPageDetail
 export const selectProductsInCart = (state) => state.carts?.productsInCart

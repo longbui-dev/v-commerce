@@ -7,11 +7,7 @@ import {
 import { Button, Badge, Space, Popover, message } from 'antd'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  removeInCarts,
-  removeInToolbar,
-  selectProductsInCart,
-} from '../../../store/slices/cart'
+import { removeInCarts, selectProductsInCart } from '../../../store/slices/cart'
 interface PropsToolbar {
   id: number
   title: string
@@ -52,6 +48,7 @@ function Toolbar(props: PropsToolbar) {
   const items = uniqueIds
     ?.slice(0, 3)
     .map((uniqueId: any) => {
+      // console.log('productsInCart Toolbar', productsInCart)
       const product = productsInCart.find((p: any) => p.id === uniqueId)
       return (
         <div
@@ -72,7 +69,7 @@ function Toolbar(props: PropsToolbar) {
           </div>
           <div
             className="top-0"
-            onClick={() => dispatch(removeInToolbar(product))}
+            onClick={() => dispatch(removeInCarts(product))}
           >
             x
           </div>
