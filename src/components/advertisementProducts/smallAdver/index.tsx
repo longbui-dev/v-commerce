@@ -1,32 +1,42 @@
-import { Card } from "antd";
-import "./index.scss";
+import { Card } from 'antd'
+import { useNavigate } from 'react-router-dom'
+import './index.scss'
 
-const { Meta } = Card;
+const { Meta } = Card
 
 interface PropsSmallAdver {
-  image: string;
-  title: string;
-  description: string;
+  id: number
+  image: string
+  title: string
+  description: string
 }
 
-const SmallAdver = (props: PropsSmallAdver) => (
-  <Card
-    hoverable
-    cover={
-      <img
-        alt="advertimentProducts"
-        src={props.image}
-        className="px-14 py-6 smallAdverImg"
-      />
-    }
-    className="w-60 secondColorBg productHover"
-  >
-    <Meta
-      className="capitalize text-center smallAdverInfor"
-      title={props.title}
-      description={props.description}
-    />
-  </Card>
-);
+function SmallAdver(props: PropsSmallAdver) {
+  const navigate = useNavigate()
+  const moveToDetailProductPage = (id: number) => {
+    navigate(`/pageDetailProduct/${id}`)
+  }
 
-export default SmallAdver;
+  return (
+    <Card
+      hoverable
+      onClick={() => moveToDetailProductPage(props.id)}
+      cover={
+        <img
+          alt="advertimentProducts"
+          src={props.image}
+          className="px-14 py-6 smallAdverImg"
+        />
+      }
+      className="w-60 secondColorBg productHover"
+    >
+      <Meta
+        className="capitalize text-center smallAdverInfor"
+        title={props.title}
+        description={props.description}
+      />
+    </Card>
+  )
+}
+
+export default SmallAdver

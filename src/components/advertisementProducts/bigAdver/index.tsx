@@ -1,9 +1,10 @@
 import './index.scss'
 import { Card, Col, Row, Button, Space, Typography } from 'antd'
-
+import { useNavigate } from 'react-router-dom'
 const { Title, Paragraph } = Typography
 
 interface PropsBigAdver {
+  id: number
   image: string
   title: string
   description: string
@@ -11,6 +12,11 @@ interface PropsBigAdver {
 }
 
 function BigAdver(props: PropsBigAdver) {
+  const navigate = useNavigate()
+  const moveToDetailProductPage = (id: number) => {
+    navigate(`/pageDetailProduct/${id}`)
+  }
+
   return (
     <Card
       hoverable
@@ -42,6 +48,7 @@ function BigAdver(props: PropsBigAdver) {
             <Space className="mt-6">
               <Button
                 type="primary"
+                onClick={() => moveToDetailProductPage(props.id)}
                 className="flex p-5 text-base font-medium border-slate-500 hover:secondColor discoverMore"
               >
                 <div className="self-center titleColor hover:secondColor discoverMoreHover">

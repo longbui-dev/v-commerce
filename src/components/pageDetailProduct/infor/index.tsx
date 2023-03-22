@@ -42,7 +42,9 @@ function InforPageDetailProduct(props: PropsInforPageDetailProduct) {
         </Title>
         <div className="flex items-center pt-4 titleColor">
           Starts from
-          <div className="font-medium text-lg pl-4">${props.price}</div>
+          <div className="font-medium text-lg pl-4">
+            ${props.price.toLocaleString('en-US')}
+          </div>
         </div>
         <div className="pt-4 ">
           <Rate
@@ -87,7 +89,8 @@ function InforPageDetailProduct(props: PropsInforPageDetailProduct) {
               dispatch(addToCart(props))
               // console.log(
               //   'productsInCart',
-              //   productsInCart.fill(props, productsInCart.length - 1),
+              //   //   productsInCart.fill(props, productsInCart.length - 1),
+
               //   productsInCart,
               // )
             }}

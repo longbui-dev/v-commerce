@@ -7,6 +7,7 @@ import InforPageDetailProduct from './infor'
 import { advertisementProducts } from '../../store/slices/allProducts'
 import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
+import { useState } from 'react'
 
 interface DetailProduct {
   id: string
@@ -15,8 +16,21 @@ interface DetailProduct {
   description: string
   price: number
 }
+const BASE_URL = process.env.REACT_APP_V_COMMERCE_URL
 
 function PageDetailProduct() {
+  const [products, setProducts] = useState([] as DetailProduct[])
+  async function fetchArrivalsProducts(): Promise<DetailProduct[]> {
+    const response = await fetch(`${BASE_URL}/products`)
+    const rawProducts = await response.json()
+    return rawProducts.map((rawProduct: any) => ({
+      id: rawProduct.id,
+      image: rawProduct.category.image,
+      title: rawProduct.title,
+      price: rawProduct.price,
+      description: rawProduct.description,
+    }))
+  }
   const carouselProductShow = useSelector(advertisementProducts)
   const location = useLocation()
   const tabId = location.pathname.split('t/').pop()
