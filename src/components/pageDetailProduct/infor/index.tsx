@@ -85,14 +85,7 @@ function InforPageDetailProduct(props: PropsInforPageDetailProduct) {
             type="primary"
             onClick={() => {
               props = { ...props, amountAddPageDetail }
-              // console.log('props', props)
               dispatch(addToCart(props))
-              // console.log(
-              //   'productsInCart',
-              //   //   productsInCart.fill(props, productsInCart.length - 1),
-
-              //   productsInCart,
-              // )
             }}
             className="text-base font-medium mainColorBg hover:bg-transparent buttonAdd"
           >

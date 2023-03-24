@@ -4,10 +4,9 @@ import { slideDatas } from '../../mockdata/Slide'
 import '../carousel/index.scss'
 import './index.scss'
 import InforPageDetailProduct from './infor'
-import { advertisementProducts } from '../../store/slices/allProducts'
-import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 interface DetailProduct {
   id: string
@@ -20,18 +19,14 @@ const BASE_URL = process.env.REACT_APP_V_COMMERCE_URL
 
 function PageDetailProduct() {
   const [products, setProducts] = useState([] as DetailProduct[])
-  async function fetchArrivalsProducts(): Promise<DetailProduct[]> {
-    const response = await fetch(`${BASE_URL}/products`)
-    const rawProducts = await response.json()
-    return rawProducts.map((rawProduct: any) => ({
-      id: rawProduct.id,
-      image: rawProduct.category.image,
-      title: rawProduct.title,
-      price: rawProduct.price,
-      description: rawProduct.description,
-    }))
-  }
-  const carouselProductShow = useSelector(advertisementProducts)
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(`${BASE_URL}/products`)
+      setProducts(result.data)
+    }
+    fetchData()
+  }, [])
+  // const carouselProductShow = useSelector(advertisementProducts)
   const location = useLocation()
   const tabId = location.pathname.split('t/').pop()
 
@@ -39,7 +34,7 @@ function PageDetailProduct() {
     <div id="pageDetailProduct">
       <div className="secondColorBg max-w-full container">
         <div className="headerStyle pageDetailProduct">
-          {carouselProductShow.map((detailProduct: DetailProduct) => {
+          {products.map((detailProduct: any) => {
             if (tabId === String(detailProduct.id)) {
               return (
                 <Row
@@ -48,13 +43,13 @@ function PageDetailProduct() {
                   key={detailProduct.id}
                 >
                   <Col span={10} className="colPicture">
-                    <Picture image={detailProduct.image} />
+                    <Picture image={detailProduct.category.image} />
                   </Col>
                   <Col span={14} className="colInfor">
                     <InforPageDetailProduct
                       id={detailProduct.id}
                       title={detailProduct.title}
-                      image={detailProduct.image}
+                      image={detailProduct.category.image}
                       price={detailProduct.price}
                       rate={slideDatas.data[0].rate}
                       reviews={slideDatas.data[0].reviews}

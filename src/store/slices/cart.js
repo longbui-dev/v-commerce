@@ -19,7 +19,6 @@ export const cart = createSlice({
   reducers: {
     addToCart: (state, action) => {
       state.productsInCart.push(action.payload)
-      console.log('state.productsInCart', action.payload)
       setItem(state.productsInCart.map((item) => item))
     },
 
