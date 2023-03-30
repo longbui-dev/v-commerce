@@ -14,7 +14,7 @@ interface CartType {
   Key: React.Key
   title: string
   price: number
-  amount: number
+  amountAdd: number
 }
 
 function PageCart() {
@@ -43,7 +43,11 @@ function PageCart() {
     const products = productsInCart.filter((e: any) => e.id === uq)
     return {
       ...products[0],
-      amount: products.length,
+      amountAdd: products
+        .map((product: any) => {
+          return product.amountAdd
+        })
+        .reduce((a: number, b: number) => a + b, 0),
       key: products[0].id,
     }
   })
@@ -53,7 +57,7 @@ function PageCart() {
   })
   const totalPriceSelected = selectedCarts.reduce(
     (accumulator, currentValue) =>
-      accumulator + currentValue.price * currentValue.amount,
+      accumulator + currentValue.price * currentValue.amountAdd,
     0,
   )
 
@@ -107,17 +111,19 @@ function PageCart() {
     },
     {
       title: 'Amount',
-      dataIndex: 'amount',
+      dataIndex: 'amountAdd',
       width: '10%',
-      key: 'amount',
-      sorter: (a, b) => a.amount - b.amount,
+      key: 'amountAdd',
+      sorter: (a, b) => a.amountAdd - b.amountAdd,
     },
     {
       title: 'Pay',
       width: '20%',
       key: 'totalPrice',
       render: (row: any) => {
-        return <span>$ {row.price * row.amount.toLocaleString('en-US')}</span>
+        return (
+          <span>$ {row.price * row.amountAdd.toLocaleString('en-US')}</span>
+        )
       },
     },
     {

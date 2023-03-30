@@ -3,25 +3,38 @@ import {
   HeartOutlined,
   ExpandOutlined,
 } from '@ant-design/icons'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { addToCart } from '../../../store/slices/cart'
 
 interface PropsImageAnimation {
+  id: number
   sales: string
   image: string
+  amountAdd?: number
 }
 
 function ImageAnimation(props: PropsImageAnimation) {
+  const navigate = useNavigate()
+  const moveToDetailProductPage = (id: number) => {
+    navigate(`/pageDetailProduct/${id}`)
+  }
   const dispatch = useDispatch()
+  const [amountAdd, setAmountAdd] = useState(1)
 
   const handleAmountProductsInCart = () => {
+    props = { ...props, amountAdd }
     dispatch(addToCart(props))
   }
 
   return (
     <div className="secondColorBg backgroundImg">
       <img src={props.image} alt="new arrivals" />
-      <div className="backgroundImgHover"></div>
+      <div
+        className="backgroundImgHover"
+        onClick={() => moveToDetailProductPage(props.id)}
+      ></div>
       <div
         className={
           props.sales

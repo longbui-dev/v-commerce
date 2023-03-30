@@ -1,7 +1,6 @@
 import { Button, Col, Row, Typography } from 'antd'
 import ImageAnimation from './image'
 import InformationNewArrivals from './information'
-import { useNavigate } from 'react-router-dom'
 import './index.scss'
 import { useEffect, useState } from 'react'
 
@@ -36,11 +35,6 @@ async function fetchArrivalsProducts(
 const limit = 8
 
 function NewArrivals() {
-  const navigate = useNavigate()
-  const moveToDetailProductPage = (id: number) => {
-    navigate(`/pageDetailProduct/${id}`)
-  }
-
   const [errMsg, setErrMsg] = useState<String>('')
   const [isLoading, setLoading] = useState(false)
   const [products, setProducts] = useState([] as Product[])
@@ -84,7 +78,6 @@ function NewArrivals() {
               <Col
                 span={6}
                 key={product.id}
-                onClick={() => moveToDetailProductPage(product.id)}
                 className="relative cursor-pointer textHoverChangeColor"
               >
                 <ImageAnimation

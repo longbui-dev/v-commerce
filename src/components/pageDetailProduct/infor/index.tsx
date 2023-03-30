@@ -16,23 +16,22 @@ interface PropsInforPageDetailProduct {
   description: string
   image: string
   id?: string
-  amountAddPageDetail?: number
+  amountAdd?: number
 }
 
 function InforPageDetailProduct(props: PropsInforPageDetailProduct) {
-  const [amountAddPageDetail, setAmountAddPageDetail] = useState<number>(1)
+  const [amountAdd, setamountAdd] = useState<number>(1)
 
   const dispatch = useDispatch()
   const productsInCart = useSelector(selectProductsInCart)
 
   const handleDecrement = () => {
-    setAmountAddPageDetail(amountAddPageDetail - 1)
+    setamountAdd(amountAdd - 1)
   }
   const handleIncrement = () => {
-    setAmountAddPageDetail(amountAddPageDetail + 1)
+    setamountAdd(amountAdd + 1)
   }
 
-  console.log('productsInCart outside', productsInCart)
   const onChange = (key: string | string[]) => {}
   return (
     <div className="w-full pt-8 pl-28 inforCarousel">
@@ -43,7 +42,7 @@ function InforPageDetailProduct(props: PropsInforPageDetailProduct) {
         <div className="flex items-center pt-4 titleColor">
           Starts from
           <div className="font-medium text-lg pl-4">
-            ${props.price.toLocaleString('en-US')}
+            $ {props.price.toLocaleString('en-US')}
           </div>
         </div>
         <div className="pt-4 ">
@@ -57,19 +56,17 @@ function InforPageDetailProduct(props: PropsInforPageDetailProduct) {
         </div>
         <div className="flex items-center pt-4 titleColor">
           Amount:
-          <div className="font-medium text-lg pl-4">{amountAddPageDetail}</div>
+          <div className="font-medium text-lg pl-4">{amountAdd}</div>
         </div>
         <Radio.Group className="py-5">
           <Radio.Button
             onClick={handleDecrement}
-            disabled={amountAddPageDetail === 1}
+            disabled={amountAdd === 1}
             value="decrement"
           >
             -
           </Radio.Button>
-          <Radio.Button value={amountAddPageDetail}>
-            {amountAddPageDetail}
-          </Radio.Button>
+          <Radio.Button value={amountAdd}>{amountAdd}</Radio.Button>
           <Radio.Button onClick={handleIncrement} autoFocus value="increment">
             +
           </Radio.Button>
@@ -84,7 +81,7 @@ function InforPageDetailProduct(props: PropsInforPageDetailProduct) {
           <Button
             type="primary"
             onClick={() => {
-              props = { ...props, amountAddPageDetail }
+              props = { ...props, amountAdd }
               dispatch(addToCart(props))
             }}
             className="text-base font-medium mainColorBg hover:bg-transparent buttonAdd"

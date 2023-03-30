@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { addToCart } from '../../../store/slices/cart'
 
 import './index.scss'
+import { useState } from 'react'
 
 const { Title, Paragraph } = Typography
 
@@ -15,6 +16,7 @@ interface InformationInCart {
   image: string
   price: number
   oldPrice: number
+  amountAdd?: number
 }
 
 function InforCarousel(props: InformationInCart) {
@@ -22,6 +24,8 @@ function InforCarousel(props: InformationInCart) {
   const moveToDetailProductPage = (id: number) => {
     navigate(`/pageDetailProduct/${id}`)
   }
+
+  const [amountAdd, setAmountAdd] = useState(1)
 
   const dispatch = useDispatch()
 
@@ -47,6 +51,7 @@ function InforCarousel(props: InformationInCart) {
           <Button
             type="primary"
             onClick={() => {
+              props = { ...props, amountAdd }
               dispatch(addToCart(props))
             }}
             className="text-base font-medium mainColorBg hover:bg-transparent buttonAdd"

@@ -1,9 +1,9 @@
-import InformationNewArrivals from "../newArrivals/information";
-import { featuredProducts } from "../../mockdata/FeaturedProducts";
-import { Col, Row, Rate, Typography } from "antd";
-import ImageFeatureProducts from "./image";
+import InformationNewArrivals from '../newArrivals/information'
+import { featuredProducts } from '../../mockdata/FeaturedProducts'
+import { Col, Row, Rate, Typography } from 'antd'
+import ImageFeatureProducts from './image'
 
-const { Title } = Typography;
+const { Title } = Typography
 
 function FeaturedProducts() {
   return (
@@ -37,6 +37,7 @@ function FeaturedProducts() {
                 </span>
               </div>
               <InformationNewArrivals
+                id={featuredProduct.id}
                 title={featuredProduct.productName}
                 price={featuredProduct.price}
               />
@@ -45,7 +46,7 @@ function FeaturedProducts() {
         </Row>
       </div>
     </div>
-  );
+  )
 }
 
-export default FeaturedProducts;
+export default FeaturedProducts

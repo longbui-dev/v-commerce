@@ -44,11 +44,19 @@ function Toolbar(props: PropsToolbar) {
       uniqueIds.push(e.id)
     }
   })
-
   const items = uniqueIds
     ?.slice(0, 3)
     .map((uniqueId: any) => {
       const product = productsInCart.find((p: any) => p.id === uniqueId)
+      let quantity = productsInCart.filter((e: any) => e.id === product.id)
+        .length
+      quantity = productsInCart
+        .filter((e: any) => e.id === product.id)
+        .map((p: any) => {
+          return quantity ? p.amountAdd : quantity + p.amountAdd
+        })
+        .reduce((a: number, b: number) => a + b, 0)
+
       return (
         <div
           key={product.id}
@@ -62,8 +70,7 @@ function Toolbar(props: PropsToolbar) {
               {product.title}
             </div>
             <div className="text-[#a09e9c] text-xs">
-              {productsInCart.filter((e: any) => e.id === product.id).length} X
-              - $ {product.price.toLocaleString('en-US')}
+              {quantity} X - $ {product.price.toLocaleString('en-US')}
             </div>
           </div>
           <div

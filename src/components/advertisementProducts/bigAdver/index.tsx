@@ -20,7 +20,7 @@ function BigAdver(props: PropsBigAdver) {
   return (
     <Card
       hoverable
-      className="secondColorBg cursor-pointer advertisementProducts"
+      className="secondColorBg cursor-pointer h-full advertisementProducts"
     >
       <Row
         className="z-10 container"
