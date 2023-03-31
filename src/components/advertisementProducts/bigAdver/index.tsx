@@ -1,6 +1,7 @@
 import './index.scss'
 import { Card, Col, Row, Button, Space, Typography } from 'antd'
 import { useNavigate } from 'react-router-dom'
+import React from 'react'
 const { Title, Paragraph } = Typography
 
 interface PropsBigAdver {

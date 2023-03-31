@@ -3,6 +3,7 @@ import ImageAnimation from './image'
 import InformationNewArrivals from './information'
 import './index.scss'
 import { useEffect, useState } from 'react'
+import React from 'react'
 
 const { Title } = Typography
 
