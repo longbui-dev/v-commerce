@@ -1,18 +1,25 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from 'react-router-dom'
 
-import Header from "./components/navbar";
-import PageDetailProduct from "./components/pageDetailProduct";
-import Footer from "./components/footer";
-import HomePage from "./components/pageHome";
-import NewsLetter from "./components/newsLetter";
-import PageCart from "./components/pageCart";
+import Header from './components/navbar'
+import PageDetailProduct from './components/pageDetailProduct'
+import Footer from './components/footer'
+import HomePage from './components/pageHome'
+import PageCart from './components/pageCart'
+import LoginPage from './components/pageLogin'
+import SignUp from './components/pageLogin/signUp'
 
-import "./App.scss";
+import './App.scss'
 
 function App() {
   return (
     <div className="App relative">
       <Header />
+      <Routes>
+        <Route path="/sign_in" element={<LoginPage />} />
+      </Routes>
+      <Routes>
+        <Route path="/sign_up" element={<LoginPage />} />
+      </Routes>
       <Routes>
         <Route path="/" element={<HomePage />} />
       </Routes>
@@ -22,10 +29,9 @@ function App() {
       <Routes>
         <Route path="/pageCart" element={<PageCart />} />
       </Routes>
-      <NewsLetter />
       <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

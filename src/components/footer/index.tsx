@@ -5,15 +5,22 @@ import {
   InstagramOutlined,
   LinkedinOutlined,
   UpOutlined,
-} from "@ant-design/icons";
-import "./index.scss";
-import { FloatButton } from "antd";
+} from '@ant-design/icons'
+import './index.scss'
+import { FloatButton } from 'antd'
+import { useLocation } from 'react-router-dom'
 
 function Footer() {
+  const location = useLocation()
+  const footerFixBottom =
+    location.pathname !== '/sign_in' && location.pathname !== '/sign_up'
+
   return (
     <div
       id="contact"
-      className="secondColorBg h-40 flex justify-center items-center"
+      className={`secondColorBg h-40 flex justify-center items-center ${
+        footerFixBottom ? '' : 'fixed bottom-0 w-full'
+      }`}
     >
       <div className="container">
         <div className="block align-[4px]">
@@ -36,7 +43,7 @@ function Footer() {
         className="buttonBackTop mainColorBg mainColor"
       />
     </div>
-  );
+  )
 }
 
-export default Footer;
+export default Footer
