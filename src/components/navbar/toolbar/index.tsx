@@ -4,8 +4,8 @@ import {
   SettingOutlined,
   ShoppingCartOutlined,
 } from '@ant-design/icons'
-import { Button, Badge, Space, Popover, message } from 'antd'
-import { Link, useNavigate } from 'react-router-dom'
+import { Button, Badge, Space, Popover, message, Tooltip } from 'antd'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeInCarts, selectProductsInCart } from '../../../store/slices/cart'
 interface PropsToolbar {
@@ -19,6 +19,10 @@ interface PropsToolbar {
 function Toolbar(props: PropsToolbar) {
   const navigate = useNavigate()
   const moveToCart = () => navigate(`/PageCart`)
+  const moveToUserPage = () => navigate(`/user`)
+  const moveToSignIn = () => navigate(`/sign_in`)
+  const location = useLocation()
+
   const dispatch = useDispatch()
   const productsInCart = useSelector(selectProductsInCart)
 
@@ -84,13 +88,36 @@ function Toolbar(props: PropsToolbar) {
     })
     .concat(buttonObject)
 
+  const setting = (
+    <div className="cursor-pointer">
+      <div
+        className="text-[#6f6f6f] text-sm font-bold p-4 hover:text-[#e99c2e]"
+        onClick={moveToUserPage}
+      >
+        User Information
+      </div>
+      <div
+        className="text-[#6f6f6f] text-sm font-bold p-4 hover:text-[#e99c2e]"
+        onClick={moveToSignIn}
+      >
+        Sign In
+      </div>
+    </div>
+  )
+
   return (
     <div className="flex text-lg">
-      <SearchOutlined
-        className="cursor-pointer flex flex-col justify-center px-2 text-[#a9a6a6] hover:text-[#e99c2e]"
-        onClick={() => props.handleSearch()}
-      />
-      <SettingOutlined className="cursor-pointer flex flex-col justify-center px-2 text-[#a9a6a6] hover:text-[#e99c2e]" />
+      <Tooltip title="search" placement="top" color="gray">
+        <SearchOutlined
+          className="cursor-pointer flex flex-col justify-center px-2 text-[#a9a6a6] hover:text-[#e99c2e]"
+          onClick={() => props.handleSearch()}
+        />
+      </Tooltip>
+      <Space size="middle">
+        <Popover placement="bottom" content={setting}>
+          <SettingOutlined className="cursor-pointer flex flex-col justify-center px-2 text-[#a9a6a6] hover:text-[#e99c2e] text-xl" />
+        </Popover>
+      </Space>
       <Space size="middle" className="mt-2 iconCart">
         <Badge size="default" count={uniqueIds.length}>
           <Popover placement="bottomLeft" content={items}>

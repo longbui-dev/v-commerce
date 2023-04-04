@@ -14,7 +14,8 @@ function Header() {
     !location.pathname.match(/pageDetailProduct\/\d+/) &&
     location.pathname !== '/PageCart' &&
     location.pathname !== '/sign_in' &&
-    location.pathname !== '/sign_up'
+    location.pathname !== '/sign_up' &&
+    location.pathname !== '/user'
 
   const shouldShowToolBar =
     location.pathname !== '/sign_in' && location.pathname !== '/sign_up'

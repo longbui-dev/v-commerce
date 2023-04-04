@@ -13,7 +13,9 @@ import { useLocation } from 'react-router-dom'
 function Footer() {
   const location = useLocation()
   const footerFixBottom =
-    location.pathname !== '/sign_in' && location.pathname !== '/sign_up'
+    location.pathname !== '/sign_in' &&
+    location.pathname !== '/sign_up' &&
+    location.pathname !== '/user'
 
   return (
     <div

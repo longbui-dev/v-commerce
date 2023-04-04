@@ -1,4 +1,5 @@
 import { Button, Space, Checkbox, Form, Input } from 'antd'
+import { useGoogleAuth } from '../googleLogin'
 
 const onFinish = (values: any) => {
   console.log('Success:', values)
@@ -9,11 +10,23 @@ const onFinishFailed = (errorInfo: any) => {
 }
 
 function SignIn() {
+  const { signIn } = useGoogleAuth()
+  console.log('signIn', signIn)
+
+  //   const signInHandler = async () => {
+  //     if (!signIn) return
+  //     console.log('a')
+
+  //     const res = await signIn()
+  //     console.log(res)
+  //   }
+
   return (
     <div>
       <Space className="flex justify-center buttonLoginGoogle">
         <Button
           type="primary"
+          onClick={signIn}
           className="flex justify-center text-lg font-semibold mainColorBg hover:bg-transparent buttonAdd"
         >
           <img
