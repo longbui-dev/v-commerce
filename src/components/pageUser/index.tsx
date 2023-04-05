@@ -7,10 +7,10 @@ function UserPage() {
   return (
     <div>
       <div className="container m-auto">
-        <div className="w-96 m-auto">
+        <div className="w-96 m-auto userLayoutMobile">
           <Title
             level={3}
-            className="w-full flex justify-between px-12 py-2 secondBoldColor"
+            className="w-full flex justify-between px-12 py-8 secondBoldColor"
           >
             User Information
             <Form.Item>
@@ -27,7 +27,7 @@ function UserPage() {
             name="basic"
             initialValues={{ remember: true }}
             autoComplete="off"
-            className="flex-col m-auto w-full px-12  formLogin"
+            className="flex-col m-auto w-full px-12 formLogin"
           >
             <Form.Item label="Name" name="name" className="font-bold">
               <span className="font-normal">{user.data[0].name}</span>

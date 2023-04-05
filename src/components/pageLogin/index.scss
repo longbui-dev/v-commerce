@@ -8,8 +8,16 @@
     .ant-row {
         margin: 0 auto;
     }
+    .ant-form-item {
+        margin-bottom: 0!important;
+    }
 }
 
 .loginPage {
     flex: '1 0 auto'
+} 
+.userLayoutMobile{
+    @media (max-width: 384px) {
+        width: 100%;
+      }
 }
