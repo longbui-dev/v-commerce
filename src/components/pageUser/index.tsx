@@ -10,7 +10,7 @@ function UserPage() {
         <div className="w-96 m-auto">
           <Title
             level={3}
-            className="w-full flex justify-between px-12 py-6 secondBoldColor"
+            className="w-full flex justify-between px-12 py-2 secondBoldColor"
           >
             User Information
             <Form.Item>

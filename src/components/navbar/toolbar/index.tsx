@@ -100,14 +100,14 @@ function Toolbar(props: PropsToolbar) {
         className="text-[#6f6f6f] text-sm font-bold p-4 hover:text-[#e99c2e]"
         onClick={moveToSignIn}
       >
-        Sign In
+        Sign Out
       </div>
     </div>
   )
 
   return (
-    <div className="flex text-lg">
-      <Tooltip title="search" placement="top" color="gray">
+    <div className="flex text-lg z-50">
+      <Tooltip title="search" placement="bottom" color="gray">
         <SearchOutlined
           className="cursor-pointer flex flex-col justify-center px-2 text-[#a9a6a6] hover:text-[#e99c2e]"
           onClick={() => props.handleSearch()}

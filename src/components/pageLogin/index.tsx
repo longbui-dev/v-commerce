@@ -16,7 +16,7 @@ function LoginPage() {
         <div className="w-full m-auto">
           <Title
             level={3}
-            className="w-full flex justify-center px-12 py-6 secondBoldColor"
+            className="w-full flex justify-center px-12 py-4 secondBoldColor"
           >
             Welcome to{' '}
             <div className="ml-4">

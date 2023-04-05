@@ -2,6 +2,7 @@ import { SearchOutlined } from '@ant-design/icons'
 import { Input, Popover, Space } from 'antd'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './index.scss'
 
 interface PropsSearch {
@@ -16,6 +17,11 @@ interface PropsSearch {
 function Search() {
   const [searchTerm, setSearchTerm] = useState('')
   const [searchResults, setSearchResults] = useState([])
+
+  const navigate = useNavigate()
+  const moveToDetailProductPage = (id: number) => {
+    navigate(`/pageDetailProduct/${id}`)
+  }
 
   const handleChange = (event: any) => {
     setSearchTerm(event.target.value)
@@ -33,7 +39,11 @@ function Search() {
 
   const content = searchResults.slice(0, 7).map((searchResult: PropsSearch) => {
     return (
-      <div key={searchResult.id} className="flex w-full mt-8 cursor-pointer">
+      <div
+        key={searchResult.id}
+        className="flex w-full mt-8 cursor-pointer"
+        onClick={() => moveToDetailProductPage(searchResult.id)}
+      >
         <div className="w-max">
           <img
             src={searchResult.category.image}
