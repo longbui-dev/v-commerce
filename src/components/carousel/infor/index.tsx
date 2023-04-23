@@ -1,39 +1,76 @@
-import { Button, Space } from 'antd';
-import {PlusCircleOutlined} from '@ant-design/icons';
-import './Information.scss';
-import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from 'react';
+import { Button, Space, Typography } from 'antd'
+import { PlusCircleOutlined } from '@ant-design/icons'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../../../store/slices/cart'
 
-function InforCarousel(props: any) { 
+import './index.scss'
+import { useState } from 'react'
 
-    const navigate = useNavigate();
-    const moveToDetailProductPage = (id : any) => {
-        navigate(`/pageDetailProduct/${id}`);
-    }
-    
-    return (
-        <div className="w-full items-start pt-20 pl-28 inforCarousel">
-            <div className="flex flex-col justify-start items-start">
-                <h4 className="capitalize text-gray-400 text-2xl">great design collection</h4>
-                <h1 className="capitalize text-gray-500 text-4xl pt-6">{props.productName}</h1>
-                <p className="text-ellipsis overflow-hidden ... pt-8 text-base text-left leading-8 text-stone-400">{props.description}</p>
-                <div className="flex flex-row justify-start items-start pt-4">
-                    <div className="flex flex-row justify-start items-start font-medium price">$ {props.price}</div><del className="text-stone-400 pl-4 font-medium">$ {props.oldPrice}</del>
-                </div>
-                <Space className='my-8 styleMobile'>
-                    <Button type="primary" className=' capitalize text-base font-medium mainColorBg hover:bg-transparent buttonAdd'>
-                        <PlusCircleOutlined className='hover:text-orange-500 align-[0.1em]'/>
-                        add to cart
-                    </Button>
+const { Title, Paragraph } = Typography
 
-                    <Button type="primary" onClick={()=>moveToDetailProductPage(props.id)} className='capitalize text-base font-medium secondColorBg mainColor border-slate-100 hover:border-[#e99c2e] buttonMore'>
-                        more info
-                        {/* <Link to="/pageDetailProduct"></Link> */}
-                    </Button>
-                </Space>    
-            </div>
-        </div>
-    )
+interface InformationInCart {
+  id: number
+  title: string
+  description: string
+  image: string
+  price: number
+  oldPrice: number
+  amountAdd?: number
 }
 
-export default InforCarousel;
+function InforCarousel(props: InformationInCart) {
+  const navigate = useNavigate()
+  const moveToDetailProductPage = (id: number) => {
+    navigate(`/pageDetailProduct/${id}`)
+  }
+
+  const [amountAdd, setAmountAdd] = useState(1)
+
+  const dispatch = useDispatch()
+
+  return (
+    <div className="w-full items-start pt-20 pl-28 inforCarousel">
+      <div className="flex flex-col justify-start items-start">
+        <Title level={4} className="capitalize secondLightColor">
+          great design collection
+        </Title>
+        <Title level={1} className="capitalize secondBoldColor nameProduct">
+          {props.title}
+        </Title>
+        <Paragraph className="text-ellipsis text-base text-left leading-8 secondLightColor">
+          {props.description}
+        </Paragraph>
+        <div className="flex items-start pt-4">
+          <div className="flex font-medium price">$ {props.price}</div>
+          <del className="secondLightColor pl-4 font-medium">
+            $ {props.oldPrice}
+          </del>
+        </div>
+        <Space className="my-8 styleMobile">
+          <Button
+            type="primary"
+            onClick={() => {
+              props = { ...props, amountAdd }
+              dispatch(addToCart(props))
+            }}
+            className="text-base font-medium mainColorBg hover:bg-transparent buttonAdd"
+          >
+            <PlusCircleOutlined className="hover:mainColor align-[0.1em]" />
+            Add To Cart
+          </Button>
+
+          <Button
+            type="primary"
+            onClick={() => moveToDetailProductPage(props.id)}
+            className="text-base font-medium secondColorBg mainColor border-slate-100 buttonMore"
+          >
+            More Info
+          </Button>
+        </Space>
+      </div>
+    </div>
+  )
+}
+
+export default InforCarousel
